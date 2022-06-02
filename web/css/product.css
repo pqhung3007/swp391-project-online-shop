@@ -1,0 +1,36 @@
+.product{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.product img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0px 0px;
+}
+.nav-tabs .nav-link.active{
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+}
+#myTabContent{
+    height: 500px;
+    overflow-y: scroll;
+}
+#myTabContent::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#myTabContent::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#myTabContent::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgb(97, 96, 96);
+}
