@@ -1,0 +1,27 @@
+.navbar{
+    background-color: black;
+}
+.productDisplay{
+    color: black;
+}
+#relateProduct{
+    width: 100%;
+    overflow-x: scroll;
+}
+#relateProduct::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#relateProduct::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#relateProduct::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgb(97, 96, 96);
+}
