@@ -4,25 +4,32 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>controller.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>controller.ProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/products</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <dependency>
-    <groupId>commons-logging</groupId>
-    <artifactId>commons-logging-api</artifactId>
-    <version>1.1</version>
-    <exclusions>
-        <exclusion>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging-api</artifactId>
+        <version>1.1</version>
+        <exclusions>
+            <exclusion>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
 </web-app>

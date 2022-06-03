@@ -4,15 +4,28 @@
     padding: 10px;
     margin-bottom: 20px;
 }
-.product img{
-    width: 100%;
-    height: auto;
+
+.product-image {
+    overflow: hidden;
     border-radius: 10px 10px 0px 0px;
 }
-.nav-tabs .nav-link.active{
+
+.product-image img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-image:hover img {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.nav-tabs .nav-link:hover{
     border: 2px solid var(--primary);
     border-radius: 10px;
 }
+
 #myTabContent{
     height: 500px;
     overflow-y: scroll;
