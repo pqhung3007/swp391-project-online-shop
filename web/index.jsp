@@ -37,9 +37,9 @@
             rel="stylesheet"
             />
 
-             <!--Libraries Stylesheet--> 
-            <link href="js/animate/animate.min.css" rel="stylesheet" />
-            <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+        <!--Libraries Stylesheet--> 
+        <link href="js/animate/animate.min.css" rel="stylesheet" />
+        <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -81,19 +81,24 @@
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="product.html" class="nav-item nav-link">Products</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <div class="nav-item dropdown dropmenu">
-                        <a
-                            href="#"
-                            class="nav-link dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                            >Account</a
-                        >
-                        <ul class="dropitems">
-                            <li class="m-8"><a href="#">My Profile</a></li>
-                            <li class="m-8"><a href="#">My Orders</a></li>
-                            <li class="m-8"><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
+                    <c:if test="${sessionScope.account != null}">
+                        <div class="nav-item dropdown dropmenu">
+                            <a
+                                href="#"
+                                class="nav-link dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                >Account</a
+                            >
+                            <ul class="dropitems">
+                                <li class="m-8"><a href="#">My Profile</a></li>
+                                <li class="m-8"><a href="#">My Orders</a></li>
+                                <li class="m-8"><a href="logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </c:if>
+                    <c:if test="${sessionScope.account == null}">
+                        <a href="login" class="nav-item nav-link">Login</a>
+                    </c:if>
                 </div>
                 <div class="d-none d-lg-flex">
                     <div
@@ -278,7 +283,7 @@
                     </h1>
                 </div>
                 <div class="row g-4">
-                               
+
                     <c:forEach var="category" items="${categories}">
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
@@ -295,9 +300,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </c:forEach>
-           
+
                 </div>
             </div>
         </div>
