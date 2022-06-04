@@ -104,74 +104,183 @@
     <!-- Navbar End -->
 
     <!-- Product Start -->
-    <div class="container productDisplay mt-4">
-        <div class="row">
-            <div class="col-4 d-flex flex-column justify-content-end">
-                <h3>Reviews</h3>
-                <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod assumenda nulla pariatur nobis reprehenderit impedit! Veritatis officiis nostrum, corporis nobis asperiores hic libero commodi in minima officia aliquam ratione!</p>
-                <h6>View more</h6>
-            </div>
-            <div class="col-4">
-                <img style="border-radius:10px" src="./img/service-1.jpg" alt="" width="100%" height="auto">
-            </div>
-            <div class="col-4 d-flex flex-column justify-content-between">
-                <h1>Caramel Macchiato</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla amet recusandae modi animi, similique ullam eligendi quas, eveniet assumenda tempore sint molestiae quis. Dicta iste excepturi vel minima, quisquam tempora! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus repellat illo officiis dolor incidunt, architecto nobis esse explicabo pariatur ad perferendis eius? Distinctio laborum fugiat doloribus atque voluptatem id ducimus.</p>
-                <div class="row text-center">
-                    <div class="col-6">
-                        <input type="number" value="3">
-                    </div>
-                    <div class="col-6">
-                        <button type="button">Add to Cart</button>
-                    </div>
+    <div class="container productDisplay">
+      <div class="row">
+        <div class="col-4 d-flex flex-column justify-content-end">
+          <h3>Reviews</h3>
+          <p class="trunc-4">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
+            assumenda nulla pariatur nobis reprehenderit impedit! Veritatis
+            officiis nostrum, corporis nobis asperiores hic libero commodi in
+            minima officia aliquam ratione! Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Iure qui molestias nulla eveniet vero
+            fugiat asperiores sapiente amet voluptates ducimus a, cum optio ut
+            dicta saepe doloribus voluptatem! Velit, maxime.
+          </p>
+          <button
+            type="button"
+            class="button"
+            data-bs-toggle="modal"
+            data-bs-target="#viewMore"
+          >
+            <h6>View more</h6>
+          </button>
+          <div
+            class="modal fade"
+            id="viewMore"
+            tabindex="-1"
+            aria-labelledby="reviewExtend"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="reviewExtend">
+                    Caramel Macchiato
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
+                <div class="modal-body">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Possimus aut et tempora cupiditate veniam perferendis esse
+                  tenetur sit consectetur vel dolorem, magnam, similique,
+                  obcaecati ex excepturi voluptates perspiciatis necessitatibus
+                  nostrum?
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+
+        <div class="col-4">
+          <img class="productImg" src="./img/service-1.jpg" alt="" />
+        </div>
+        <div class="col-4 d-flex flex-column justify-content-between">
+          <h1>Caramel Macchiato</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla amet
+            recusandae modi animi, similique ullam eligendi quas, eveniet
+            assumenda tempore sint molestiae quis. Dicta iste excepturi vel
+            minima, quisquam tempora! Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Possimus repellat illo officiis dolor incidunt,
+            architecto nobis esse explicabo pariatur ad perferendis eius?
+            Distinctio laborum fugiat doloribus atque voluptatem id ducimus.
+          </p>
+          <div class="row text-center">
+            <div class="col-6 d-flex justify-content-center">
+              <button class="decrement px-2 border-0">&lt;</button>
+              <div class="counter w-50">
+                <input
+                  class="counter-input text-center w-50 border-0"
+                  maxlength="10"
+                  type="text"
+                  value="0"
+                />
+                <div class="counter-num d-none">0</div>
+              </div>
+              <button class="increment px-2 border-0">&gt;</button>
+            </div>
+            <div class="col-6">
+              <button
+                type="button"
+                class="button"
+                data-bs-toggle="modal"
+                data-bs-target="#addCart"
+              >
+                <h6>Add to Cart</h6>
+              </button>
+              <div
+                class="modal fade"
+                id="addCart"
+                tabindex="-1"
+                aria-labelledby="addCart"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addCart">
+                        Caramel Macchiato
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Added to Cart successfully
+                    </div>
+                    <div class="modal-footer d-flex justify-content-around">
+                      <button
+                        type="button"
+                        class="button"
+                        data-bs-dismiss="modal"
+                      >
+                        <h6>Continue shopping</h6>
+                      </button>
+                      <button type="button" class="button">
+                        <a href="#"><h6>Go to basket</h6></a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Product End -->
 
     <!-- Related Product Start -->
-    <div class="container mt-5">
+    <div class="container">
       <h5>You may also like</h5>
-      <div class="row mt-3" id="relateProduct">
+      <div class="row mt-3 relateProduct">
         <div class="col-3">
           <div class="product">
-            <img src="./img/service-1.jpg" alt="">
+            <img src="./img/service-1.jpg" alt="" class="productImg"/>
             <p class="text-truncate">Caramel Macchiato</p>
             <p>$7.5</p>
           </div>
         </div>
         <div class="col-3">
           <div class="product">
-            <img src="./img/service-1.jpg" alt="">
+            <img src="./img/service-1.jpg" alt="" class="productImg"/>
             <p class="text-truncate">Caramel Macchiato</p>
             <p>$7.5</p>
           </div>
         </div>
         <div class="col-3">
           <div class="product">
-            <img src="./img/service-1.jpg" alt="">
+            <img src="./img/service-1.jpg" alt="" class="productImg"/>
             <p class="text-truncate">Caramel Macchiato</p>
             <p>$7.5</p>
           </div>
         </div>
         <div class="col-3">
           <div class="product">
-            <img src="./img/service-1.jpg" alt="">
+            <img src="./img/service-1.jpg" alt="" class="productImg"/>
             <p class="text-truncate">Caramel Macchiato</p>
             <p>$7.5</p>
           </div>
         </div>
         <div class="col-3">
           <div class="product">
-            <img src="./img/service-1.jpg" alt="">
+            <img src="./img/service-1.jpg" alt="" class="productImg"/>
             <p class="text-truncate">Caramel Macchiato</p>
             <p>$7.5</p>
           </div>
         </div>
         <div class="col-3">
           <div class="product">
-            <img src="./img/service-1.jpg" alt="">
+            <img src="./img/service-1.jpg" alt="" class="productImg"/>
             <p class="text-truncate">Caramel Macchiato</p>
             <p>$7.5</p>
           </div>
@@ -296,5 +405,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/project/productDetail.js"></script>
   </body>
 </html>
