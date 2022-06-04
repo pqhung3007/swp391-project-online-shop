@@ -54,70 +54,17 @@
         </div>
         <!-- Spinner End -->
 
-        <!-- Navbar Start -->
-        <nav
-            class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn"
-            data-wow-delay="0.1s"
-            style="background-color: black"
-            >
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h1 class="text-primary m-0 mt-2">Coffee Maker</h1>
-            </a>
-            <button
-                type="button"
-                class="navbar-toggler me-4"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse"
-                >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="product.html" class="nav-item nav-link">Products</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <div class="nav-item dropdown dropmenu">
-                        <a
-                            href="#"
-                            class="nav-link dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                            >Account</a
-                        >
-                        <ul class="dropitems">
-                            <li class="m-8"><a href="#">My Profile</a></li>
-                            <li class="m-8"><a href="#">My Orders</a></li>
-                            <li class="m-8"><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-none d-lg-flex">
-                    <div
-                        class="flex-shrink-0 btn-lg-square border border-light rounded-circle"
-                        >
-                        <i class="fa fa-phone text-primary"></i>
-                    </div>
-                    <div class="ps-3">
-                        <small class="text-primary mb-0">Call Us</small>
-                        <p class="text-light fs-5 mb-0">+012 345 6789</p>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- Navbar End -->
-
+        <%@include file="components/navbar.jsp" %>
 
         <!-- Tab Start -->
         <div class="container d-flex align-items-center mt-4">
-            <div>
+            <div class="category-container">
                 <h2 class="mb-4">Our categories</h2>
                 <ul class="nav nav-tabs flex-column" id="myTab" role="tablist">
                     <c:forEach var="category" items="${categories}">
                     <li class="nav-item" role="presentation">
-                        <a href="products?categoryId=${category.categoryName}" 
-                           class="nav-link" 
-         
-                           >
+                        <a href="listProducts?categoryId=${category.categoryId}" 
+                           class="nav-link">
                             ${category.categoryName}
                         </a>
                     </li>
@@ -133,8 +80,13 @@
                             <div class="product-image">
                             <img src="${product.productImage}" alt="">
                             </div>
-                            <h5 class="text-truncate">${product.name}</h5>
-                            <p>${product.price}</p>
+                            <h5 class="text-truncate mt-4">${product.name}</h5>
+                            <p>Price: ${product.price} VND</p>
+                            <p><a
+                                        href="productDetail?pid=${product.productId}"
+                                        class="btn btn-primary rounded-pill"
+                                        >View Product</a
+                                    ></p>
                         </div>
                     </div>
                     </c:forEach>
@@ -148,103 +100,7 @@
         </div>
         <!-- Tab End -->
 
-        <!-- Footer Start -->
-        <div
-            class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn"
-            data-wow-delay="0.1s"
-            >
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-lg-4 col-md-6">
-                        <h4 class="text-light mb-4">Office Address</h4>
-                        <p class="mb-2">
-                            <i class="fa fa-map-marker-alt me-3"></i>C209, Delta Block, FPT
-                            University, Hoa Lac, Viet Nam
-                        </p>
-                        <p class="mb-2">
-                            <i class="fa fa-phone-alt me-3"></i>+012 345 67890
-                        </p>
-                        <p class="mb-2">
-                            <i class="fa fa-envelope me-3"></i>coffee@maker.com
-                        </p>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <h4 class="text-light mb-4">Quick Links</h4>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Our Products</a>
-                        <a class="btn btn-link" href="">Your Account</a>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <h4 class="text-light mb-4">Photo Gallery</h4>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <img
-                                    class="img-fluid bg-light rounded p-1"
-                                    src="img/product-1.jpg"
-                                    alt="Image"
-                                    />
-                            </div>
-                            <div class="col-4">
-                                <img
-                                    class="img-fluid bg-light rounded p-1"
-                                    src="img/product-2.jpg"
-                                    alt="Image"
-                                    />
-                            </div>
-                            <div class="col-4">
-                                <img
-                                    class="img-fluid bg-light rounded p-1"
-                                    src="img/product-3.jpg"
-                                    alt="Image"
-                                    />
-                            </div>
-                            <div class="col-4">
-                                <img
-                                    class="img-fluid bg-light rounded p-1"
-                                    src="img/product-2.jpg"
-                                    alt="Image"
-                                    />
-                            </div>
-                            <div class="col-4">
-                                <img
-                                    class="img-fluid bg-light rounded p-1"
-                                    src="img/product-3.jpg"
-                                    alt="Image"
-                                    />
-                            </div>
-                            <div class="col-4">
-                                <img
-                                    class="img-fluid bg-light rounded p-1"
-                                    src="img/product-1.jpg"
-                                    alt="Image"
-                                    />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer End -->
-
-        <!-- Copyright Start -->
-        <div
-            class="container-fluid copyright text-light py-4 wow fadeIn"
-            data-wow-delay="0.1s"
-            >
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="#">Coffee Maker</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a href="https://htmlcodex.com">Us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Copyright End -->
+    <%@include file="components/footer.jsp" %>
 
         <!-- Back to Top -->
         <a
@@ -264,5 +120,7 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="js/app.js"></script>
+        
     </body>
 </html>

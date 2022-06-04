@@ -21,9 +21,9 @@
     cursor: pointer;
 }
 
-.nav-tabs .nav-link:hover{
-    border: 2px solid var(--primary);
-    border-radius: 10px;
+.nav-tabs .nav-link.activate{
+    background-color: var(--primary);
+    color: #fff;
 }
 
 #myTabContent{

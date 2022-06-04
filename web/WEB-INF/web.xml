@@ -8,6 +8,14 @@
         <servlet-name>ProductController</servlet-name>
         <servlet-class>controller.ProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductDetailController</servlet-name>
+        <servlet-class>controller.ProductDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListProductController</servlet-name>
+        <servlet-class>controller.ListProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>ProductController</servlet-name>
         <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductDetailController</servlet-name>
+        <url-pattern>/productDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProductController</servlet-name>
+        <url-pattern>/listProducts</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
