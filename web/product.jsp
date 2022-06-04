@@ -135,6 +135,11 @@
                             </div>
                             <h5 class="text-truncate">${product.name}</h5>
                             <p>${product.price}</p>
+                            <p><a
+                                        href="productDetail?pid=${product.productId}"
+                                        class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out"
+                                        >View Product</a
+                                    ></p>
                         </div>
                     </div>
                     </c:forEach>

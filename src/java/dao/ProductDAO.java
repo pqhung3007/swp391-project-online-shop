@@ -16,7 +16,7 @@ import model.Product;
  * @author Administrator
  */
 public class ProductDAO extends DBContext {
-    
+
     public ArrayList<Product> getAllProducts() {
         ArrayList<Product> products = new ArrayList<>();
         try {
@@ -41,17 +41,17 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
-    
+
     public ArrayList<Product> getProductsByCategory(int cid) {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            String sql = "SELECT [ProductID]\n" +
-                    "      ,[ProductName]\n" +
-                    "      ,[ProductImage]\n" +
-                    "      ,[UnitPrice]\n" +
-                    "      ,[Description]\n" +
-                    "  FROM [Product]\n" +
-                    "  WHERE [CategoryID] = ?";
+            String sql = "SELECT [ProductID]\n"
+                    + "      ,[ProductName]\n"
+                    + "      ,[ProductImage]\n"
+                    + "      ,[UnitPrice]\n"
+                    + "      ,[Description]\n"
+                    + "  FROM [Product]\n"
+                    + "  WHERE [CategoryID] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, cid);
             ResultSet rs = statement.executeQuery();
@@ -67,5 +67,25 @@ public class ProductDAO extends DBContext {
         } catch (SQLException ex) {
         }
         return products;
+    }
+
+    public Product getProductsByID(int pid) {
+        Product p = null;
+        try {
+            String sql = "select * from Product p where p.ProductID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, pid);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+            }
+        } catch (SQLException ex) {
+        }
+        return p;
+    }
+
+    public static void main(String[] args) {
+        Product p = new ProductDAO().getProductsByID(1);
+        System.out.println(p);
     }
 }

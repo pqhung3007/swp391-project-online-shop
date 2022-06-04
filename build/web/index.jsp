@@ -79,7 +79,7 @@
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="product.html" class="nav-item nav-link">Products</a>
+                    <a href="products" class="nav-item nav-link">Products</a>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <div class="nav-item dropdown dropmenu">
                         <a
