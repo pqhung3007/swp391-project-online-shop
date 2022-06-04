@@ -114,10 +114,8 @@
                 <ul class="nav nav-tabs flex-column" id="myTab" role="tablist">
                     <c:forEach var="category" items="${categories}">
                     <li class="nav-item" role="presentation">
-                        <a href="products?categoryId=${category.categoryName}" 
-                           class="nav-link" 
-         
-                           >
+                        <a href="listProducts?categoryId=${category.categoryId}" 
+                           class="nav-link">
                             ${category.categoryName}
                         </a>
                     </li>
