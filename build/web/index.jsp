@@ -240,7 +240,7 @@
                                 <div class="position-relative mt-auto">
                                     <img class="img-fluid" src="${category.image}" alt="">
                                     <div class="product-overlay">
-                                        <a class="btn btn-lg-square btn-outline-light rounded-circle" href="productlist?id=${category.categoryId}"><i
+                                        <a class="btn btn-lg-square btn-outline-light rounded-circle" href="listProducts?categoryId=${category.categoryId}"><i
                                                 class="fa fa-eye text-primary"></i></a>
                                     </div>
                                 </div>
