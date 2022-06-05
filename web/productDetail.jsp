@@ -53,146 +53,131 @@
         </div>
         <!-- Spinner End -->
 
-        <!-- Navbar Start -->
-        <nav
-            class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn"
-            data-wow-delay="0.1s"
-            style="background-color: black"
-            >
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h1 class="text-primary m-0 mt-2">Coffee Maker</h1>
-            </a>
-            <button
-                type="button"
-                class="navbar-toggler me-4"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse"
-                >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="product.html" class="nav-item nav-link">Products</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <div class="nav-item dropdown dropmenu">
-                        <a
-                            href="#"
-                            class="nav-link dropdown-toggle"
-                            data-bs-toggle="dropdown"
-                            >Account</a
-                        >
-                        <ul class="dropitems">
-                            <li class="m-8"><a href="#">My Profile</a></li>
-                            <li class="m-8"><a href="#">My Orders</a></li>
-                            <li class="m-8"><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-none d-lg-flex">
-                    <div
-                        class="flex-shrink-0 btn-lg-square border border-light rounded-circle"
-                        >
-                        <i class="fa fa-phone text-primary"></i>
-                    </div>
-                    <div class="ps-3">
-                        <small class="text-primary mb-0">Call Us</small>
-                        <p class="text-light fs-5 mb-0">+012 345 6789</p>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- Page Header End -->
+       <%@include file="components/navbar.jsp" %>
 
-        <!-- Product Start -->
-        <div class="single-product mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5">
-					<div class="single-product-img">
-						<img src="${productDetail.productImage}" alt="">
-					</div>
-				</div>
-				<div class="col-md-7">
-					<div class="single-product-content">
-						<h3>${productDetail.name}</h3>
-						<p class="single-product-pricing">${productDetail.price}d</p>
-						<p>${productDetail.description}</p>
-						<div class="single-product-form">
-							<form action="index.html">
-                                                            <input type="number" placeholder="0" min="0" oninput="this.value = Math.abs(this.value) > 0 ? Math.abs(this.value) : null">
-							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-        <div class="row px-xl-5">
-            <div class="col">
-                <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+       <!-- Product Start -->
+    <div class="container productDisplay">
+      <div class="row ">
+        <div class="col-md-3 d-flex flex-column justify-content-end">
+          <h3>Reviews</h3>
+          <p class="trunc-4">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
+            assumenda nulla pariatur nobis reprehenderit impedit!
+          </p>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#viewMore"
+          >
+            View more
+          </button>
+          <div
+            class="modal fade"
+            id="viewMore"
+            tabindex="-1"
+            aria-labelledby="reviewExtend"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="reviewExtend">
+                    Caramel Macchiato
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
-                <div class="tab-content">                    
-                    <div class="tab-pane fade show active" id="tab-pane-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
-                                <div class="media mb-4">
-                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                        <div class="text-primary mb-2">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
-                                        <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h4 class="mb-4">Leave a review</h4>
-                                <small>Your email address will not be published. Required fields are marked *</small>
-                                <div class="d-flex my-3">
-                                    <p class="mb-0 mr-2">Your Rating * :</p>
-                                    <div class="text-primary">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="message">Your Review *</label>
-                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Your Name *</label>
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Your Email *</label>
-                                        <input type="email" class="form-control" id="email">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-body">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Possimus aut et tempora cupiditate veniam perferendis esse
+                  tenetur sit consectetur vel dolorem, magnam, similique,
+                  obcaecati ex excepturi voluptates perspiciatis necessitatibus
+                  nostrum?
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-        <!-- Product End -->
 
+        <div class="col-md-6 text-center">
+          <img class="w-75" src="${productDetail.productImage}" alt="" />
+        </div>
+        <div class="col-md-3 d-flex flex-column justify-content-around">
+          <h2>${productDetail.name}</h2>
+          <p>
+              ${productDetail.description}
+          </p>
+          <h5>$7.5</h5>
+          <div class="row text-center">
+            <div class="col-md-6 d-flex justify-content-center">
+              <button class="decrement px-2 border-0">&lt;</button>
+              <div class="counter w-50">
+                <input
+                  class="counter-input text-center w-50 border-0"
+                  maxlength="10"
+                  type="text"
+                  value="0"
+                />
+                <div class="counter-num d-none">0</div>
+              </div>
+              <button class="increment px-2 border-0">&gt;</button>
+            </div>
+            <div class="col-md-6">
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#addCart"
+              >
+                Add to Cart
+              </button>
+              <div
+                class="modal fade"
+                id="addCart"
+                tabindex="-1"
+                aria-labelledby="addCart"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addCart">
+                        Caramel Macchiato
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Added to Cart successfully
+                    </div>
+                    <div class="modal-footer d-flex justify-content-around">
+                      <button
+                        type="button"
+                        class="button"
+                        data-bs-dismiss="modal"
+                      >
+                        <h6>Continue shopping</h6>
+                      </button>
+                      <button type="button" class="button">
+                        <a href="#"><h6>Go to basket</h6></a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Product End -->
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -292,5 +277,6 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="js/project/productDetail.js"></script>
     </body>
 </html>
