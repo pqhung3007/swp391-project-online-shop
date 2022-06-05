@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Product;
 
 /**
@@ -84,8 +86,50 @@ public class ProductDAO extends DBContext {
         return p;
     }
 
-    public static void main(String[] args) {
-        Product p = new ProductDAO().getProductsByID(1);
-        System.out.println(p);
+//    public static void main(String[] args) {
+//        Product p = new ProductDAO().getProductsByID(1);
+//        System.out.println(p);
+//    }
+
+    public ArrayList<Product> getProductsByPaging(int page, int pageSize) {
+        ArrayList<Product> list = new ArrayList<>();
+        try {
+            String query = "select * from Product order by ProductID\n"
+                    + "offset (?-1)*? row fetch next ? rows only";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, page);
+            ps.setInt(2, pageSize);
+            ps.setInt(3, pageSize);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProductId(rs.getInt("ProductID"));
+                p.setName(rs.getString("ProductName"));
+                p.setProductImage(rs.getString("ProductImage"));
+                p.setPrice(rs.getInt("UnitPrice"));
+                p.setDescription(rs.getString("Description"));
+                list.add(p);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
+
+    public int getProductQuantity() {
+        try {
+            String query = "select count(*) from Product";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
 }

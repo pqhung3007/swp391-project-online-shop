@@ -36,9 +36,25 @@ public class ProductController extends HttpServlet {
         CategoryDAO category = new CategoryDAO();
         ProductDAO product = new ProductDAO();
         
-        ArrayList<Category> categoryList = category.getAll();
-        ArrayList<Product> productList = product.getAllProducts();
+        int page = 1;
+        int pageSize = 6;
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
         
+        ArrayList<Category> categoryList = category.getAll();
+        ArrayList<Product> productList = product.getProductsByPaging(page, pageSize);
+        
+        int totalProducts = product.getProductQuantity();
+        int totalPages = totalProducts / pageSize;
+        if (totalPages % pageSize != 0) {
+            totalPages += 1;
+        }
+        
+
+        request.setAttribute("page", page);
+        request.setAttribute("totalPages", totalPages);
         request.setAttribute("categories", categoryList);
         request.setAttribute("products", productList);
 

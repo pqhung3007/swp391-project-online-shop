@@ -57,50 +57,69 @@
         <%@include file="components/navbar.jsp" %>
 
         <!-- Tab Start -->
-        <div class="container d-flex align-items-center mt-4">
+        <div class="container d-flex align-items-start mt-4">
             <div class="category-container">
                 <h2 class="mb-4">Our categories</h2>
                 <ul class="nav nav-tabs flex-column" id="myTab" role="tablist">
                     <c:forEach var="category" items="${categories}">
-                    <li class="nav-item" role="presentation">
-                        <a href="listProducts?categoryId=${category.categoryId}" 
-                           class="nav-link">
-                            ${category.categoryName}
-                        </a>
-                    </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="listProducts?categoryId=${category.categoryId}" 
+                               class="nav-link active">
+                                ${category.categoryName}
+                            </a>
+                        </li>
                     </c:forEach>
+
                 </ul>
+                <a href="products" 
+                   class="btn btn-primary rounded-pill mt-4">
+                    View all products
+                </a>
             </div>
 
             <div class="container" id="myTabContent">
                 <div class="tab-pane fade show active row" id="espresso" role="tabpanel" aria-labelledby="espresso-tab">
                     <c:forEach var="product" items="${products}">
-                    <div class="col-md-4 col-sm-6 mb-4">
-                        <div class="product">
-                            <div class="product-image">
-                            <img src="${product.productImage}" alt="">
-                            </div>
-                            <h5 class="text-truncate mt-4">${product.name}</h5>
-                            <p>Price: ${product.price} VND</p>
-                            <p><a
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="${product.productImage}" alt="">
+                                </div>
+                                <h5 class="mt-4">${product.name}</h5>
+                                <p>Price: ${product.price} VND</p>
+                                <p><a
                                         href="productDetail?pid=${product.productId}"
                                         class="btn btn-primary rounded-pill"
                                         >View Product</a
                                     ></p>
+                            </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
-                
-                <div class="tab-pane fade" id="chocolate" role="tabpanel" aria-labelledby="chocolate-tab">...</div>
-                <div class="tab-pane fade" id="frappucino" role="tabpanel" aria-labelledby="frappuccino-tab">...</div>
-                <div class="tab-pane fade" id="icecream" role="tabpanel" aria-labelledby="icecream-tab">...</div>
-                <div class="tab-pane fade" id="tea" role="tabpanel" aria-labelledby="tea-tab">...</div>
+
             </div>
         </div>
         <!-- Tab End -->
 
-    <%@include file="components/footer.jsp" %>
+
+        <!--Paging-->
+        <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
+            <ul class="pagination">
+                <li class="page-item ${page lt 1 ? "disabled" : ""}">
+                    <a class="page-link" href="products?page=${page-1}">Previous</a>
+                </li>
+                <c:forEach begin="1" end="${totalPages}" var="i">
+                    <li class="page-item ${i == page ? "active":""}">
+                        <a class="page-link" href="products?page=${i}">${i}</a>
+                    </li>
+                </c:forEach>
+                <li class="page-item ${page gt totalPages ? "disabled" : ""}">
+                    <a class="page-link" href="products?page=${page+1}">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+        <%@include file="components/footer.jsp" %>
 
         <!-- Back to Top -->
         <a
@@ -121,6 +140,6 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="js/app.js"></script>
-        
+
     </body>
 </html>
