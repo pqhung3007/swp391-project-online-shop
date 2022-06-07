@@ -58,7 +58,81 @@
        <!-- Product Start -->
     <div class="container productDisplay">
       <div class="row ">
-        <div class="col-md-3 d-flex flex-column justify-content-end">
+        <div class="col-md-3 d-flex flex-column justify-content-around">
+          <h2>${productDetail.name}</h2>
+          <p>
+              ${productDetail.description}
+          </p>
+          <h5>${productDetail.price} VND</h5>
+          <div class="row text-center">
+            <div class="col-md-6 d-flex justify-content-center">
+              <button class="decrement px-2 border-0">&lt;</button>
+              <div class="counter w-50">
+                <input
+                  class="counter-input text-center w-50 border-0"
+                  maxlength="10"
+                  type="text"
+                  value="0"
+                />
+                <div class="counter-num d-none">0</div>
+              </div>
+              <button class="increment px-2 border-0">&gt;</button>
+            </div>
+            <div class="col-md-6">
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#addCart"
+              >
+                Add to cart
+              </button>
+              <div
+                class="modal fade"
+                id="addCart"
+                tabindex="-1"
+                aria-labelledby="addCart"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addCart">
+                        ${productDetail.name}
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      Added to cart successfully
+                    </div>
+                    <div class="modal-footer d-flex justify-content-around">
+                      <button
+                        type="button"
+                        class="button"
+                        data-bs-dismiss="modal"
+                      >
+                        <h6>Continue searching</h6>
+                      </button>
+                      <button type="button" class="button">
+                        <a href="#"><h6>Go to basket</h6></a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col-md-6 text-center">
+          <img class="w-75" src="${productDetail.productImage}" alt="" />
+        </div>
+          <div class="col-md-3 d-flex flex-column justify-content-end">
           <h3>Reviews</h3>
           <p class="trunc-4">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
@@ -97,79 +171,6 @@
                   tenetur sit consectetur vel dolorem, magnam, similique,
                   obcaecati ex excepturi voluptates perspiciatis necessitatibus
                   nostrum?
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 text-center">
-          <img class="w-75" src="${productDetail.productImage}" alt="" />
-        </div>
-        <div class="col-md-3 d-flex flex-column justify-content-around">
-          <h2>${productDetail.name}</h2>
-          <p>
-              ${productDetail.description}
-          </p>
-          <h5>$7.5</h5>
-          <div class="row text-center">
-            <div class="col-md-6 d-flex justify-content-center">
-              <button class="decrement px-2 border-0">&lt;</button>
-              <div class="counter w-50">
-                <input
-                  class="counter-input text-center w-50 border-0"
-                  maxlength="10"
-                  type="text"
-                  value="0"
-                />
-                <div class="counter-num d-none">0</div>
-              </div>
-              <button class="increment px-2 border-0">&gt;</button>
-            </div>
-            <div class="col-md-6">
-              <button
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#addCart"
-              >
-                Add to Cart
-              </button>
-              <div
-                class="modal fade"
-                id="addCart"
-                tabindex="-1"
-                aria-labelledby="addCart"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="addCart">
-                        Caramel Macchiato
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      Added to Cart successfully
-                    </div>
-                    <div class="modal-footer d-flex justify-content-around">
-                      <button
-                        type="button"
-                        class="button"
-                        data-bs-dismiss="modal"
-                      >
-                        <h6>Continue shopping</h6>
-                      </button>
-                      <button type="button" class="button">
-                        <a href="#"><h6>Go to basket</h6></a>
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
