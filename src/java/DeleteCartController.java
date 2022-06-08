@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller;
 
-import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,13 +14,12 @@ import jakarta.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import model.Cart;
-import model.Product;
 
 /**
  *
  * @author Le Viet
  */
-public class CartController extends HttpServlet {
+public class DeleteCartController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,48 +30,17 @@ public class CartController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         int productID = Integer.parseInt(request.getParameter("pid"));
-      // map with key = productID value: Cart (Model)
+        int id = Integer.parseInt(request.getParameter("id"));
         HttpSession session = request.getSession();
-        Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
-        if(carts==null){
-            carts = new LinkedHashMap<>();// Products added will have order
-            
+         Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
+        if(carts ==null){
+            carts = new LinkedHashMap<>();
         }
-        //select product with productID
-       
-        //TH1: CART contain productID( The product already exists in the cart)
-         if(carts.containsKey(productID)){
-             int oldQuantity = carts.get(productID).getQuantity();// old quantity in the carts
-             carts.get(productID).setQuantity(oldQuantity+1);
-         }
-         //TH2:The product is not in the cart
-         else{
-             
-             ProductDAO p = new ProductDAO();
-           Product product = p.getProductsByID(productID);
-             Cart c = new Cart();
-             c.setQuantity(1);
-             c.setProduct(product);
-             carts.put(productID,c);
-         }
-                      int totalMoney =0;
-                        for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
-                             Integer pid = c.getKey();
-                            Cart cart = c.getValue();
-                            totalMoney += cart.getQuantity()* cart.getProduct().getPrice();
-                        }
-                       
-                       session.setAttribute("totalPrice", totalMoney);
-        
-         //add product to section
-         session.setAttribute("carts", carts);
-//         String urlhistory = (String) session.getAttribute("urlhistory");
-//         if(urlhistory ==null){
-//             urlhistory = "product";
-//         }
-                
-         request.getRequestDispatcher("cart.jsp").forward(request, response);
+        if(carts.containsKey(id)){
+            carts.remove(id);
+        }
+        session.setAttribute("carts", carts);
+        response.sendRedirect("cart.jsp");
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -79,13 +79,14 @@
               <button class="increment px-2 border-0">&gt;</button>
             </div>
             <div class="col-md-6">
-              <button
+              <a
                 class="btn btn-primary"
                 data-bs-toggle="modal"
                 data-bs-target="#addCart"
+                href="cart?pid=${productDetail.productId}"
               >
                 Add to cart
-              </button>
+              </a>
               <div
                 class="modal fade"
                 id="addCart"
@@ -118,7 +119,7 @@
                         <h6>Continue searching</h6>
                       </button>
                       <button type="button" class="button">
-                        <a href="#"><h6>Go to basket</h6></a>
+                        <a href="cart?pid=${productDetail.productId}"><h6>Go to basket</h6></a>
                       </button>
                     </div>
                   </div>

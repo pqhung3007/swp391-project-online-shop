@@ -5,7 +5,6 @@
 
 package controller;
 
-import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,16 +12,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.Map;
 import model.Cart;
-import model.Product;
 
 /**
  *
  * @author Le Viet
  */
-public class CartController extends HttpServlet {
+public class UpdateQuantityController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,50 +29,51 @@ public class CartController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         int productID = Integer.parseInt(request.getParameter("pid"));
-      // map with key = productID value: Cart (Model)
-        HttpSession session = request.getSession();
-        Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
-        if(carts==null){
-            carts = new LinkedHashMap<>();// Products added will have order
-            
-        }
-        //select product with productID
-       
-        //TH1: CART contain productID( The product already exists in the cart)
-         if(carts.containsKey(productID)){
-             int oldQuantity = carts.get(productID).getQuantity();// old quantity in the carts
-             carts.get(productID).setQuantity(oldQuantity+1);
-         }
-         //TH2:The product is not in the cart
-         else{
-             
-             ProductDAO p = new ProductDAO();
-           Product product = p.getProductsByID(productID);
-             Cart c = new Cart();
-             c.setQuantity(1);
-             c.setProduct(product);
-             carts.put(productID,c);
-         }
+     String action = request.getParameter("action");
+     int id = Integer.parseInt(request.getParameter("id"));
+     HttpSession session = request.getSession();
+      Map<Integer,Cart> carts = (Map<Integer,Cart>) session.getAttribute("carts");
+     
+      if(action!=null&&id>=1){
+          if(action.equals("inc")){
+              
+                  if(carts.containsKey(id)){
+                      int quantity =  carts.get(id).getQuantity();
+                      quantity++;
+                      carts.get(id).setQuantity(quantity);
+                       
+                      response.sendRedirect("cart.jsp");
+                  }
+                  
+              
+          }
+          if(action.equals("dec")){
+              
+                  if(carts.containsKey(id) && carts.get(id).getQuantity()>1){
+                      int quantity =  carts.get(id).getQuantity();
+                      quantity--;
+                      carts.get(id).setQuantity(quantity);
+                      
+                      response.sendRedirect("cart.jsp");
+                  }else{
+                      response.sendRedirect("cart.jsp");
+                  }
+                  
+              
+          }
                       int totalMoney =0;
                         for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
                              Integer pid = c.getKey();
                             Cart cart = c.getValue();
                             totalMoney += cart.getQuantity()* cart.getProduct().getPrice();
                         }
-                       
-                       session.setAttribute("totalPrice", totalMoney);
+                       request.getSession().setAttribute("totalPrice", totalMoney);
         
-         //add product to section
-         session.setAttribute("carts", carts);
-//         String urlhistory = (String) session.getAttribute("urlhistory");
-//         if(urlhistory ==null){
-//             urlhistory = "product";
-//         }
-                
-         request.getRequestDispatcher("cart.jsp").forward(request, response);
+      }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

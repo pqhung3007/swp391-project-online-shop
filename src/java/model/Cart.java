@@ -11,7 +11,6 @@ package model;
 public class Cart {
   private Product product;
     private int quantity; // so luong san pha tren gio hang
-
     public Product getProduct() {
         return product;
     }
@@ -27,4 +26,7 @@ public class Cart {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }  
+
+   
+    
 }
