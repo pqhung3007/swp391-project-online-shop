@@ -32,6 +32,10 @@
         <servlet-name>DeleteCartController</servlet-name>
         <servlet-class>DeleteCartController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckBoughtController</servlet-name>
+        <servlet-class>controller.CheckBoughtController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>DeleteCartController</servlet-name>
         <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckBoughtController</servlet-name>
+        <url-pattern>/checkbought</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

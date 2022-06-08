@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/E:/Ki5/SWP/Project/swp391-project-online-shop/src/java/controller/CartController.java</file>
-            <file>file:/E:/Ki5/SWP/Project/swp391-project-online-shop/src/java/controller/UpdateQuantityController.java</file>
-            <file>file:/E:/Ki5/SWP/Project/swp391-project-online-shop/web/productDetail.jsp</file>
-            <file>file:/E:/Ki5/SWP/Project/swp391-project-online-shop/web/cart.jsp</file>
-            <file>file:/E:/Ki5/SWP/Project/swp391-project-online-shop/src/java/controller/ProductDetailController.java</file>
-=======
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/productDetail.html</file>
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/productDetail.jsp</file>
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/components/navbar.jsp</file>
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/product.jsp</file>
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/css/productDetail.css</file>
->>>>>>> 96f70b6f68d531910f29fbcf7e00e11ecd5dc02a
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/index.jsp</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/nbproject/build-impl.xml</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/WEB-INF/web.xml</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/dao/CategoryDAO.java</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/controller/LogoutController.java</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/controller/HomeController.java</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/context/DBContext.java</file>
+            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/productDetail.jsp</file>
         </group>
     </open-files>
 </project-private>
