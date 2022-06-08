@@ -20,15 +20,9 @@ public class DBContext {
 
     public DBContext() {
         try {
-<<<<<<< HEAD
-            String user = "LeViet";
-            String pass = "123";
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=OnlineShopSystem";
-=======
             String user = "sa";
-            String pass = "123";
-            String url = "jdbc:sqlserver://DESKTOP-F3D7A1F\\SQLEXPRESS:1433;databaseName=OnlineShopSystem";
->>>>>>> 96f70b6f68d531910f29fbcf7e00e11ecd5dc02a
+            String pass = "longpin123";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=OnlineShopSystem";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
 

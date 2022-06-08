@@ -4,16 +4,15 @@
  */
 package controller;
 
-import com.oracle.wls.shaded.org.apache.bcel.generic.AALOAD;
 import dao.CartDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Map;
 import model.Account;
 import model.Cart;
@@ -51,7 +50,7 @@ public class CheckBoughtController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("checkBought.jsp");
+        request.getRequestDispatcher("checkBought.jsp").forward(request, response);
     }
 
     /**
@@ -76,13 +75,13 @@ public class CheckBoughtController extends HttpServlet {
 //        PrintWriter out = response.getWriter();
 //        out.print(account.getAccountId());
 
-        Date date = java.sql.Date.valueOf("1997-03-10");
+        Date date = java.sql.Date.valueOf(LocalDate.now());
 
         CartDAO db = new CartDAO();
         //get latest order to get orderID to add new order
         Order latestOrder = db.getLatestOrder();
         //insert order
-        Order o = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), date, date, 2, 2);
+        Order o  = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), date, date, 2, 2);
         db.insertOrder(o);
         //inser order details
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
