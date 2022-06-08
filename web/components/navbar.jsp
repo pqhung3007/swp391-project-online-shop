@@ -7,11 +7,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Navbar Start -->
         <nav
-            class="navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn"
+            class="fixed-top navbar navbar-expand-lg navbar-dark py-lg-0 px-lg-5 wow fadeIn"
             data-wow-delay="0.1s"
             style="background-color: black"
             >
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <a href="home" class="navbar-brand ms-4 ms-lg-0">
                 <h1 class="text-primary m-0 mt-2">Coffee Maker</h1>
             </a>
             <button

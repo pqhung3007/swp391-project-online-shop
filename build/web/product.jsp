@@ -57,14 +57,22 @@
         <%@include file="components/navbar.jsp" %>
 
         <!-- Tab Start -->
-        <div class="container d-flex align-items-start mt-4">
+        <div class="container d-flex align-items-start" style="margin-top:10rem">
             <div class="category-container">
                 <h2 class="mb-4">Our categories</h2>
                 <ul class="nav nav-tabs flex-column" id="myTab" role="tablist">
                     <c:forEach var="category" items="${categories}">
                         <li class="nav-item" role="presentation">
                             <a href="listProducts?categoryId=${category.categoryId}" 
-                               class="nav-link active">
+                               <c:choose>
+                                   <c:when test="${category.categoryId==2}">
+                                       class="nav-link active"
+                                   </c:when>
+                                   <c:otherwise>
+                                       class="nav-link"
+                                   </c:otherwise>
+                               </c:choose> 
+                               >
                                 ${category.categoryName}
                             </a>
                         </li>
@@ -87,7 +95,7 @@
                                 </div>
                                 <h5 class="mt-4">${product.name}</h5>
                                 <p>Price: ${product.price} VND</p>
-                                <p><a
+                                <p class="text-end mb-0"><a
                                         href="productDetail?pid=${product.productId}"
                                         class="btn btn-primary rounded-pill"
                                         >View Product</a
