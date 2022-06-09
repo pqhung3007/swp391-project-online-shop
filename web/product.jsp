@@ -58,21 +58,13 @@
 
         <!-- Tab Start -->
         <div class="container d-flex align-items-start" style="margin-top:10rem">
+
             <div class="category-container">
                 <h2 class="mb-4">Our categories</h2>
-                <ul class="nav nav-tabs flex-column" id="myTab" role="tablist">
-                    <c:forEach var="category" items="${categories}">
+                <ul class="nav nav-tabs flex-md-column flex-sm-row" id="myTab" role="tablist">
+                    <c:forEach var="category" items="${sessionScope.categories}">
                         <li class="nav-item" role="presentation">
-                            <a href="listProducts?categoryId=${category.categoryId}" 
-                               <c:choose>
-                                   <c:when test="${category.categoryId==2}">
-                                       class="nav-link active"
-                                   </c:when>
-                                   <c:otherwise>
-                                       class="nav-link"
-                                   </c:otherwise>
-                               </c:choose> 
-                               >
+                            <a href="listProducts?categoryId=${category.categoryId}" class="nav-link" >
                                 ${category.categoryName}
                             </a>
                         </li>
@@ -86,6 +78,13 @@
             </div>
 
             <div class="container" id="myTabContent">
+                <div class="search-form mb-5 w-50">
+                    <form action="search" class="d-flex justify-content-between">
+                        <input class="form-control me-2" type="search" name="keyword" placeholder="Search product by name">
+                        <button class="btn btn-primary rounded-pill" type="submit">Search</button>
+                    </form>
+                </div>
+
                 <div class="tab-pane fade show active row" id="espresso" role="tabpanel" aria-labelledby="espresso-tab">
                     <c:forEach var="product" items="${products}">
                         <div class="col-md-4 col-sm-6 mb-4">
@@ -98,8 +97,8 @@
                                 <p class="text-end mb-0"><a
                                         href="productDetail?pid=${product.productId}"
                                         class="btn btn-primary rounded-pill"
-                                        >View Product</a
-                                    ></p>
+                                        >View Product</a>
+                                </p>
                             </div>
                         </div>
                     </c:forEach>
@@ -111,21 +110,27 @@
 
 
         <!--Paging-->
-        <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
-            <ul class="pagination">
-                <li class="page-item ${page lt 1 ? "disabled" : ""}">
-                    <a class="page-link" href="products?page=${page-1}">Previous</a>
-                </li>
-                <c:forEach begin="1" end="${totalPages}" var="i">
-                    <li class="page-item ${i == page ? "active":""}">
-                        <a class="page-link" href="products?page=${i}">${i}</a>
-                    </li>
-                </c:forEach>
-                <li class="page-item ${page gt totalPages ? "disabled" : ""}">
-                    <a class="page-link" href="products?page=${page+1}">Next</a>
-                </li>
-            </ul>
-        </nav>
+        <c:choose>
+            <c:when test="${products == null || products.size() == 0}">
+            </c:when>
+            <c:otherwise>
+                <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
+                    <ul class="pagination">
+                        <li class="page-item ${page lt 1 ? "disabled" : ""}">
+                            <a class="page-link" href="products?page=${page-1}">Previous</a>
+                        </li>
+                        <c:forEach begin="1" end="${totalPages}" var="i">
+                            <li class="page-item ${i == page ? "active":""}">
+                                <a class="page-link" href="products?page=${i}">${i}</a>
+                            </li>
+                        </c:forEach>
+                        <li class="page-item ${page gt totalPages ? "disabled" : ""}">
+                            <a class="page-link" href="products?page=${page+1}">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </c:otherwise>
+        </c:choose>
 
         <%@include file="components/footer.jsp" %>
 

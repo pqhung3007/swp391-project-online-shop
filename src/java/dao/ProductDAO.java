@@ -86,11 +86,6 @@ public class ProductDAO extends DBContext {
         return p;
     }
 
-//    public static void main(String[] args) {
-//        Product p = new ProductDAO().getProductsByID(1);
-//        System.out.println(p);
-//    }
-
     public ArrayList<Product> getProductsByPaging(int page, int pageSize) {
         ArrayList<Product> list = new ArrayList<>();
         try {
@@ -130,6 +125,27 @@ public class ProductDAO extends DBContext {
             Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+
+    public ArrayList<Product> getSearchResults(String keyword) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "select * from Product where ProductName like ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + keyword + "%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProductId(rs.getInt("ProductID"));
+                p.setName(rs.getString("ProductName"));
+                p.setProductImage(rs.getString("ProductImage"));
+                p.setPrice(rs.getInt("UnitPrice"));
+                p.setDescription(rs.getString("Description"));
+                products.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        return products;
     }
 
 }

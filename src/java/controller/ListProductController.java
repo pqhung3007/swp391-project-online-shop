@@ -28,9 +28,8 @@ public class ListProductController extends HttpServlet {
         CategoryDAO category = new CategoryDAO();
         ProductDAO product = new ProductDAO();
         int cid = Integer.parseInt(request.getParameter("categoryId"));
-         ArrayList<Category> categoryList = category.getAll();
         ArrayList<Product> list = product.getProductsByCategory(cid);
-        request.setAttribute("categories", categoryList);
+        
         request.setAttribute("products", list);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }
