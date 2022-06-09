@@ -28,15 +28,14 @@
         <section class="py-5">
 
             <div class="container" style="min-height: 1000px">
-                <h1>Checkout</h1>
                 <form action="checkbought" method="post">
                     <div class="row">
-                        <div class="col-md-8" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
-                            <h3>List Products</h3>
+                        <div class="checkout col-md-8 p-5">
+                            <h1>Checkout</h1>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">STT</th>
+                                        <th scope="col">No.</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Quantity</th>
@@ -60,7 +59,8 @@
                             </table>
                             <h3>Total Amount: ${total}</h3>
                         </div>
-                        <div class="col-md-4" style="border: 1px solid #ccc; border-radius: 5px; padding: 1rem">
+                        
+                        <div class="col-md-4 p-5">
                                 <h3>Information of customer</h3>
 
                                 <div class="mb-3">
@@ -84,14 +84,18 @@
                                 <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
 
-                    </div>
+                        </div>
                 </form>
             </div>
         </section>
 
-
-
-
+                        <style>
+                            @media (max-width: 568px) {
+                                .checkout {
+                                    padding-bottom: 1rem !important;
+                                }
+                            }
+                        </style>
         <%@include file="components/footer.jsp" %>
     </body>
 

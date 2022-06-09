@@ -26,8 +26,6 @@
 }
 .button {
   background-color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
   border: 0;
   padding: 0;
   text-align: left;

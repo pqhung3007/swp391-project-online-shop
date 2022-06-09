@@ -1919,9 +1919,10 @@ progress {
 }
 .form-control-sm {
   min-height: calc(1.5em + 0.5rem + 2px);
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 0.875rem;
   border-radius: 6px;
+  text-align: center;
 }
 .form-control-sm::file-selector-button {
   padding: 0.25rem 0.5rem;
