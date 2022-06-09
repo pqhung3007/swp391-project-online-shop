@@ -90,41 +90,42 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="p-5">
-                                <h2 class="mb-5 mt-2 pt-1">Summary</h2>
-                                <hr class="my-4">
-                                <c:forEach items="${carts}" var="c"> 
-                                    <div class="d-flex justify-content-between">
-                                        <p>${c.value.product.name}</p>
-                                        <p>${c.value.product.price * c.value.quantity}</p>
-                                    </div>
-                                </c:forEach>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
 
-                                <hr class="my-4">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="col-lg-4">
+                                                <div class="p-5">
+                                                    <h2 class="mb-5 mt-2 pt-1">Summary</h2>
+                                                    <hr class="my-4">
+                                                    <c:forEach items="${carts}" var="c"> 
+                                                        <div class="d-flex justify-content-between">
+                                                            <p>${c.value.product.name}</p>
+                                                            <p>${c.value.product.price * c.value.quantity}</p>
+                                                        </div>
+                                                    </c:forEach>
+
+                                                    <hr class="my-4">
 
 
-                                            <div class="d-flex justify-content-between mb-5">
-                                                <h5 class="text-uppercase">Total price</h5>
-                                                <h5>${sessionScope.totalPrice}</h5>
+                                                    <div class="d-flex justify-content-between mb-5">
+                                                        <h5 class="text-uppercase">Total price</h5>
+                                                        <h5>${sessionScope.totalPrice}</h5>
+                                                    </div>
+                                                    <form action="checkbought" method="get">
+                                                        <button type="submit" class="btn btn-dark btn-block btn-lg"
+                                                                data-mdb-ripple-color="dark">Register</button>
+                                                    </form>
+
+                                                </div>
                                             </div>
-                                            <form action="checkbought" method="get">
-                                                <button type="submit" class="btn btn-dark btn-block btn-lg"
-                                                        data-mdb-ripple-color="dark">Register</button>
-                                            </form>
+                                        </c:otherwise>             
+                                    </c:choose>       
 
-                                        </div>
-                                    </div>
-                                           </c:otherwise>             
-                                       </c:choose>       
-                                            
-                                 
+
                                 </div>
-                                <form action="checkbought" method="get">
-                                    <button type="submit" class="btn btn-dark btn-block btn-lg"
-                                            data-mdb-ripple-color="dark">Register</button>
-                                </form>
-
+      
                             </div>
                         </div>
                     </div>

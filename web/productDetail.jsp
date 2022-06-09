@@ -58,6 +58,8 @@
     <%@include file="components/navbar.jsp" %>
 
 
+
+    <!-- Product End -->
     <!-- Product Start -->
     <div class="container mb-5" style="margin-top: 9rem; ">
         <div class="row ">
@@ -67,7 +69,7 @@
                     ${productDetail.description}
                 </p>
                 <h5>${productDetail.price} VND</h5>
-                
+
                 <button
                     class="btn btn-primary mt-4"
                     data-bs-toggle="modal"
@@ -100,15 +102,13 @@
                             </div>
                             <div class="modal-footer d-flex justify-content-around">
                                 <button
-                                    type="button"
                                     class="button"
-                                    data-bs-dismiss="modal"
+
                                     >
-                                    Continue shopping
+                                    <a href="cart?action=continue&pid=${productDetail.productId}"><h6>Continue shopping</h6></a>
                                 </button>
                                 <button type="button" class="button">
-                                    <a href="cart?pid=${productDetail.productId}">Go to basket</a>
-                                </button>
+                                    <a href="cart?action=gocart&pid=${productDetail.productId}"><h6>Go to basket</h6></a>
                             </div>
                         </div>
                     </div>
@@ -152,19 +152,11 @@
                                     ></button>
                             </div>
                             <div class="modal-body">
-                                
-                                Added to cart successfully
-                            </div>
-                            <div class="modal-footer d-flex justify-content-around">
-                                <button
-                                    class="button"
-                                    
-                                    >
-                                       <a href="cart?action=continue&pid=${productDetail.productId}"><h6>Continue shopping</h6></a>
-                                </button>
-                                <button type="button" class="button">
-                                    <a href="cart?action=gocart&pid=${productDetail.productId}"><h6>Go to basket</h6></a>
-                                </button>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Possimus aut et tempora cupiditate veniam perferendis esse
+                                tenetur sit consectetur vel dolorem, magnam, similique,
+                                obcaecati ex excepturi voluptates perspiciatis necessitatibus
+                                nostrum?
                             </div>
                         </div>
                     </div>
@@ -177,6 +169,7 @@
         </div>
     </div>
     <!-- Product End -->
+
 
     <!-- Related Product Start -->
     <div class="container">
