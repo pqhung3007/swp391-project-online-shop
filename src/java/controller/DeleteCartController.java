@@ -1,3 +1,5 @@
+package controller;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -39,6 +41,13 @@ public class DeleteCartController extends HttpServlet {
         if(carts.containsKey(id)){
             carts.remove(id);
         }
+        int totalMoney =0;
+                        for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
+                             Integer pid = c.getKey();
+                            Cart cart = c.getValue();
+                            totalMoney += cart.getQuantity()* cart.getProduct().getPrice();
+                        }
+                       request.getSession().setAttribute("totalPrice", totalMoney);
         session.setAttribute("carts", carts);
         response.sendRedirect("cart.jsp");
     } 

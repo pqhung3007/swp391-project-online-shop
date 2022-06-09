@@ -152,11 +152,19 @@
                                     ></button>
                             </div>
                             <div class="modal-body">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Possimus aut et tempora cupiditate veniam perferendis esse
-                                tenetur sit consectetur vel dolorem, magnam, similique,
-                                obcaecati ex excepturi voluptates perspiciatis necessitatibus
-                                nostrum?
+                                
+                                Added to cart successfully
+                            </div>
+                            <div class="modal-footer d-flex justify-content-around">
+                                <button
+                                    class="button"
+                                    
+                                    >
+                                       <a href="cart?action=continue&pid=${productDetail.productId}"><h6>Continue shopping</h6></a>
+                                </button>
+                                <button type="button" class="button">
+                                    <a href="cart?action=gocart&pid=${productDetail.productId}"><h6>Go to basket</h6></a>
+                                </button>
                             </div>
                         </div>
                     </div>

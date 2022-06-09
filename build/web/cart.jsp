@@ -104,9 +104,21 @@
                                 <hr class="my-4">
 
 
-                                <div class="d-flex justify-content-between mb-5">
-                                    <h5>Total price</h5>
-                                    <h5>${sessionScope.totalPrice} VND</h5>
+                                            <div class="d-flex justify-content-between mb-5">
+                                                <h5 class="text-uppercase">Total price</h5>
+                                                <h5>${sessionScope.totalPrice}</h5>
+                                            </div>
+                                            <form action="checkbought" method="get">
+                                                <button type="submit" class="btn btn-dark btn-block btn-lg"
+                                                        data-mdb-ripple-color="dark">Register</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                           </c:otherwise>             
+                                       </c:choose>       
+                                            
+                                 
                                 </div>
                                 <form action="checkbought" method="get">
                                     <button type="submit" class="btn btn-dark btn-block btn-lg"
