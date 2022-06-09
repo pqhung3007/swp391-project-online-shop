@@ -58,25 +58,39 @@
                                 </tbody>
                             </table>
                             <h3>Total Amount: ${total}</h3>
+                            <h5 class="text-uppercase mb-3">Shipping</h5>
+
+                            <div class="mb-4 pb-2">
+                                <select class="select" name="payment" >
+                                    <c:forEach items="${listP}" var="p">
+                                        <option value="${p.id}">${p.paymentMethod}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="col-md-4 p-5">
                                 <h3>Information of customer</h3>
 
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone"
-                                           aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email"
-                                           aria-describedby="emailHelp">
-                                </div>
+                               <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="${user.name}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                       aria-describedby="emailHelp" value="${user.phone}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                       aria-describedby="emailHelp" value="${user.address}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                       aria-describedby="emailHelp" value="${user.email}">
+                            </div>
                                 <div class="mb-3">
                                     <label for="note" class="form-label">Note</label>
                                     <textarea class="form-control" id="note" name="note" rows="3"></textarea>

@@ -191,6 +191,29 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row mt-3">
+            <form action="productDetail" method="post">
+                <h4 class="mb-4">Leave a review</h4>
+                <small>Your email address will not be published. Required fields are marked *</small>
+                <div class="d-flex my-3">
+                    <p class="mb-0 mr-2">Your Rating * :</p>
+                    <div class="rate">
+                        <input type="radio" id="star3" name="rate" value="1" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="3" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                </div>
+                <div class="form-group mb-0">
+                    <input type="hidden" name="productID" value="${productDetail.productId}">
+                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- Related Product End -->
 
     <%@include file="components/footer.jsp" %>

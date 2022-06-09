@@ -147,5 +147,23 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
+    
+    public void insertProductReview(String productID, String reviewID, int aid) {
+        try {
+            String sql = "INSERT INTO [dbo].[Product Review]\n"
+                    + "           ([ProductID]\n"
+                    + "           ,[ReviewID]\n"
+                    + "           ,[AccountID])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, productID);
+            statement.setString(2, reviewID);
+            statement.setInt(3, aid);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

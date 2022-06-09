@@ -12,6 +12,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.Account;
 
 /**
  *
@@ -33,6 +35,18 @@ public class ProductDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Account a = (Account) session.getAttribute("account");
+        if (a == null) {
+            response.sendRedirect("login");
+        } else {
+            ProductDAO dao = new ProductDAO();
+            String rate = request.getParameter("rate");
+            String productID = request.getParameter("productID");
+
+            dao.insertProductReview(productID, rate,a.getAccountId());
+            response.sendRedirect("products");
+        }
     }
 
 }

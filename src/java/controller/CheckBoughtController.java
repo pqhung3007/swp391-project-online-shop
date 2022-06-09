@@ -13,11 +13,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 import model.Account;
 import model.Cart;
 import model.Order;
 import model.OrderDetail;
+import model.Payment;
+import model.User;
 
 /**
  *
@@ -50,6 +53,14 @@ public class CheckBoughtController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        
+        CartDAO dao = new CartDAO();
+        List<Payment> list = dao.getAllPayment();
+        User u = dao.getUserbyAccountID(account.getAccountId());
+        request.setAttribute("user", u);
+        request.setAttribute("listP", list);
         request.getRequestDispatcher("checkBought.jsp").forward(request, response);
     }
 
@@ -68,6 +79,8 @@ public class CheckBoughtController extends HttpServlet {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String note = request.getParameter("note");
+        
+        int pay = Integer.parseInt(request.getParameter("payment"));
 
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
@@ -81,7 +94,7 @@ public class CheckBoughtController extends HttpServlet {
         //get latest order to get orderID to add new order
         Order latestOrder = db.getLatestOrder();
         //insert order
-        Order o  = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), date, date, 2, 2);
+        Order o  = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), date, date, 2, pay);
         db.insertOrder(o);
         //inser order details
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
