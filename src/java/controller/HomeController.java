@@ -37,8 +37,6 @@ public class HomeController extends HttpServlet {
             ArrayList<Category> categoryList = db.getAll();
             request.setAttribute("categories", categoryList);
             
-            System.out.println(categoryList);
-            
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
