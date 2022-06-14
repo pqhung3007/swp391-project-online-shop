@@ -84,7 +84,7 @@
                                     <div class="col-12">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="passWord">
+                                            <input type="password" class="form-control text-primary" id="name" placeholder="Your Name" name="passWord">
                                             <label for="name">Password</label>
                                         </div>
                                     </div>

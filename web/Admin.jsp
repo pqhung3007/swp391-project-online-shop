@@ -1,6 +1,7 @@
 <%-- Document : Admin Created on : Jun 3, 2022, 9:53:26 AM Author : Admin --%>
 
-    <%@page contentType="text/html" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
         <!DOCTYPE html>
         <html>
         <head>
@@ -43,6 +44,16 @@
                 <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
                     <h1 class="text-primary m-0">Coffee Maker</h1>
                 </a>
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                <c:if test="${sessionScope.account !=null}">
+                    <a
+                        href="#"
+                        class="nav-item nav-link"
+                        >${sessionScope.account.userName}</a
+                    >
+                    <a href="logout" class="nav-item nav-link">Logout</a>
+            </div>
+            </c:if>
             </nav>
 
 
@@ -60,9 +71,9 @@
                             <span class="material-icons-sharp">person_outline</span>
                             <h3>About</h3>
                         </a>
-                        <a href="product.html" class="nav-item nav-link">
+                        <a href="manage" class="nav-item nav-link">
                             <span class="material-icons-sharp">inventory</span>
-                            <h3>Products</h3>
+                            <h3>Manage accounts</h3>
                         </a>
                         <a href="contact.html" class="nav-item nav-link">
                             <span class="material-icons-sharp">insights</span>

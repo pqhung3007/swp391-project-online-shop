@@ -8,6 +8,8 @@ import context.DBContext;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
@@ -22,10 +24,10 @@ public class AccountDAO extends DBContext {
         try {
             String sql = "SELECT [AccountID]\n"
                     + "		, [Username]\n"
-                    + "		, [Passwword]\n"
+                    + "		, [Password]\n"
                     + "		, [RoleID] \n"
                     + "		FROM [Account]\n"
-                    + "		WHERE [Username] = ? AND [Passwword] = ?";
+                    + "		WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
             stm.setString(2, passWord);
@@ -34,7 +36,7 @@ public class AccountDAO extends DBContext {
                 Account account = new Account();
                 account.setAccountId(rs.getInt("AccountID"));
                 account.setUserName(rs.getString("Username"));
-                account.setPassWord(rs.getString("Passwword"));
+                account.setPassWord(rs.getString("Password"));
                 account.setRoleId(rs.getInt("RoleID"));
                 return account;
             }
@@ -42,5 +44,50 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public List<Account> getAll() {
+        List<Account> accounts = new ArrayList<>();
+        try {
+            String sql = "select * from Account";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
+            }
+        } catch (Exception e) {
+        }
+        return accounts;
+    }
+
+    public void updateAccount(String username, String password, int AccountID) {
+        try {
+            String sql = "UPDATE [dbo].[Account]\n"
+                    + "   SET [Username] = ?\n"
+                    + "      ,[Password] = ?\n"
+                    + " WHERE AccountID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, username);
+            stm.setString(2, password);
+            stm.setInt(3, AccountID);
+            stm.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void deleteAccount(int AccountID) {
+        try {
+            String sql = "DELETE FROM [dbo].[Account]\n"
+                    + "      WHERE AccountID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, AccountID);
+            stm.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public static void main(String[] args) {
+        Account a = new AccountDAO().getAccount("vietlb", "123");
+        System.out.println(a);
     }
 }

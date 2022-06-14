@@ -90,13 +90,13 @@
                                 <h5 class="modal-title" id="addCart">
                                     ${productDetail.name}
                                 </h5>
-                                <button
+                                <button 
                                     type="button"
                                     class="btn-close"
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                     ></button>
-                            </div>
+                            </div>                          
                             <div class="modal-body">
                                 Added to cart successfully
                             </div>

@@ -55,13 +55,16 @@ public class CheckBoughtController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        
+        if(account == null){
+            response.sendRedirect("home");
+        }else{
         CartDAO dao = new CartDAO();
         List<Payment> list = dao.getAllPayment();
         User u = dao.getUserbyAccountID(account.getAccountId());
         request.setAttribute("user", u);
         request.setAttribute("listP", list);
         request.getRequestDispatcher("checkBought.jsp").forward(request, response);
+        }
     }
 
     /**

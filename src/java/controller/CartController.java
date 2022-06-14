@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import model.Account;
 import model.Cart;
 import model.Product;
 
@@ -37,6 +38,10 @@ public class CartController extends HttpServlet {
         int productID = Integer.parseInt(request.getParameter("pid"));
         // map with key = productID value: Cart (Model)
         HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if(account == null){
+            response.sendRedirect("home");
+        }else{
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
         if (carts == null) {
             carts = new LinkedHashMap<>();// Products added will have order
@@ -77,6 +82,7 @@ public class CartController extends HttpServlet {
             response.sendRedirect("products");
         }
 
+    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
