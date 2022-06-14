@@ -49,7 +49,7 @@
             <c:if test="${sessionScope.account == null}">
                 <div class="navbar-nav mx-auto p-4 p-lg-0">
                     <a href="login" class="nav-item nav-link">Login</a>
-                    <a href="register.jsp" class="nav-item nav-link">Register</a>
+                    <a href="register" class="nav-item nav-link">Register</a>
                 </div>
             </c:if>
         </div>

@@ -66,47 +66,47 @@
                             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
                                 <h1 class=" m-0 text-center">Coffe Baker</h1>
                             </a>
-                            <form>
+                            <form action="register" method="post">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name">
+                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="FullName">
                                             <label for="name">FullName</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name">
+                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="UserName">
                                             <label for="name">UserName</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name">
+                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="phone">
                                             <label for="name">Phone</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                            <input type="email" class="form-control" id="email" placeholder="Your Email" name="address">
                                             <label for="email">Address</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="email">
                                             <label for="subject">Email<label>
                                                     </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="gradient-border" id="box"></div>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name">
+                                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="password">
                                                             <label for="name">Password</label>
                                                         </div>
                                                     </div>
