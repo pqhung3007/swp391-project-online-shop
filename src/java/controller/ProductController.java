@@ -54,7 +54,7 @@ public class ProductController extends HttpServlet {
         }
         HttpSession session = request.getSession();
         session.setAttribute("categories", categoryList);
-
+        session.setAttribute("catID", 1);
         request.setAttribute("page", page);
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("products", productList);

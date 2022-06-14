@@ -234,6 +234,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/project/productDetail.js"></script>
 </body>
 </html>

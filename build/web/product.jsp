@@ -64,7 +64,16 @@
                 <ul class="nav nav-tabs flex-md-column flex-sm-row" id="myTab" role="tablist">
                     <c:forEach var="category" items="${sessionScope.categories}">
                         <li class="nav-item" role="presentation">
-                            <a href="listProducts?categoryId=${category.categoryId}" class="nav-link" >
+                            <a href="listProducts?categoryId=${category.categoryId}" 
+                               <c:choose>
+                                   <c:when test="${category.categoryId == sessionScope.catID}">
+                                       class="nav-link active"
+                                   </c:when>
+                                   <c:otherwise>
+                                       class="nav-link"
+                                   </c:otherwise>
+                               </c:choose>
+                               >
                                 ${category.categoryName}
                             </a>
                         </li>

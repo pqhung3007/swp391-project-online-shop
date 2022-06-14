@@ -58,8 +58,7 @@ public class SendEmail {
 "    <h1>Here comes the Coffee Maker!</h1>\n" +
 "      <h3>Thank you for being one of our precious customers</h3>\n" +
 "      <small\n" +
-"        >Please enter this code in the verification link to confirm your email address.</small\n" +
-"      >\n" +
+"        >Please enter this code in the verification link to confirm your email address.</small>\n" +
 "      <div\n" +
 "        style=\"\n" +
 "          background-color: rgb(171, 168, 168);\n" +
@@ -67,9 +66,7 @@ public class SendEmail {
 "          padding: 10px;\n" +
 "          width: 30%;\n" +
 "          margin: 20px auto;\n" +
-"          letter-spacing: 10px;\n" +
-"        \"\n" +
-"      >\n" +
+"          letter-spacing: 10px;>>\n" +
 "        <h1>2844</h1>\n" +
 "      </div>\n" +
 "      <small\n" +
@@ -94,7 +91,7 @@ public class SendEmail {
 
 
       } catch (MessagingException e) {
-         throw new RuntimeException(e);
+          //comment
       }
    }
 }
