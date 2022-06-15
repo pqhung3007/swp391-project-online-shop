@@ -1,19 +1,20 @@
-const menu = document.querySelector('.category-container ul');
-const navItems = menu.querySelectorAll('li');
 
-navItems.forEach(item => {
-    const link = item.querySelector('a');
-    link.addEventListener('click', () => {
-        console.log("Clicked");
-        changeActiveState();
-        link.classList.add('activate');
-    });
+//check password identical
+const passInput = document.getElementById("password");
+const repassInput = document.getElementById("repassword");
+const passConfirm = document.getElementById("passconfirm");
+
+repassInput.addEventListener("keyup", () => {
+    passIdentical(repassInput.value, passInput.value, passConfirm);
+});
+passInput.addEventListener("keyup", () => {
+    passIdentical(repassInput.value, passInput.value, passConfirm);
 });
 
-const changeActiveState = () => {
-    navItems.forEach(item => {
-        const link = item.querySelector('a');
-        link.classList.remove('activate');
-    });
-};
-
+function passIdentical(repass, pass, passconfirm) {
+    if (repass === pass) {
+        passconfirm.classList.add("d-none");
+    } else {
+        passconfirm.classList.remove("d-none");
+    }
+}

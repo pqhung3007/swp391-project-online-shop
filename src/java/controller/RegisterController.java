@@ -6,6 +6,7 @@ package controller;
 
 import dao.AccountDAO;
 import dao.UserDAO;
+import email.SendEmail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -67,6 +68,10 @@ public class RegisterController extends HttpServlet {
         String address = request.getParameter("address");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
+        //verify user email
+        SendEmail se=new SendEmail();
+        se.send(email);
         
         //insert new account to database
         AccountDAO dbAccount = new AccountDAO();

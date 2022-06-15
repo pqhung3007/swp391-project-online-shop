@@ -3,18 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/context/DBContext.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/login.jsp</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/dao/CartDAO.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/register.jsp</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/dao/AccountDAO.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/controller/ProductController.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/WEB-INF/web.xml</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/dao/CategoryDAO.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/web/components/navbar.jsp</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/model/User.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/controller/RegisterController.java</file>
-            <file>file:/D:/FPT/SU22/SWP391/project/swp391-project-online-shop/src/java/dao/UserDAO.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/controller/RegisterController.java</file>
         </group>
     </open-files>
 </project-private>

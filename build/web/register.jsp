@@ -54,95 +54,103 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row img-twice position-relative h-100">
                             <div class="col-6">
-                                <img class="img-fluid rounded" src="" alt="">
+                                <img class="img-fluid rounded" src="img/carousel-1.jpg" alt="">
                             </div>
                             <div class="col-6 align-self-end">
-                                <img class="img-fluid rounded" src="" alt="">
+                                <img class="img-fluid rounded" src="img/carousel-2.jpg" alt="">
                             </div>
                         </div>
+
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="h-100">
                             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                                <h1 class=" m-0 text-center">Coffe Baker</h1>
+                                <h1 class=" m-0 text-center">The Coffee Maker</h1>
                             </a>
                             <form action="register" method="post">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="FullName">
-                                            <label for="name">FullName</label>
+                                            <input type="text" class="form-control text-primary" id="fullname" name="FullName" required>
+                                            <label for="fullname">Full Name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="UserName">
-                                            <label for="name">UserName</label>
+                                            <input type="text" class="form-control text-primary" id="username" name="UserName" required>
+                                            <label for="username">Username</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="phone">
+                                            <input type="text" minlength="10" maxlength="12" class="form-control text-primary" id="phone" name="phone" required>
                                             <label for="name">Phone</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email" name="address">
-                                            <label for="email">Address</label>
+                                            <input type="email" class="form-control text-primary" id="email" name="email" required>
+                                            <label for="email">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="email">
-                                            <label for="subject">Email<label>
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="gradient-border" id="box"></div>
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="password">
-                                                            <label for="name">Password</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="gradient-border" id="box"></div>
-                                                        <div class="form-floating">
-                                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name">
-                                                            <label for="name">Phone</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 text-center">
-                                                        <div class="gradient-border" id="box"></div>
-                                                        <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Register</button>
-                                                    </div>
-                                                    </div>
-                                                    </form>
-                                                    </div>
+                                            <input type="text" class="form-control text-primary" id="address" name="address" required> 
+                                            <label for="address">Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="gradient-border" id="box"></div>
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control text-primary" id="password" name="password" required>
+                                            <label for="password">Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="gradient-border" id="box"></div>
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control text-primary" id="repassword" name="repassword" required>
+                                            <label for="repassword">Confirm your Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="gradient-border d-flex d-none" id="passconfirm">
+                                            <i class='fas fa-exclamation' style='color:red; margin-right:5px'></i>
+                                            <h6>Confirm password does not match.</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <div class="gradient-border" id="box"></div>
+                                        <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
 
-                                                    </div>
-                                                    </div>
-                                                    </div>
-                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
 
-                                                    <!-- JavaScript Libraries -->
-                                                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                                                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-                                                    <script src="js/wow/wow.min.js"></script>
-                                                    <script src="js/easing/easing.min.js"></script>
-                                                    <script src="js/waypoints/waypoints.min.js"></script>
-                                                    <script src="js/counterup/counterup.min.js"></script>
-                                                    <script src="js/owlcarousel/owl.carousel.min.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/wow/wow.min.js"></script>
+        <script src="js/easing/easing.min.js"></script>
+        <script src="js/waypoints/waypoints.min.js"></script>
+        <script src="js/counterup/counterup.min.js"></script>
+        <script src="js/owlcarousel/owl.carousel.min.js"></script>
 
-                                                    <!-- Template Javascript -->
-                                                    <script src="js/main.js"></script>
-                                                    </body>
-                                                    </html>
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

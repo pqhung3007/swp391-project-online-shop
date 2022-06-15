@@ -6,11 +6,10 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class SendEmail {
-   public static void main(String[] args) {
-       String toEmail="caoquynhanh18@gmail.com";
+   public void send(String toEmail) {
       //provide sender's email ID
       String fromEmail = "anhcqhe160244@fpt.edu.vn";
-      String fromPassword="asdasdasd";
+      String fromPassword="asasdasd";
       
       //provide Mailtrap's host address
       String host = "smtp.gmail.com";
