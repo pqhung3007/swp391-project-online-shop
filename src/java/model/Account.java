@@ -14,16 +14,20 @@ public class Account {
     private String userName;
     private String passWord;
     private int roleId;
+    private boolean status;
 
     public Account() {
     }
 
-    public Account(int accountId, String userName, String passWord, int roleId) {
+    public Account(int accountId, String userName, String passWord, int roleId, boolean status) {
         this.accountId = accountId;
         this.userName = userName;
         this.passWord = passWord;
         this.roleId = roleId;
+        this.status = status;
     }
+
+  
 
     public int getAccountId() {
         return accountId;
@@ -55,6 +59,14 @@ public class Account {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override

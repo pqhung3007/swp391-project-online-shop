@@ -53,7 +53,7 @@ public class AccountDAO extends DBContext {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
+                accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getBoolean(5)));
             }
         } catch (Exception e) {
         }
@@ -75,17 +75,35 @@ public class AccountDAO extends DBContext {
         }
     }
 
-    public void deleteAccount(int AccountID) {
+    public void updateStatusAccount(int AccountID, boolean status) {
         try {
-            String sql = "DELETE FROM [dbo].[Account]\n"
-                    + "      WHERE AccountID = ?";
+            String sql = "UPDATE [dbo].[Account]\n"
+                    + "   SET [Status] = ?\n"
+                    + " WHERE AccountID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, AccountID);
+            stm.setBoolean(1, status);
+            stm.setInt(2, AccountID);
             stm.executeUpdate();
         } catch (Exception e) {
         }
     }
-
+   
+    
+    public Account getAccountByID(int AccountID){
+        Account a = null;
+        try {
+            String sql = "select * from Account where AccountID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, AccountID);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getBoolean(5));
+            }
+        } catch (Exception e) {
+        }
+        return a;
+    }
+    
     public static void main(String[] args) {
         Account a = new AccountDAO().getAccount("vietlb", "123");
         System.out.println(a);
