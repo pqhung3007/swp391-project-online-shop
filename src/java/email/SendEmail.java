@@ -9,7 +9,7 @@ public class SendEmail {
    public void send(String toEmail) {
       //provide sender's email ID
       String fromEmail = "anhcqhe160244@fpt.edu.vn";
-      String fromPassword="asasdasd";
+      String fromPassword="oorhqdrsodkdbffm";
       
       //provide Mailtrap's host address
       String host = "smtp.gmail.com";
@@ -46,7 +46,7 @@ public class SendEmail {
     //set the content of the email message
     message.setContent("<h1>Thank you for being one of our precious customers</h1>"
             + "<p>Please click the following button to verify your email address</p>"
-            + "<button><a href=''>Click me</a></button>"
+            + "<button><a href='http://localhost:9990/OnlineShopProject/verify'>Click me</a></button>"
             ,"text/html");
 
     //send the email message

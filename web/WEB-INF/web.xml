@@ -44,6 +44,10 @@
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>controller.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerifyController</servlet-name>
+        <servlet-class>controller.VerifyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerifyController</servlet-name>
+        <url-pattern>/verify</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

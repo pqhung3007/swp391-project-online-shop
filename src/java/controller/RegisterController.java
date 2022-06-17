@@ -47,7 +47,7 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect("register.jsp");
+        request.getRequestDispatcher("register.jsp").forward(request, response);
     }
 
     /**
@@ -69,25 +69,24 @@ public class RegisterController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
+        //add info to session
+        User rawUser =new User();
+        rawUser.setName(FullName);
+        rawUser.setPhone(phone);
+        rawUser.setAddress(address);
+        rawUser.setEmail(email);
+        
+        Account rawAccount=new Account();
+        rawAccount.setUserName(UserName);
+        rawAccount.setPassWord(password);
+        
+        request.getSession().setAttribute("rawUser", rawUser);
+        request.getSession().setAttribute("rawAccount", rawAccount);
+        
         //verify user email
         SendEmail se=new SendEmail();
         se.send(email);
-        
-        //insert new account to database
-        AccountDAO dbAccount = new AccountDAO();
-        //get lastest created account
-        Account latestAccount = dbAccount.getLatestAccount();
-        Account a = new Account(latestAccount.getAccountId() + 1, UserName, password, 2);
-        dbAccount.insertAccount(a);
-        
-        //insert new user to database
-        UserDAO dbUser = new UserDAO();
-        //get lastest created user
-        User latestUser = dbUser.getLatestUser();
-        User u = new User(latestUser.getUserID() + 1, FullName, phone, address, email, a.getAccountId());
-        dbUser.insertUser(u);
-        
-        response.sendRedirect("login");
+        response.getWriter().println("check mail");
     }
 
     /**
