@@ -53,8 +53,8 @@
         <servlet-class>controller.EditAccountController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteAccountController</servlet-name>
-        <servlet-class>controller.UpdateStatusAccountController</servlet-class>
+        <servlet-name>UpdateStatusController</servlet-name>
+        <servlet-class>controller.UpdateStatusController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -109,8 +109,8 @@
         <url-pattern>/editAccount</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteAccountController</servlet-name>
-        <url-pattern>/deleteAccount</url-pattern>
+        <servlet-name>UpdateStatusController</servlet-name>
+        <url-pattern>/updateStatus</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

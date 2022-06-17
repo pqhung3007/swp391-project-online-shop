@@ -89,6 +89,7 @@
                                         </div>
                                     </div>
                                     <!--login failed message-->
+                                    <p style="color:red">${loginStatus}</p>
                                     <p style="color:red">${loginFailedMessage}</p>
                                     <p class="forget">Forgot Password ? <a href="#">Click Here</a></p>
                                     <p class="forget">Don't have an account ? <a href="#">Sign up</a></p>

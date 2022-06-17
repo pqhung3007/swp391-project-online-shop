@@ -6,7 +6,6 @@
 package controller;
 
 import dao.AccountDAO;
-import dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -18,26 +17,26 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-public class UpdateStatusAccountController extends HttpServlet {
+public class UpdateStatusController extends HttpServlet {
    
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         int accountID = Integer.parseInt(request.getParameter("aid"));
-        boolean status = Boolean.parseBoolean(request.getParameter("status"));
+        boolean status = request.getParameter("status").equals("1");
         AccountDAO dao = new AccountDAO();
-        dao.updateStatusAccount(accountID, status);
-        request.getRequestDispatcher("updateStatus.jsp").forward(request, response);
+        dao.updateStatusAccount(status,accountID);
+        request.getRequestDispatcher("manage").forward(request, response);
     } 
-    
 
-   
+  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        response.sendRedirect("manage");
+    throws ServletException, IOException {       
+        
     }
 
-   
+ 
+
 }

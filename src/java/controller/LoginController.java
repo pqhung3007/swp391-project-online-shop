@@ -78,8 +78,7 @@ public class LoginController extends HttpServlet {
         if (account != null) {
             request.getSession().setAttribute("account", account);
 //            response.getWriter().println("Login successful!");
-
-            switch (account.getRoleId()) {
+                switch (account.getRoleId()) {                                              
                 case 1:
                     request.getRequestDispatcher("admin").forward(request, response);
                     break;
@@ -92,8 +91,9 @@ public class LoginController extends HttpServlet {
                 default:
                     request.getRequestDispatcher("shippers.jsp").forward(request, response);
                     break;
+                }
             }
-        } else {
+         else {
             request.getSession().setAttribute("account", null);
 
             request.setAttribute("loginFailedMessage", "Login failed!");

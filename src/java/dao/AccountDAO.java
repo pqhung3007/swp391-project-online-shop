@@ -75,7 +75,7 @@ public class AccountDAO extends DBContext {
         }
     }
 
-    public void updateStatusAccount(int AccountID, boolean status) {
+    public void updateStatusAccount(boolean status, int AccountID) {
         try {
             String sql = "UPDATE [dbo].[Account]\n"
                     + "   SET [Status] = ?\n"
