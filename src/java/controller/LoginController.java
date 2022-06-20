@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Account;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -74,24 +75,27 @@ public class LoginController extends HttpServlet {
         String user = request.getParameter("userName");
         String pass = request.getParameter("passWord");
         AccountDAO db = new AccountDAO();
-        Account account = db.getAccount(user, pass);
+        Account account = db.getAccount(user);
+        //check password
         if (account != null) {
-            request.getSession().setAttribute("account", account);
+            boolean valuate = BCrypt.checkpw(pass, account.getPassWord());
+            if (valuate) {
+                request.getSession().setAttribute("account", account);
 //            response.getWriter().println("Login successful!");
-
-            switch (account.getRoleId()) {
-                case 1:
-                    request.getRequestDispatcher("Admin.jsp").forward(request, response);
-                    break;
-                case 2:
-                    response.sendRedirect("home");
-                    break;
-                case 3:
-                    request.getRequestDispatcher("seller.jsp").forward(request, response);
-                    break;
-                default:
-                    request.getRequestDispatcher("shippers.jsp").forward(request, response);
-                    break;
+                switch (account.getRoleId()) {
+                    case 1:
+                        request.getRequestDispatcher("Admin.jsp").forward(request, response);
+                        break;
+                    case 2:
+                        response.sendRedirect("home");
+                        break;
+                    case 3:
+                        request.getRequestDispatcher("seller.jsp").forward(request, response);
+                        break;
+                    default:
+                        request.getRequestDispatcher("shippers.jsp").forward(request, response);
+                        break;
+                }
             }
         } else {
             request.getSession().setAttribute("account", null);
@@ -100,6 +104,7 @@ public class LoginController extends HttpServlet {
             response.getWriter().println("Login failed!");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
+
     }
 
     /**

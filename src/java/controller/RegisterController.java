@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Account;
 import model.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -67,8 +68,10 @@ public class RegisterController extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String rawPassword = request.getParameter("password");
         
+        String password=BCrypt.hashpw(rawPassword,BCrypt.gensalt(10));
+
         //add info to session
         User rawUser =new User();
         rawUser.setName(FullName);

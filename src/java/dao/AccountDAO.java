@@ -18,17 +18,16 @@ import model.Account;
  */
 public class AccountDAO extends DBContext {
 
-    public Account getAccount(String userName, String passWord) {
+    public Account getAccount(String userName) {
         try {
             String sql = "SELECT [AccountID]\n"
                     + "		, [Username]\n"
                     + "		, [Password]\n"
                     + "		, [RoleID] \n"
                     + "		FROM [Account]\n"
-                    + "		WHERE [Username] = ? AND [Password] = ?";
+                    + "		WHERE [Username] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
-            stm.setString(2, passWord);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Account account = new Account();
