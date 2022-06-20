@@ -22,12 +22,7 @@ public class AccountDAO extends DBContext {
 
     public Account getAccount(String userName, String passWord) {
         try {
-            String sql = "SELECT [AccountID]\n"
-                    + "		, [Username]\n"
-                    + "		, [Password]\n"
-                    + "		, [RoleID] \n"
-                    + "		FROM [Account]\n"
-                    + "		WHERE [Username] = ? AND [Password] = ?";
+            String sql = "select * from Account where Username = ? and Password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
             stm.setString(2, passWord);
@@ -38,6 +33,7 @@ public class AccountDAO extends DBContext {
                 account.setUserName(rs.getString("Username"));
                 account.setPassWord(rs.getString("Password"));
                 account.setRoleId(rs.getInt("RoleID"));
+                account.setStatus(rs.getBoolean("Status"));
                 return account;
             }
         } catch (SQLException ex) {

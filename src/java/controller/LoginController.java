@@ -77,38 +77,25 @@ public class LoginController extends HttpServlet {
         Account account = db.getAccount(user, pass);
         if (account != null) {
             request.getSession().setAttribute("account", account);
+            if(!account.isStatus()){
+                request.setAttribute("loginFailed","User is inactive");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
 //            response.getWriter().println("Login successful!");
             switch (account.getRoleId()) {
                 case 1:
                     request.getRequestDispatcher("admin").forward(request, response);
                     break;
                 case 2:
-                    if (account.isStatus() == false) {
-                        request.setAttribute("loginFailed", "User is inactive");
-                        request.getRequestDispatcher("login.jsp").forward(request, response);
-                        break;
-                    } else {
-                        response.sendRedirect("home");
-                        break;
-                    }
+                    response.sendRedirect("home");
+                    break;
                 case 3:
-                    if (account.isStatus() == false) {
-                        request.setAttribute("loginFailed", "User is inactive");
-                        request.getRequestDispatcher("login.jsp").forward(request, response);
-                        break;
-                    } else {
-                        request.getRequestDispatcher("seller.jsp").forward(request, response);
-                        break;
-                    }
+                    request.getRequestDispatcher("seller.jsp").forward(request, response);
+                    break;
                 default:
-                    if (account.isStatus() == false) {
-                        request.setAttribute("loginFailed", "User is inactive");
-                        request.getRequestDispatcher("login.jsp").forward(request, response);
-                        break;
-                    }else{
                     request.getRequestDispatcher("shippers.jsp").forward(request, response);
                     break;
-                    }
+
+                }
             }
         } else {
             request.getSession().setAttribute("account", null);
