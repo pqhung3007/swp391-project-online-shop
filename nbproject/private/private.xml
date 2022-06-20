@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/src/java/context/DBContext.java</file>
-            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/src/java/controller/ListProductController.java</file>
-            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/product.jsp</file>
-            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/index.jsp</file>
-            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/productDetail.jsp</file>
-            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/WEB-INF/web.xml</file>
+            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/addProduct.jsp</file>
+            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/components/sidebar.jsp</file>
+            <file>file:/D:/FPT%20Uni/Sem%205/SWP391/OnlineShopProject/web/css/seller/home.css</file>
         </group>
     </open-files>
 </project-private>
