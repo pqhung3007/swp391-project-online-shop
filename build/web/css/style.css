@@ -444,6 +444,9 @@ h6,
   font-weight: 600;
   margin-bottom: 10px;
 }
+.col-6.align-self-end {
+    margin-top: 100px;
+}
 .single-product-img img {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 20px #ddd;

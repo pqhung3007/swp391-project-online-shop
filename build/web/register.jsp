@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Baker - Bakery Website Template</title>
+        <title>Register - Coffee Maker</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -54,10 +54,10 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row img-twice position-relative h-100">
                             <div class="col-6">
-                                <img class="img-fluid rounded" src="img/carousel-1.jpg" alt="">
+                                <img class="img-fluid rounded" src="img/about-1.jpg" alt="">
                             </div>
-                            <div class="col-6 align-self-end">
-                                <img class="img-fluid rounded" src="img/carousel-2.jpg" alt="">
+                            <div class="col-6 align-self-end mt-150">
+                                <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
                             </div>
                         </div>
 
