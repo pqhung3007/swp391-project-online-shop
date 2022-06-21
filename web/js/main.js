@@ -8,7 +8,7 @@ function required()
     {
         alert("Please input a Value");
         return false;
-    } else
+   } else
     {
         return true;
     }
