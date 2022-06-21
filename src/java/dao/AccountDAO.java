@@ -22,10 +22,10 @@ public class AccountDAO extends DBContext {
         try {
             String sql = "SELECT [AccountID]\n"
                     + "		, [Username]\n"
-                    + "		, [Passwword]\n"
+                    + "		, [Password]\n"
                     + "		, [RoleID] \n"
                     + "		FROM [Account]\n"
-                    + "		WHERE [Username] = ? AND [Passwword] = ?";
+                    + "		WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
             stm.setString(2, passWord);
@@ -34,7 +34,7 @@ public class AccountDAO extends DBContext {
                 Account account = new Account();
                 account.setAccountId(rs.getInt("AccountID"));
                 account.setUserName(rs.getString("Username"));
-                account.setPassWord(rs.getString("Passwword"));
+                account.setPassWord(rs.getString("Password"));
                 account.setRoleId(rs.getInt("RoleID"));
                 return account;
             }
@@ -42,5 +42,29 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+   
+    //lấy quyền của tài khoản đăng nhập
+     public int getPermission(String username, String url)
+    {
+        try {
+            String sql = "SELECT count(*) as total FROM  \n" +
+"                    Account a inner join [Role] r on a.RoleID = r.RoleID\n" +
+"                    inner join Role_Feature gf on gf.rid = r.RoleID\n" +
+"                    inner join Feature f on f.fid = gf.fid\n" +
+"                    where a.userName = ? and f.url = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, username);
+            stm.setString(2, url);
+            ResultSet rs = stm.executeQuery();
+            while(rs.next())
+            {
+                return rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
 }
