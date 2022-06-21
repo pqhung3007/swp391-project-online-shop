@@ -126,7 +126,7 @@ aside .navbar-content a {
     transition: 0.3s ease;
 }
 
-aside .navbar-content a:last-child {
+aside .navbar-content .logout {
     position: absolute;
     bottom: 2rem;
     width: 100%;
