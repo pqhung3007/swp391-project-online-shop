@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="navbar-content">
-                    <a href="#" class="active">
+                    <a href="#">
                         <span class="material-symbols-outlined"> grid_view </span>
                         <h3>Dashboard</h3>
                     </a>
@@ -38,7 +38,7 @@
                         <span class="material-symbols-outlined"> person </span>
                         <h3>About</h3>
                     </a>
-                    <a href="#">
+                    <a href="#" class="active">
                         <span class="material-symbols-outlined"> inventory </span>
                         <h3>Manage Accounts</h3>
                     </a>
@@ -46,12 +46,10 @@
                         <span class="material-symbols-outlined"> insights </span>
                         <h3>Contact</h3>
                     </a>
-                    <c:if test="${sessionScope.account !=null}">
-                        <a href="#">
-                            <span class="material-symbols-outlined"> logout </span>
-                            <h3>Logout</h3>
-                        </a>
-                    </c:if>
+                    <a href="#" class="logout">
+                        <span class="material-symbols-outlined"> logout </span>
+                        <h3>Logout</h3>
+                    </a>
                 </div>
             </aside>
 
@@ -69,8 +67,7 @@
                                 <th>Username</th>
                                 <th>Role Name</th>
                                 <th>Status</th>
-                                <th>Edit</th>
-                                <th>Action</th>
+                                <th colspan="2">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,12 +85,12 @@
                                         </c:if>
                                     </td>
                                     <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
-                                    <td class="primary">
+                                    <td class="primary" style="width: 7rem">
                                         <c:if test="${!a.status}">
-                                            <a href="updateStatus?aid=${a.accountId}&status=1">Cấp quyền tài khoản</a>
+                                            <a href="updateStatus?aid=${a.accountId}&status=1">Authorize</a>
                                         </c:if>
                                         <c:if test="${a.status}">
-                                            <a href="updateStatus?aid=${a.accountId}&status=0">Gỡ quyền tài khoản</a>
+                                            <a href="updateStatus?aid=${a.accountId}&status=0">Unauthorize</a>
                                         </c:if>
                                     </td>
                                 </tr>
