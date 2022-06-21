@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,19 +17,20 @@
     </head>
     <body>
         <div class="container">
-            <h2>Verify Your Account</h2>
-            <p>We emailed you the six digit code to cool_guy@email.com <br /> Enter the code below to confirm your email
-                address.</p>
-            <div class="code-container">
-                <input type="number" class="code" min="0" max="9" required>
-                <input type="number" class="code" min="0" max="9" required>
-                <input type="number" class="code" min="0" max="9" required>
-                <input type="number" class="code" min="0" max="9" required>
-                <input type="number" class="code" min="0" max="9" required>
-                <input type="number" class="code" min="0" max="9" required>
-            </div>
             <form action="verify" method="post">
+                <h2>Verify Your Account</h2>
+                <p>We emailed you the six digit code to cool_guy@email.com <br /> Enter the code below to confirm your email
+                    address.</p>
+                <div class="code-container">
+                    <input name="number1" type="number" class="code" min="0" max="9" required>
+                    <input name="number2" type="number" class="code" min="0" max="9" required>
+                    <input name="number3" type="number" class="code" min="0" max="9" required>
+                    <input name="number4" type="number" class="code" min="0" max="9" required>
+                    <input name="number5" type="number" class="code" min="0" max="9" required>
+                    <input name="number6" type="number" class="code" min="0" max="9" required>
+                </div>
                 <button class="btn-cta">Submit</button>
+                <h6>${requestScope.msg}</h6>
             </form>
         </div>
 

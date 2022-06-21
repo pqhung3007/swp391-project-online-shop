@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.Random;
 import model.Account;
 import model.User;
 import org.mindrot.jbcrypt.BCrypt;
@@ -73,9 +74,15 @@ public class RegisterController extends HttpServlet {
         request.getSession().setAttribute("rawUser", rawUser);
         request.getSession().setAttribute("rawAccount", rawAccount);
         
+        //activate 6-digit code
+        Random rand=new Random();
+        int number=rand.nextInt(999999);
+        String verifyCode=String.format("%06d",number);
+        
         //verify user email
         SendEmail se=new SendEmail();
-        se.send(email);
+        se.send(email, verifyCode);
+        request.getSession().setAttribute("verifyCode", verifyCode);
         response.getWriter().println("check mail");
     }
 

@@ -49,7 +49,16 @@ public class VerifyController extends HttpServlet {
         //get register information from session
         User rawUser=(User)request.getSession().getAttribute("rawUser");
         Account rawAccount=(Account)request.getSession().getAttribute("rawAccount");
-        //insert new account to database
+        String verifyCode = (String) request.getSession().getAttribute("verifyCode");
+        
+        //get verification code
+        String rawCode="";
+        for (int i = 1; i < 7; i++) {
+            rawCode+=request.getParameter("number"+i);
+        }
+        
+        if(rawCode.equals(verifyCode)){
+            //insert new account to database
         AccountDAO dbAccount = new AccountDAO();
         //get lastest created account
         Account latestAccount = dbAccount.getLatestAccount();
@@ -64,6 +73,10 @@ public class VerifyController extends HttpServlet {
         dbUser.insertUser(u);
         
         response.sendRedirect("login");
+        } else{
+            request.setAttribute("msg", "Verification code is not correct. Please try again");
+            request.getRequestDispatcher("verify.jsp").forward(request, response);
+        }
     }
 
     /** 
