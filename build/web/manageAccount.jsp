@@ -2,138 +2,108 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin</title>
-        <link href="img/favicon.ico" rel="icon">
-        <link rel="stylesheet" href="css/seller/home.css">
-
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Management</title>
+        <link rel="stylesheet" href="css/admin/manage.css" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
-            rel="stylesheet">
-
-        <!-- Icon Font Stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="js/animate/animate.min.css" rel="stylesheet">
-        <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="css/admin.css" rel="stylesheet">
-        <link href="css/home.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
-
-
-
+            href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+            rel="stylesheet"
+            />
     </head>
-
     <body>
-        <h1>Hello this is admin page</h1>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                <h1 class="text-primary m-0">Coffee Maker</h1>
-            </a>
-            <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <c:if test="${sessionScope.account !=null}">
-                    <a
-                        href="#"
-                        class="nav-item nav-link"
-                        >${sessionScope.account.userName}</a
-                    >
-                    <a href="logout" class="nav-item nav-link">Logout</a>
+        <div class="container">
+            <!-- VERTICAL NAVBAR -->
+            <aside>
+                <div class="navbar-top">
+                    <div class="navbar-heading">
+                        <h2>CoMa</h2>
+                    </div>
+                    <div class="btn-close">
+                        <span class="material-symbols-outlined"> close </span>
+                    </div>
                 </div>
-            </c:if>
-        </nav>
 
-
-        <div class=" py-3 row">
-            <div class="col-lg-2">
-
-                <div class="fact-item bg-light rounded text-center h-100 slidebar">
-
-
-                    <a href="index.html" class="nav-item nav-link active">
-                        <span class="material-icons-sharp">grid_view</span>
-                        <h3>Home</h3>
+                <div class="navbar-content">
+                    <a href="#" class="active">
+                        <span class="material-symbols-outlined"> grid_view </span>
+                        <h3>Dashboard</h3>
                     </a>
-                    <a href="about.html" class="nav-item nav-link">
-                        <span class="material-icons-sharp">person_outline</span>
+                    <a href="#">
+                        <span class="material-symbols-outlined"> person </span>
                         <h3>About</h3>
                     </a>
-                    <a href="manage" class="nav-item nav-link">
-                        <span class="material-icons-sharp">inventory</span>
-                        <h3>Manage accounts</h3>
+                    <a href="#">
+                        <span class="material-symbols-outlined"> inventory </span>
+                        <h3>Manage Accounts</h3>
                     </a>
-                    <a href="contact.html" class="nav-item nav-link">
-                        <span class="material-icons-sharp">insights</span>
+                    <a href="#">
+                        <span class="material-symbols-outlined"> insights </span>
                         <h3>Contact</h3>
                     </a>
-
-
+                    <c:if test="${sessionScope.account !=null}">
+                        <a href="#">
+                            <span class="material-symbols-outlined"> logout </span>
+                            <h3>Logout</h3>
+                        </a>
+                    </c:if>
                 </div>
+            </aside>
 
+            <!-- MAIN SECTION -->
+            <main>
+                <h1>Manage Accounts</h1>
 
-            </div>
-
-
+                <!-- USER TABLE -->
+                <div class="recent-orders">
+                    <h2>Recent Users</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Account ID</th>
+                                <th>Username</th>
+                                <th>Role Name</th>
+                                <th>Status</th>
+                                <th>Edit</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${accounts}" var="a">
+                                <tr>
+                                    <td>${a.accountId}</td>
+                                    <td>${a.userName}</td>
+                                    <td>${a.roleId}</td>
+                                    <td>
+                                        <c:if test="${a.status == true}">
+                                            Active
+                                        </c:if>
+                                        <c:if test="${a.status == false}">
+                                            Inactive
+                                        </c:if>
+                                    </td>
+                                    <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
+                                    <td class="primary">
+                                        <c:if test="${!a.status}">
+                                            <a href="updateStatus?aid=${a.accountId}&status=1">Cấp quyền tài khoản</a>
+                                        </c:if>
+                                        <c:if test="${a.status}">
+                                            <a href="updateStatus?aid=${a.accountId}&status=0">Gỡ quyền tài khoản</a>
+                                        </c:if>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
         </div>
 
-        <form action="manage" method="post">
-            <div class="recent-orders">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>AccountID</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>RoleID</th>
-                            <th>Status</th>
-                            <th>Edit</th>
-                            <th>Update</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${accounts}" var="a">
-                            <tr>
-                                <td>${a.accountId}</td>
-                                <td>${a.userName}</td>
-                                <td><input type="password" value="${a.passWord}" readonly=""></td>
-                                <td>${a.roleId}</td>
-                                <td>
-                                    <c:if test="${a.status == true}">
-                                        Active
-                                    </c:if>
-                                    <c:if test="${a.status == false}">
-                                        Inactive
-                                    </c:if>
-                                </td>
-                                <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
-                                <td class="primary">
-                                    <c:if test="${!a.status}">
-                                        <a href="updateStatus?aid=${a.accountId}&status=1">Cấp quyền tài khoản</a>
-                                    </c:if>
-                                    <c:if test="${a.status}">
-                                        <a href="updateStatus?aid=${a.accountId}&status=0">Gỡ quyền tài khoản</a>
-                                    </c:if>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </form>
-
+        <!-- <script src="js/seller.js"></script> -->
     </body>
 </html>
