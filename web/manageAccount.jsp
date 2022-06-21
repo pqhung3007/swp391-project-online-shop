@@ -109,7 +109,7 @@
                             <tr>
                                 <td>${a.accountId}</td>
                                 <td>${a.userName}</td>
-                                <td>${a.passWord}</td>
+                                <td><input type="password" value="${a.passWord}" readonly=""></td>
                                 <td>${a.roleId}</td>
                                 <td>
                                     <c:if test="${a.status == true}">

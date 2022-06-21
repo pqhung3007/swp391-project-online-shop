@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Account;
+import model.User;
 
 /**
  *
@@ -26,8 +27,8 @@ public class EditAccountController extends HttpServlet {
     throws ServletException, IOException {
         int accountID = Integer.parseInt(request.getParameter("aid"));
         AccountDAO dao = new AccountDAO();
-        Account a = dao.getAccountByID(accountID);
-        request.setAttribute("account", a);
+        User u = dao.getUserByID(accountID);
+        request.setAttribute("user", u);
         request.getRequestDispatcher("editAccount.jsp").forward(request, response);
     } 
 
@@ -36,10 +37,12 @@ public class EditAccountController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         int aid = Integer.parseInt(request.getParameter("accountID"));
-        String user = request.getParameter("username");
-        String pass = request.getParameter("password");
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String email = request.getParameter("email");
         AccountDAO dao = new AccountDAO();
-        dao.updateAccount(user, pass, aid);
+        dao.updateUser(name, phone, address, email, aid);
         response.sendRedirect("manage");
     }
 

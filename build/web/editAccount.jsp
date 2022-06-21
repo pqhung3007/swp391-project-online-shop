@@ -92,8 +92,10 @@
 
         <h3>Edit Account</h3>
         <form action="editAccount" method="post">
-            Username<input type="text" name="username" value="${account.userName}">
-            Password<input type="password" name="password" value="${account.passWord}">
+            Full name<input type="text" name="name" value="${user.name}">
+            Phone<input type="text" name="phone" value="${user.phone}">
+            Address<input type="text" name="address" value="${user.address}">
+            Email<input type="text" name="email" value="${user.email}">
             <input type="submit" value="Edit">
         </form>
         
