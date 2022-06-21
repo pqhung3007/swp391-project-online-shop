@@ -55,6 +55,19 @@ body {
     grid-template-columns: 14rem auto 21rem;
 }
 
+.container-product {
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 2rem;
+    margin-right: 3rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 a {
     color: var(--color-dark);
     text-decoration: none;
@@ -354,13 +367,18 @@ textarea{
 .btn-submit {
     max-width: 30%;
     padding: 0.8rem 1.5rem;
-    background-color: #fff;
     border-radius: 10px;
     font-family: inherit;
     border: none;
     cursor: pointer;
+    color: #fff;
+    background-color: var(--color-primary);
+    transition: all 0.3s;
 }
 
+.btn-submit:hover {
+    transform: scale(0.95);
+}
 
 /* ORDER TABLE */
 .recent-orders {
