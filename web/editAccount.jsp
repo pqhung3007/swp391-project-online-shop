@@ -64,7 +64,7 @@
                 <div class="fact-item bg-light rounded text-center h-100 slidebar">
 
 
-                    <a href="index.html" class="nav-item nav-link active">
+                    <a href="admin" class="nav-item nav-link active">
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Home</h3>
                     </a>
@@ -91,7 +91,8 @@
         </div>
 
         <h3>Edit Account</h3>
-        <form action="editAccount" method="post">
+        <form name="form1" action="editAccount" method="post" onsubmit="required()">
+            <input type="hidden" name="accountID" value="${user.accountID}">
             Full name<input type="text" name="name" value="${user.name}">
             Phone<input type="text" name="phone" value="${user.phone}">
             Address<input type="text" name="address" value="${user.address}">
@@ -99,6 +100,6 @@
             <input type="submit" value="Edit">
         </form>
         
-
+    <script src="js/main.js"></script>
     </body>
 </html>
