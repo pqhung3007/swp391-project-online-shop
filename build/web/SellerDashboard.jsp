@@ -217,6 +217,21 @@
 
         </div>
 
+        <!-- Modal -->
+        <div class="modal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h1>Average ratings</h1>
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <img src="./img/carousel-1.jpg" alt="">
+                </div>                
+            </div>
+        </div>
+
         <script src="js/seller.js"></script>
     </body>
 </html>

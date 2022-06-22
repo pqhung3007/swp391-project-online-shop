@@ -1,11 +1,4 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 13-Jun-2022, 09:36:26
-    Author     : Administrator
-*/
+
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 :root {
@@ -623,4 +616,44 @@ table td a:hover {
     .right-col .top .info {
         display: none;
     }
+}
+
+/* Modal section */
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.open{
+    display: flex;
+}
+
+.modal-container{
+    position: relative;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: var(--card-border-radius);
+}
+
+.modal-header span{
+    position: absolute;
+    padding: 10px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.modal-body img{
+    margin-top: 20px;
+    width: 100%;
+    border-radius: var(--card-border-radius);
 }
