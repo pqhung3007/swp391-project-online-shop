@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
+import model.Role;
 import model.User;
 
 /**
@@ -46,7 +47,7 @@ public class AccountDAO extends DBContext {
     public List<Account> getAll() {
         List<Account> accounts = new ArrayList<>();
         try {
-            String sql = "select * from Account";
+            String sql = "select * from Account where RoleID > 1";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
@@ -103,9 +104,40 @@ public class AccountDAO extends DBContext {
         }
         return u;
     }
-
+    
+    public List<Role> getAllRole(){
+        List<Role> roles = new ArrayList<>();
+        try {
+            String sql = "select * from Role where RoleID > 1";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                roles.add(new Role(rs.getInt(1), rs.getString(2)));
+            }
+        } catch (Exception e) {
+        }
+        return roles;
+    }
+    
+    public List<Account> getUserByRole(int roleId){
+        List<Account> accounts = new ArrayList<>();
+        try {
+            String sql = "select * from Account where RoleID = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, roleId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
+            }
+        } catch (Exception e) {
+        }
+        return accounts;
+    }
     public static void main(String[] args) {
-        User u = new AccountDAO().getUserByID(1);
-        System.out.println(u);
+//        User u = new AccountDAO().getUserByID(1);
+        List<Role> roles = new AccountDAO().getAllRole();
+        for (Role role : roles) {
+            System.out.println(role);
+        }
     }
 }
