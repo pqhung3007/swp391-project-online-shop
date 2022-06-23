@@ -37,8 +37,10 @@ public class SellerDashboardController extends BaseAuthController {
             Account account = (Account) request.getSession().getAttribute("account");
             int sellerId = account.getAccountId();
             int totalProducts = new SellerDAO().getTotalProduct(sellerId);
+            int totalMoney = new SellerDAO().getTotalMoney(sellerId);
 
-            request.setAttribute("total", totalProducts);
+            request.setAttribute("totalProducts", totalProducts);
+            request.setAttribute("totalMoney", totalMoney);
             request.getRequestDispatcher("SellerDashboard.jsp").forward(request, response);
         }
     }
