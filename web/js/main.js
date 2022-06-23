@@ -1,3 +1,18 @@
+function required()
+{
+    var empt = document.form1.name.value;
+    var empt1 = document.form1.phone.value;
+    var empt2 = document.form1.address.value;
+    var empt3 = document.form1.email.value;
+    if (empt === "" || empt1 === "" || empt2 === "" || empt3 === "")
+    {
+        alert("Please input a Value");
+        return false;
+   } else
+    {
+        return true;
+    }
+}
 (function ($) {
     "use strict";
     // Spinner
@@ -35,7 +50,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
 

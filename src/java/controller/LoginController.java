@@ -77,13 +77,11 @@ public class LoginController extends HttpServlet {
         Account account = db.getAccount(user, pass);
         if (account != null) {
             request.getSession().setAttribute("account", account);
-            if(!account.isStatus()){
-                request.setAttribute("loginFailed","User is inactive");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+            if(account.isStatus()){               
 //            response.getWriter().println("Login successful!");
             switch (account.getRoleId()) {
                 case 1:
-                    request.getRequestDispatcher("admin").forward(request, response);
+                    request.getRequestDispatcher("Admin.jsp").forward(request, response);
                     break;
                 case 2:
                     response.sendRedirect("home");
@@ -96,6 +94,9 @@ public class LoginController extends HttpServlet {
                     break;
 
                 }
+            }else{
+                request.setAttribute("loginFailed","User is inactive");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } else {
             request.getSession().setAttribute("account", null);

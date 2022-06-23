@@ -64,7 +64,7 @@
                 <div class="fact-item bg-light rounded text-center h-100 slidebar">
 
 
-                    <a href="index.html" class="nav-item nav-link active">
+                    <a href="admin" class="nav-item nav-link active">
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Home</h3>
                     </a>
@@ -91,12 +91,15 @@
         </div>
 
         <h3>Edit Account</h3>
-        <form action="editAccount" method="post">
-            Username<input type="text" name="username" value="${account.userName}">
-            Password<input type="password" name="password" value="${account.passWord}">
+        <form name="form1" action="editAccount" method="post" onsubmit="required()">
+            <input type="hidden" name="accountID" value="${user.accountID}">
+            Full name<input type="text" name="name" value="${user.name}">
+            Phone<input type="text" name="phone" value="${user.phone}">
+            Address<input type="text" name="address" value="${user.address}">
+            Email<input type="text" name="email" value="${user.email}">
             <input type="submit" value="Edit">
         </form>
         
-
+    <script src="js/main.js"></script>
     </body>
 </html>
