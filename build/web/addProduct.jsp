@@ -45,14 +45,7 @@
 
         </div>
 
-        <script src="app.js"></script>
-        <script>
-            const pictureURL = document.querySelector('.image-name');
-            function changePicture() {
-                document.querySelector('#image').src = pictureURL.value;
-            }
-            pictureURL.addEventListener("input", changePicture)
-        </script>
+        <script src="js/seller.js"></script>
 
     </body>
 </html>

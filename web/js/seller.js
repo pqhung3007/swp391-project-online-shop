@@ -12,8 +12,19 @@ const changeActiveState = () => {
     });
 }
 
-const pictureURL = document.querySelector('.input-image input');
+//input picture in "add product"
+const pictureURL = document.querySelector('.image-name');
 function changePicture() {
-    document.querySelector('.input-image img').src = pictureURL.value;
+    document.querySelector('#image').src = pictureURL.value;
 }
 pictureURL.addEventListener("input", changePicture)
+
+//open and close statistic modal
+const modal = document.querySelector('.modal');
+const rating = document.querySelector('.ratings');
+rating.addEventListener('click', () => {
+    modal.classList.add('open');
+});
+modal.addEventListener('click', () => {
+    modal.classList.remove('open');
+});
