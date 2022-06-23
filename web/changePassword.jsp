@@ -49,7 +49,7 @@
 
 
         <!-- Navbar End -->
-        <div class="container-xxl py-6">
+        <div class="container-xxl pt-6">
             <div class="container">
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -66,38 +66,26 @@
                     </div>
                     
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="h-100">
+                        <div class="h-100 d-flex justify-content-center flex-column">
                             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
                                 <h1 class=" m-0 text-center">The Coffee Maker</h1>
                             </a>
-                            <form action="login" method="post">
+                            <form action="changepassword" method="post">
                                 <div class="row g-3">
+                                    
+                                    <h6 class="text-center">Enter your new password</h6>
 
                                     <div class="col-12">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="userName">
-                                            <label for="name">Username</label>
+                                            <input type="password" class="form-control text-primary" placeholder="Enter your password" id="password" name="password">
+                                            <label for="password">New Password</label>
                                         </div>
                                     </div>
-
-
-
-                                    <div class="col-12">
-                                        <div class="gradient-border" id="box"></div>
-                                        <div class="form-floating">
-                                            <input type="password" class="form-control text-primary" id="name" placeholder="Your Password" name="passWord">
-                                            <label for="name">Password</label>
-                                        </div>
-                                    </div>
-                                    <!--login failed message-->
-                                    <p style="color:red">${loginFailedMessage}</p>
-                                    <p class="forget">Forgot Password ? <a href=resetpassword>Click Here</a></p>
-                                    <p class="forget">Don't have an account ? <a href="register">Sign up</a></p>
 
                                     <div class="col-12 text-center">
                                         <div class="gradient-border" id="box"></div>
-                                        <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Login</button>
+                                        <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Confirm</button>
                                     </div>
                                 </div>
                             </form>

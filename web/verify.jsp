@@ -19,7 +19,7 @@
         <div class="container">
             <form action="verify" method="post">
                 <h2>Verify Your Account</h2>
-                <p>We emailed you the six digit code to cool_guy@email.com <br /> Enter the code below to confirm your email
+                <p>We emailed you the six digit code to your email. <br /> Enter the code below to confirm your email
                     address.</p>
                 <div class="code-container">
                     <input name="number1" type="number" class="code" min="0" max="9" required>

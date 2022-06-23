@@ -48,6 +48,14 @@
         <servlet-name>VerifyController</servlet-name>
         <servlet-class>controller.VerifyController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <servlet-class>controller.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>changePassController</servlet-name>
+        <servlet-class>controller.changePassController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>VerifyController</servlet-name>
         <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <url-pattern>/resetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>changePassController</servlet-name>
+        <url-pattern>/changepassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

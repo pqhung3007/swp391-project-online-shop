@@ -1,4 +1,4 @@
-package email;
+package verify;
 
 import java.util.Properties;
 import javax.mail.*;
@@ -57,7 +57,7 @@ public class SendEmail {
                     + "    <h1>Here comes the Coffee Maker!</h1>\n"
                     + "      <h3>Thank you for being one of our precious customers</h3>\n"
                     + "      <small\n"
-                    + "        >Please enter this code in the verification link to confirm your email address.</small>\n"
+                    + "        >Please enter this code in the verification link to confirm your identity.</small>\n"
                     + "      <div\n"
                     + "        style=\"\n"
                     + "          background-color: rgb(171, 168, 168);\n"

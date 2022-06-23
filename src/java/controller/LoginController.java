@@ -99,9 +99,7 @@ public class LoginController extends HttpServlet {
             }
         } else {
             request.getSession().setAttribute("account", null);
-
             request.setAttribute("loginFailedMessage", "Login failed!");
-            response.getWriter().println("Login failed!");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 

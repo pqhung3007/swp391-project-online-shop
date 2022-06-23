@@ -68,7 +68,7 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="h-100">
                             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                                <h1 class=" m-0 text-center">Coffee Maker</h1>
+                                <h1 class=" m-0 text-center">The Coffee Maker</h1>
                             </a>
                             <form action="login" method="post">
                                 <div class="row g-3">
@@ -77,7 +77,7 @@
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
                                             <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="userName">
-                                            <label for="name">UserName</label>
+                                            <label for="name">Username</label>
                                         </div>
                                     </div>
 
@@ -86,14 +86,14 @@
                                     <div class="col-12">
                                         <div class="gradient-border" id="box"></div>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control text-primary" id="name" placeholder="Your Name" name="passWord">
+                                            <input type="password" class="form-control text-primary" id="name" placeholder="Your Password" name="passWord">
                                             <label for="name">Password</label>
                                         </div>
                                     </div>
                                     <!--login failed message-->
                                     <p style="color:red">${loginFailedMessage}</p>
-                                    <p class="forget">Forgot Password ? <a href="#">Click Here</a></p>
-                                    <p class="forget">Don't have an account ? <a href="#">Sign up</a></p>
+                                    <p class="forget">Forgot Password ? <a href=resetpassword>Click Here</a></p>
+                                    <p class="forget">Don't have an account ? <a href="register">Sign up</a></p>
 
                                     <div class="col-12 text-center">
                                         <div class="gradient-border" id="box"></div>
@@ -107,9 +107,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

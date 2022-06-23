@@ -50,7 +50,8 @@ public class AccountDAO extends DBContext {
                     + "     (?\n"
                     + "     ,?\n"
                     + "     ,?\n"
-                    + "     ,?)";
+                    + "     ,?\n"
+                    + "     ,1)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, a.getAccountId());
             statement.setString(2, a.getUserName());
@@ -77,5 +78,23 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public void changePassword(String email, String password) {
+        try {
+            String sql = "with t as (\n"
+                    + "select  Account.AccountID, [Password], Email\n"
+                    + "from Account inner join [User] on Account.AccountID=[User].UserID\n"
+                    + ")\n"
+                    + "UPDATE t\n"
+                    + "SET Password=?\n"
+                    + "WHERE  t.Email=?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, password);
+            statement.setString(2, email);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

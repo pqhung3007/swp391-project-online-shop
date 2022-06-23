@@ -20,6 +20,10 @@ h6,
   padding-bottom: 6rem;
 }
 
+.pt-6{
+    padding-top:6rem;
+}
+
 .my-6 {
   margin-top: 6rem;
   margin-bottom: 6rem;
