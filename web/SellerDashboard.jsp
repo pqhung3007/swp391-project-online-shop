@@ -43,7 +43,7 @@
                         <div class="insight-content">
                             <div class="insight-figure">
                                 <h3>Total Products</h3>
-                                <p>20</p>
+                                <p>${total}</p>
                             </div>
                         </div>
                     </div>
