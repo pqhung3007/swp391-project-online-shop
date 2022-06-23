@@ -5,6 +5,7 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,13 +14,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import model.Account;
 import model.Category;
 
 /**
  *
  * @author Administrator
  */
-public class AddProductController extends HttpServlet {
+public class AddProductController extends BaseAuthController {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +41,7 @@ public class AddProductController extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("categories", categoryList);
-            
+
             System.out.println(categoryList);
             request.getRequestDispatcher("addProduct.jsp").forward(request, response);
         }
@@ -55,7 +57,7 @@ public class AddProductController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -69,9 +71,20 @@ public class AddProductController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String image = request.getParameter("image");
+        String name = request.getParameter("name");
+        int price = Integer.parseInt(request.getParameter("price"));
+        int categoryId = Integer.parseInt(request.getParameter("category"));
+        String description = request.getParameter("description");
+        
+        HttpSession session = request.getSession();
+         Account account = (Account)request.getSession().getAttribute("account");
+        int sellerId = account.getAccountId();
+        
+        new ProductDAO().insertProduct(name, image, price, categoryId, description,sellerId);
+        response.sendRedirect("seller-dashboard");
     }
 
     /**

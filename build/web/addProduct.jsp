@@ -19,7 +19,7 @@
             <!-- MAIN SECTION -->
             <div style="margin-top: 2rem">
                 <h1>Add new product</h1>
-                <form action="action">
+                <form action="add-product" method="POST">
                     <div class="input-product">
                         <div class="input-image">
                             <input class="field image-name" type="text" placeholder="Product Image URL" name="image">
@@ -30,12 +30,12 @@
                             <input class="field" type="number" placeholder="Product Price (VND)" name="price">
                             <select name="category" class="field">
                                 <c:forEach items="${categories}" var="c">
-                                    <option>${c.categoryName}</option>
+                                    <option value="${c.categoryId}">${c.categoryName}</option>
                                 </c:forEach>
                             </select>
                             <fieldset class="info">
                                 <legend>Product Description</legend>
-                                <textarea></textarea>
+                                <textarea name="description"></textarea>
                             </fieldset>
                             <input class="btn-submit" type="submit" value="Save">
                         </div>
@@ -45,7 +45,14 @@
 
         </div>
 
-        <script src="js/seller.js"></script>
+        <script src="app.js"></script>
+        <script>
+            const pictureURL = document.querySelector('.image-name');
+            function changePicture() {
+                document.querySelector('#image').src = pictureURL.value;
+            }
+            pictureURL.addEventListener("input", changePicture)
+        </script>
 
     </body>
 </html>

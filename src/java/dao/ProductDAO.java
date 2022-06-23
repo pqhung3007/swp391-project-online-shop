@@ -28,8 +28,8 @@ public class ProductDAO extends DBContext {
                     + "      ,[UnitPrice]\n"
                     + "      ,[Description]\n"
                     + "  FROM [Product] \n";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
                 p.setProductId(rs.getInt("ProductID"));
@@ -54,9 +54,9 @@ public class ProductDAO extends DBContext {
                     + "      ,[Description]\n"
                     + "  FROM [Product]\n"
                     + "  WHERE [CategoryID] = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, cid);
-            ResultSet rs = statement.executeQuery();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, cid);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
                 p.setProductId(rs.getInt("ProductID"));
@@ -75,9 +75,9 @@ public class ProductDAO extends DBContext {
         Product p = null;
         try {
             String sql = "select * from Product p where p.ProductID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, pid);
-            ResultSet rs = statement.executeQuery();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, pid);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
             }
@@ -131,9 +131,9 @@ public class ProductDAO extends DBContext {
         ArrayList<Product> products = new ArrayList<>();
         try {
             String sql = "select * from Product where ProductName like ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, "%" + keyword + "%");
-            ResultSet rs = statement.executeQuery();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, "%" + keyword + "%");
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
                 p.setProductId(rs.getInt("ProductID"));
@@ -147,7 +147,7 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
-    
+
     public void insertProductReview(String productID, String reviewID, int aid) {
         try {
             String sql = "INSERT INTO [dbo].[Product Review]\n"
@@ -156,11 +156,41 @@ public class ProductDAO extends DBContext {
                     + "           ,[AccountID])\n"
                     + "     VALUES\n"
                     + "           (?,?,?)";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, productID);
-            statement.setString(2, reviewID);
-            statement.setInt(3, aid);
-            statement.executeUpdate();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, productID);
+            ps.setString(2, reviewID);
+            ps.setInt(3, aid);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void insertProduct(String name, String image, int price, int categoryId, String description, int sellerId) {
+        try {
+            String sql = "INSERT INTO Product\n"
+                    + "           ([ProductName]\n"
+                    + "           ,[ProductImage]\n"
+                    + "           ,[UnitPrice]\n"
+                    + "           ,[Description]\n"
+                    + "           ,[CategoryID]\n"
+                    + "           ,[sellerID])\n"
+                    + "     VALUES\n"
+                    + "           (?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?)";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, image);
+            ps.setInt(3, price);
+            ps.setString(4, description);
+            ps.setInt(5, categoryId);
+            ps.setInt(6, sellerId);
+            
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

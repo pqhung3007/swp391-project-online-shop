@@ -14,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <div class="navbar-top">
                         <div class="profile">
                             <div class="info">
-                                <h2>Welcome back, Hung</h2>
+                                <h2>Welcome back, ${sessionScope.account.userName}</h2>
                                 <p class="text-muted">Seller</p>
                             </div>
                             <div class="profile-photo">
@@ -59,7 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             </span>
                             <h3>Add Product</h3>
                         </a>
-                        <a href="#">
+                        <a href="logout">
                             <span class="material-symbols-outlined">
                                 logout
                             </span>
