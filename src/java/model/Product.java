@@ -9,15 +9,18 @@ package model;
  * @author Le Viet
  */
 public class Product {
-   private int productId;
-   private String name;
-   private String productImage;
-   private int price;
-   private String description;
+
+    private int productId;
+    private String name;
+    private String productImage;
+    private int price;
+    private String description;
+    private int quantity;
+    private int categoryId;
+    private int sellerId;
 
     public Product() {
     }
-   
 
     public Product(int productId, String name, String productImage, int price, String description) {
         this.productId = productId;
@@ -25,6 +28,41 @@ public class Product {
         this.productImage = productImage;
         this.price = price;
         this.description = description;
+    }
+
+    public Product(int productId, String name, String productImage, int price, String description, int quantity, int categoryId, int sellerId) {
+        this.productId = productId;
+        this.name = name;
+        this.productImage = productImage;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
+        this.categoryId = categoryId;
+        this.sellerId = sellerId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(int sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public int getProductId() {
@@ -71,5 +109,5 @@ public class Product {
     public String toString() {
         return "Product{" + "productId=" + productId + ", name=" + name + ", productImage=" + productImage + ", price=" + price + ", description=" + description + '}';
     }
-   
+
 }

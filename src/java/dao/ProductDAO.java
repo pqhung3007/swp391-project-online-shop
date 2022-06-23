@@ -196,4 +196,35 @@ public class ProductDAO extends DBContext {
         }
     }
 
+    public ArrayList<Product> getProductsBySeller(int sellerID) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT [ProductID]"
+                    + ",[ProductName]"
+                    + ",[ProductImage]"
+                    + ",[UnitPrice]"
+                    + ",[Description]"
+                    + ", [CategoryID]"
+                    + ", [Quantity]"
+                    + " FROM [Product] WHERE [sellerID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, sellerID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProductId(rs.getInt("ProductID"));
+                p.setName(rs.getString("ProductName"));
+                p.setProductImage(rs.getString("ProductImage"));
+                p.setPrice(rs.getInt("UnitPrice"));
+                p.setDescription(rs.getString("Description"));
+                p.setCategoryId(rs.getInt("CategoryID"));
+                p.setQuantity(rs.getInt("Quantity"));
+                p.setSellerId(sellerID);
+                products.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        return products;
+    }
+
 }
