@@ -31,7 +31,7 @@
                         <div class="insight-content">
                             <div class="insight-figure">
                                 <h3>Total Sales</h3>
-                                <p>3.000.000 VND</p>
+                                <p>${totalMoney} VND</p>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="insight-content">
                             <div class="insight-figure">
                                 <h3>Total Products</h3>
-                                <p>20</p>
+                                <p>${totalProducts}</p>
                             </div>
                         </div>
                     </div>
