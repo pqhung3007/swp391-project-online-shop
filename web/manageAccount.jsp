@@ -34,6 +34,11 @@
         <link href="css/admin.css" rel="stylesheet">
         <link href="css/home.css" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+        
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet" />
+        
 
 
 
@@ -58,7 +63,7 @@
         </nav>
 
 
-        <div class=" py-3 row">
+        <div class="row">
             <div class="col-lg-2">
 
                 <div class="fact-item bg-light rounded text-center h-100 slidebar">
@@ -86,54 +91,61 @@
 
 
             </div>
+            <div class="col-lg-8 m-5">
+                <form action="manage" method="post">
+                    <div class="recent-orders">
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>AccountID</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>RoleID</th>
+                                    <th>Status</th>
+                                    <th>Edit</th>
+                                    <th>Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${accounts}" var="a">
+                                    <tr>
+                                        <td>${a.accountId}</td>
+                                        <td>${a.userName}</td>
+                                        <td>${a.passWord}</td>
+                                        <td>${a.roleId}</td>
+                                        <td>
+                                            <c:if test="${a.status == true}">
+                                                Active
+                                            </c:if>
+                                            <c:if test="${a.status == false}">
+                                                Inactive
+                                            </c:if>
+                                        </td>
+                                        <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
+                                        <td class="primary">
+                                            <c:if test="${!a.status}">
+                                                <a href="updateStatus?aid=${a.accountId}&status=1">Cấp quyền tài khoản</a>
+                                            </c:if>
+                                            <c:if test="${a.status}">
+                                                <a href="updateStatus?aid=${a.accountId}&status=0">Gỡ quyền tài khoản</a>
+                                            </c:if>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
 
 
         </div>
 
-        <form action="manage" method="post">
-            <div class="recent-orders">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>AccountID</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>RoleID</th>
-                            <th>Status</th>
-                            <th>Edit</th>
-                            <th>Update</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${accounts}" var="a">
-                            <tr>
-                                <td>${a.accountId}</td>
-                                <td>${a.userName}</td>
-                                <td>${a.passWord}</td>
-                                <td>${a.roleId}</td>
-                                <td>
-                                    <c:if test="${a.status == true}">
-                                        Active
-                                    </c:if>
-                                    <c:if test="${a.status == false}">
-                                        Inactive
-                                    </c:if>
-                                </td>
-                                <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
-                                <td class="primary">
-                                    <c:if test="${!a.status}">
-                                        <a href="updateStatus?aid=${a.accountId}&status=1">Cấp quyền tài khoản</a>
-                                    </c:if>
-                                    <c:if test="${a.status}">
-                                        <a href="updateStatus?aid=${a.accountId}&status=0">Gỡ quyền tài khoản</a>
-                                    </c:if>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </form>
+       
+
+
+
+
 
     </body>
 </html>

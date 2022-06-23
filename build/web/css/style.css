@@ -549,3 +549,22 @@ a.cart-btn {
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
+
+.rating{
+    position: relative;
+    padding: 30px;
+    box-shadow: -1px -1px 2px #eaa636,
+    inset 2px 2px 5px #eaa636, 
+    2px 2px 2px #eaa636,
+    inset -2px -2px 5px #eaa636;
+}
+.rating .skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    padding-right: 10px; 
+}
+.checked{
+    color: orange;
+}

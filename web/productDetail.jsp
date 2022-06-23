@@ -41,6 +41,7 @@
         <!-- google font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
 
 
 
@@ -118,20 +119,77 @@
             <div class="col-md-6 text-center">
                 <img class="w-75 h-100" src="${productDetail.productImage}" alt="" />
             </div>
-            <div class="col-md-3 d-flex flex-column justify-content-start">
-                <h3>Reviews</h3>
-                <p class="trunc-4">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam quod
-                    assumenda nulla pariatur nobis reprehenderit impedit!
-                </p>
-                <button
+            <div class="col-md-3 d-flex flex-column justify-content-start rating">
+                <h3>Rating of Customers</h3>
+                <div class="skills">
+                    
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star " style="font-size: 25px;"></span>
+                        <span class="fa fa-star " style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <h3 class="name">1 stars</h3>
+                    
+                </div>
+                
+                <div class="skills">
+                    
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star " style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <h3 class="name">2 stars</h3>
+                    
+                </div>
+                <div class="skills">
+                    
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <h3 class="name">3 stars</h3>
+                    
+                </div>
+                <div class="skills">
+                    
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <h3 class="name">4 stars</h3>
+                    
+                </div>
+                <div class="skills">
+                    
+                   <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                    </div>
+                    <h3 class="name">5 stars</h3>
+                    
+                </div>
+<!--                <button
                     class="btn btn-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#viewMore"
                     >
                     View more
-                </button>
-                <div
+                </button>-->
+<!--                <div
                     class="modal fade"
                     id="viewMore"
                     tabindex="-1"
@@ -160,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
 
