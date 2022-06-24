@@ -16,7 +16,7 @@ import model.User;
  *
  * @author Admin
  */
-public class UserDAO extends DBContext{
+public class UserDAO extends DBContext {
 
     public void insertUser(User u) {
         try {
@@ -26,35 +26,33 @@ public class UserDAO extends DBContext{
                     + "     ,?\n"
                     + "     ,?\n"
                     + "     ,?\n"
-                    + "     ,?\n"
                     + "     ,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, u.getUserID());
-            statement.setString(2, u.getName());
-            statement.setString(3, u.getPhone());
-            statement.setString(4, u.getAddress());
-            statement.setString(5, u.getEmail());
-            statement.setInt(6, u.getAccountID());
+            statement.setString(1, u.getName());
+            statement.setString(2, u.getPhone());
+            statement.setString(3, u.getAddress());
+            statement.setString(4, u.getEmail());
+            statement.setInt(5, u.getAccountID());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-        public User getLatestUser() {
-        try {
-            String sql = "SELECT TOP 1 *\n"
-                    + "FROM [User]\n"
-                    + "ORDER BY UserID DESC";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                User u = new User(rs.getInt("UserID"), rs.getString("FullName"), rs.getString("Phone"), rs.getString("Address"), rs.getString("Email"), rs.getInt("AccountID"));
-                return u;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
+
+//    public User getLatestUser() {
+//        try {
+//            String sql = "SELECT TOP 1 *\n"
+//                    + "FROM [User]\n"
+//                    + "ORDER BY UserID DESC";
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            ResultSet rs = statement.executeQuery();
+//            if (rs.next()) {
+//                User u = new User(rs.getInt("UserID"), rs.getString("FullName"), rs.getString("Phone"), rs.getString("Address"), rs.getString("Email"), rs.getInt("AccountID"));
+//                return u;
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
 }

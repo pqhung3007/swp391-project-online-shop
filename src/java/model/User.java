@@ -28,6 +28,14 @@ public class User {
         this.accountID = accountID;
     }
 
+    public User(String name, String phone, String address, String email, int accountID) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
+        this.accountID = accountID;
+    }
+
     
 
     public int getUserID() {

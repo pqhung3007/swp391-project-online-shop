@@ -64,16 +64,12 @@ public class VerifyController extends HttpServlet {
             if (rawCode.equals(verifyCode)) {
                 //insert new account to database
                 AccountDAO dbAccount = new AccountDAO();
-                //get lastest created account
-                Account latestAccount = dbAccount.getLatestAccount();
-                Account a = new Account(latestAccount.getAccountId() + 1, rawAccount.getUserName(), rawAccount.getPassWord(), 2);
+                Account a = new Account(rawAccount.getUserName(), rawAccount.getPassWord(), 2);
                 dbAccount.insertAccount(a);
 
                 //insert new user to database
                 UserDAO dbUser = new UserDAO();
-                //get lastest created user
-                User latestUser = dbUser.getLatestUser();
-                User u = new User(latestUser.getUserID() + 1, rawUser.getName(), rawUser.getPhone(), rawUser.getAddress(), rawUser.getEmail(), a.getAccountId());
+                User u = new User(rawUser.getName(), rawUser.getPhone(), rawUser.getAddress(), rawUser.getEmail(), a.getAccountId());
                 dbUser.insertUser(u);
 
                 response.sendRedirect("login");

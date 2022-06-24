@@ -18,8 +18,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(int accountId, String userName, String passWord, int roleId) {
-        this.accountId = accountId;
+    public Account(String userName, String passWord, int roleId) {
         this.userName = userName;
         this.passWord = passWord;
         this.roleId = roleId;
