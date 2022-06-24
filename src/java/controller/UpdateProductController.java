@@ -100,7 +100,7 @@ public class UpdateProductController extends HttpServlet {
         out.print( "name: " + p.getName() + ", image: " + p.getProductImage() + ", price: " + p.getPrice() + ", description: " + p.getDescription() + ", categoryID: " + p.getCategoryId() + ", productID: " + p.getProductId());
         ProductDAO db = new ProductDAO();
         db.updateProduct(p);
-//        request.getRequestDispatcher("my-products").forward(request, response);
+        request.getRequestDispatcher("my-products").forward(request, response);
     }
 
     /**

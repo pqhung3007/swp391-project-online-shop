@@ -32,19 +32,19 @@ public class SellerProductController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SellerProductController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SellerProductController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        Account account = (Account) request.getSession().getAttribute("account");
+        ProductDAO db = new ProductDAO();
+        //get product list of seller
+        ArrayList<Product> productList = db.getProductsBySeller(account.getAccountId());
+//        PrintWriter out = response.getWriter();
+//        out.print(productList);
+//        out.print(account.getAccountId());
+//        out.print("abcs");
+        //get best sellers
+        ArrayList<Product> bestSellers = db.getTop4ProductSold(account.getAccountId());
+        request.setAttribute("bestSellers", bestSellers);
+        request.setAttribute("productList", productList);
+        request.getRequestDispatcher("sProduct.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,19 +59,7 @@ public class SellerProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Account account = (Account) request.getSession().getAttribute("account");
-        ProductDAO db = new ProductDAO();
-        //get product list of seller
-        ArrayList<Product> productList = db.getProductsBySeller(account.getAccountId());
-//        PrintWriter out = response.getWriter();
-//        out.print(productList);
-//        out.print(account.getAccountId());
-//        out.print("abcs");
-        //get best sellers
-        ArrayList<Product> bestSellers = db.getTop4ProductSold(account.getAccountId());
-        request.setAttribute("bestSellers", bestSellers);        
-        request.setAttribute("productList", productList);
-        request.getRequestDispatcher("sProduct.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
