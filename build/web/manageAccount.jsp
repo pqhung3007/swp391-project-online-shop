@@ -96,87 +96,9 @@
                         </table>
                     </form>
                 </div>
-            </c:if>
-        </nav>
+           
 
 
-        <div class="row">
-            <div class="col-lg-2">
-
-                <div class="fact-item bg-light rounded text-center h-100 slidebar">
-
-
-                    <a href="index.html" class="nav-item nav-link active">
-                        <span class="material-icons-sharp">grid_view</span>
-                        <h3>Home</h3>
-                    </a>
-                    <a href="about.html" class="nav-item nav-link">
-                        <span class="material-icons-sharp">person_outline</span>
-                        <h3>About</h3>
-                    </a>
-                    <a href="manage" class="nav-item nav-link">
-                        <span class="material-icons-sharp">inventory</span>
-                        <h3>Manage accounts</h3>
-                    </a>
-                    <a href="contact.html" class="nav-item nav-link">
-                        <span class="material-icons-sharp">insights</span>
-                        <h3>Contact</h3>
-                    </a>
-
-
-                </div>
-
-
-            </div>
-            <div class="col-lg-8 m-5">
-                <form action="manage" method="post">
-                    <div class="recent-orders">
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th>AccountID</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>RoleID</th>
-                                    <th>Status</th>
-                                    <th>Edit</th>
-                                    <th>Update</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${accounts}" var="a">
-                                    <tr>
-                                        <td>${a.accountId}</td>
-                                        <td>${a.userName}</td>
-                                        <td>${a.passWord}</td>
-                                        <td>${a.roleId}</td>
-                                        <td>
-                                            <c:if test="${a.status == true}">
-                                                Active
-                                            </c:if>
-                                            <c:if test="${a.status == false}">
-                                                Inactive
-                                            </c:if>
-                                        </td>
-                                        <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
-                                        <td class="primary">
-                                            <c:if test="${!a.status}">
-                                                <a href="updateStatus?aid=${a.accountId}&status=1">Cấp quyền tài khoản</a>
-                                            </c:if>
-                                            <c:if test="${a.status}">
-                                                <a href="updateStatus?aid=${a.accountId}&status=0">Gỡ quyền tài khoản</a>
-                                            </c:if>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
-            </div>
-
-
-        </div>
 
        
 
@@ -184,8 +106,6 @@
 
 
 
-            </main>
-        </div>
 
         <!-- <script src="js/seller.js"></script> -->
     </body>
