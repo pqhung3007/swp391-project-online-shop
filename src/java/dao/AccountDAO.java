@@ -61,22 +61,22 @@ public class AccountDAO extends DBContext {
         }
     }
 
-//    public Account getLatestAccount() {
-//        try {
-//            String sql = "SELECT TOP 1 *\n"
-//                    + "FROM [Account]\n"
-//                    + "ORDER BY AccountID DESC";
-//            PreparedStatement statement = connection.prepareStatement(sql);
-//            ResultSet rs = statement.executeQuery();
-//            if (rs.next()) {
-//                Account a = new Account(rs.getInt("AccountID"), rs.getString("UserName"), rs.getString("Password"), rs.getInt("RoleID"));
-//                return a;
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-//    }
+    public Account getLatestAccount() {
+        try {
+            String sql = "SELECT TOP 1 *\n"
+                    + "FROM [Account]\n"
+                    + "ORDER BY AccountID DESC";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Account a = new Account(rs.getInt("AccountID"), rs.getString("UserName"), rs.getString("Password"), rs.getInt("RoleID"));
+                return a;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public void changePassword(String email, String password) {
         try {

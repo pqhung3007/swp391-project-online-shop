@@ -68,8 +68,9 @@ public class VerifyController extends HttpServlet {
                 dbAccount.insertAccount(a);
 
                 //insert new user to database
+                Account lastestAccount=dbAccount.getLatestAccount();
                 UserDAO dbUser = new UserDAO();
-                User u = new User(rawUser.getName(), rawUser.getPhone(), rawUser.getAddress(), rawUser.getEmail(), a.getAccountId());
+                User u = new User(rawUser.getName(), rawUser.getPhone(), rawUser.getAddress(), rawUser.getEmail(), lastestAccount.getAccountId());
                 dbUser.insertUser(u);
 
                 response.sendRedirect("login");
