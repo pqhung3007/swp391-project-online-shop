@@ -226,5 +226,30 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
+    
+        public ArrayList<Product> getTop4ProductSold(int sellerID) {
+        ArrayList<Product> products = new ArrayList<>();
+        try {
+            String sql = "SELECT TOP 4 o.ProductID, p.ProductName, p.ProductImage, SUM(o.Quantity) AS [Ordered]"
+                    + " FROM OrderDetail o JOIN Product p"
+                    + " ON o.ProductID = p.ProductID"
+                    + " WHERE p.sellerID = ?"
+                    + " GROUP BY o.ProductID, p.ProductName, p.ProductImage"
+                    + " ORDER BY [Ordered] DESC";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, sellerID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProductId(rs.getInt("ProductID"));
+                p.setName(rs.getString("ProductName"));
+                p.setProductImage(rs.getString("ProductImage"));
+                p.setQuantity(rs.getInt("Ordered"));
+                products.add(p);
+            }
+        } catch (SQLException ex) {
+        }
+        return products;
+    }
 
 }

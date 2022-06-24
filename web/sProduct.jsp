@@ -58,56 +58,18 @@
                 <div class="recent-updates">
                     <h2>Best Sellers</h2>
                     <small>Last updated 24 hours ago</small>
-                    <div class="updates">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
+                    <c:forEach var="product" items="${bestSellers}">
+                        <div class="updates">
+                            <div class="update">
+                                <div class="profile-photo">
+                                    <img src="${product.productImage}" alt="">
+                                </div>
+                                <div class="message">
+                                    <p><b>${product.name}</b> was ordered <b>${product.quantity}</b> times</p>
+                                </div>
                             </div>
-                            <div class="message">
-                                <p><b>Caramel Macchiato</b> was ordered <b>multiple</b> times</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="updates">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Caramel Macchiato</b> was ordered <b>multiple</b> times</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="updates">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Caramel Macchiato</b> was ordered <b>multiple</b> times</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="updates">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Caramel Macchiato</b> was ordered <b>multiple</b> times</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="updates">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Caramel Macchiato</b> was ordered <b>multiple</b> times</p>
-                            </div>
-                        </div>
-                    </div>
+                        </div>    
+                    </c:forEach>
                 </div>
             </div>
         </div>

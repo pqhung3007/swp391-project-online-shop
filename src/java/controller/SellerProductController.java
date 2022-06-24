@@ -61,12 +61,15 @@ public class SellerProductController extends HttpServlet {
             throws ServletException, IOException {
         Account account = (Account) request.getSession().getAttribute("account");
         ProductDAO db = new ProductDAO();
-//        ArrayList<Product> test = new ArrayList<>();
+        //get product list of seller
         ArrayList<Product> productList = db.getProductsBySeller(account.getAccountId());
 //        PrintWriter out = response.getWriter();
 //        out.print(productList);
 //        out.print(account.getAccountId());
 //        out.print("abcs");
+        //get best sellers
+        ArrayList<Product> bestSellers = db.getTop4ProductSold(account.getAccountId());
+        request.setAttribute("bestSellers", bestSellers);        
         request.setAttribute("productList", productList);
         request.getRequestDispatcher("sProduct.jsp").forward(request, response);
     }
