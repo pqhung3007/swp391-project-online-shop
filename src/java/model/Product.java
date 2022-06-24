@@ -30,6 +30,15 @@ public class Product {
         this.description = description;
     }
 
+    public Product(int productId, String name, String productImage, int price, String description, int categoryId) {
+        this.productId = productId;
+        this.name = name;
+        this.productImage = productImage;
+        this.price = price;
+        this.description = description;
+        this.categoryId = categoryId;
+    }
+
     public Product(int productId, String name, String productImage, int price, String description, int quantity, int categoryId, int sellerId) {
         this.productId = productId;
         this.name = name;
@@ -107,7 +116,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", name=" + name + ", productImage=" + productImage + ", price=" + price + ", description=" + description + '}';
+        return "Product{" + "productId=" + productId + ", name=" + name + ", productImage=" + productImage + ", price=" + price + ", description=" + description + ", quantity=" + quantity + ", categoryId=" + categoryId + ", sellerId=" + sellerId + '}';
     }
 
 }

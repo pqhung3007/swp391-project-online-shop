@@ -27,7 +27,7 @@
                                     <h2>${product.name}</h2>
                                     <p>${product.price} VND</p>
                                 </div>
-                                <button>Edit</button>
+                                <button><a href="update-product?pid=${product.productId}">Edit</a></button>
                             </div>
                         </div>
                     </c:forEach>

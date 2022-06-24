@@ -189,7 +189,7 @@ public class ProductDAO extends DBContext {
             ps.setString(4, description);
             ps.setInt(5, categoryId);
             ps.setInt(6, sellerId);
-            
+
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -226,8 +226,8 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
-    
-        public ArrayList<Product> getTop4ProductSold(int sellerID) {
+
+    public ArrayList<Product> getTop4ProductSold(int sellerID) {
         ArrayList<Product> products = new ArrayList<>();
         try {
             String sql = "SELECT TOP 4 o.ProductID, p.ProductName, p.ProductImage, SUM(o.Quantity) AS [Ordered]"
@@ -250,6 +250,28 @@ public class ProductDAO extends DBContext {
         } catch (SQLException ex) {
         }
         return products;
+    }
+
+    public void updateProduct(Product p) {
+        try {
+            String sql = "UPDATE Product SET "
+                    + "[ProductName] = ?,\n"
+                    + "[ProductImage] = ?,\n"
+                    + "[UnitPrice] = ?,\n"
+                    + "[Description] = ?,\n"
+                    + "[CategoryID] = ?\n"
+                    + "WHERE [ProductID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, p.getName());
+            statement.setString(2, p.getProductImage());
+            statement.setInt(3, p.getPrice());
+            statement.setString(4, p.getDescription());
+            statement.setInt(5, p.getCategoryId());
+            statement.setInt(6, p.getProductId());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
