@@ -20,7 +20,7 @@
     <body>
         <div class="container">
             <!-- VERTICAL NAVBAR -->
-            <%@include file="components/sidebar.jsp" %>
+            <%@include file="components/sidebarAdmin.jsp" %>
 
             <!-- MAIN SECTION -->
             <main>
@@ -75,7 +75,7 @@
                         </table>
                     </form>
                 </div>
-           
-        <!-- <script src="js/seller.js"></script> -->
+            </main>
+            <!-- <script src="js/seller.js"></script> -->
     </body>
 </html>
