@@ -17,7 +17,7 @@
   <body>
     <div class="container-product">
       <!-- VERTICAL NAVBAR -->
-      <%@include file="components/sidebar.jsp" %>
+      <%@include file="components/sidebarSeller.jsp" %>
 
       <!-- MAIN SECTION -->
       <form action="">

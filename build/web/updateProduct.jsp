@@ -19,7 +19,7 @@
     <body>
         <div class="container-product">
             <!-- VERTICAL NAVBAR -->
-            <%@include file="components/sidebar.jsp" %>
+            <%@include file="components/sidebarSeller.jsp" %>
             <!-- MAIN SECTION -->
             <div style="margin-top: 2rem">
                 <h1>Edit product</h1>

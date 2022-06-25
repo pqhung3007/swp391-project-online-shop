@@ -59,7 +59,7 @@ public class SellerDAO extends DBContext {
     public ArrayList<Seller> getRecentOrders(int sellerId) {
         ArrayList<Seller> sellerOrder = new ArrayList<>();
         try {
-            String sql = "SELECT \n"
+            String sql = "SELECT\n"
                     + "	   u.FullName, u.Phone,u.[Address], o.OrderID, o.OrderDate\n"
                     + "  FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
                     + "       join Product p on od.ProductID = p.ProductID\n"
@@ -83,5 +83,4 @@ public class SellerDAO extends DBContext {
         return sellerOrder;
     }
     
-
 }

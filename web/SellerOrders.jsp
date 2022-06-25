@@ -20,51 +20,10 @@
 
             <!-- MAIN SECTION -->
             <main>
-                <h1>Dashboard</h1>
-                <div class="date">
-                    <input type="date" name="" id="">
-                </div>
+                <h1>All Orders</h1>
 
-                <div class="insights">
-                    <div class="insight sales">
-                        <span class="material-symbols-outlined">
-                            analytics
-                        </span>
-                        <div class="insight-content">
-                            <div class="insight-figure">
-                                <h3>Total Sales</h3>
-                                <p>${totalMoney} VND</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="insight products">
-                        <span class="material-symbols-outlined">
-                            inventory
-                        </span>
-                        <div class="insight-content">
-                            <div class="insight-figure">
-                                <h3>Total Products</h3>
-                                <p>${totalProducts}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="insight ratings">
-                        <span class="material-symbols-outlined">
-                            reviews
-                        </span>
-                        <div class="insight-content">
-                            <div class="insight-figure">
-                                <h3>Average Ratings</h3>
-                                <p>4.2</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- ORDER TABLE -->
                 <div class="recent-orders">
-                    <h2>Recent Orders</h2>
                     <c:choose>
                         <c:when test="${orderList.size()== 0 || orderList == null}">
                             <h1>No recent order</h1>
@@ -94,16 +53,13 @@
                                             <td><a href="#"class="success">See details</a></td>
                                         </tr>
                                     </c:forEach>
-
                                 </tbody>
                             </table>
                         </c:otherwise>
                     </c:choose>
-                    <a href="#" class="cta-btn">Show All</a>
                 </div>
-
             </main>
-
+            
             <!-- TOP RIGHT COLUMN -->
             <div class="right-col">
                 <div class="top">
@@ -116,8 +72,8 @@
                 </div>
 
                 <div class="recent-updates">
-                    <h2>Recent Updates</h2>
-                    <div class="updates">
+                    <h1>Order Detail</h1>
+                    <div class="updates" style="margin-top: 2rem">
                         <div class="update">
                             <div class="profile-photo">
                                 <img src="img/testimonial-2.jpg" alt="">
@@ -148,58 +104,8 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-
-                <!-- SALE ANALYTICS -->
-                <div class="sale-analytics">
-                    <h2>Sale Analytics</h2>
-                    <div class="item online">
-                        <div class="icon">
-                            <span class="material-symbols-outlined">
-                                shopping_cart
-                            </span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Online Orders</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+39%</h5>
-                            <h4>3849</h4>
-                        </div>
-                    </div>
-
-                    <div class="item offline">
-                        <div class="icon">
-                            <span class="material-symbols-outlined">
-                                credit_card
-                            </span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Offline Orders</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="danger">-16%</h5>
-                            <h4>130</h4>
-                        </div>
-                    </div>
-
-                    <div class="item customers">
-                        <div class="icon">
-                            <span class="material-symbols-outlined">
-                                group
-                            </span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>New Customers</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+20%</h5>
-                            <h4>49</h4>
-                        </div>
-                    </div>
                 </div>
             </div>
 
