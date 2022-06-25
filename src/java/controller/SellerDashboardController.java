@@ -12,7 +12,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import model.Account;
+import model.Seller;
 
 /**
  *
@@ -38,9 +40,11 @@ public class SellerDashboardController extends BaseAuthController {
             int sellerId = account.getAccountId();
             int totalProducts = new SellerDAO().getTotalProduct(sellerId);
             int totalMoney = new SellerDAO().getTotalMoney(sellerId);
+            ArrayList<Seller> list = new SellerDAO().getRecentOrders(sellerId);
 
             request.setAttribute("totalProducts", totalProducts);
             request.setAttribute("totalMoney", totalMoney);
+            request.setAttribute("orderList", list);
             request.getRequestDispatcher("SellerDashboard.jsp").forward(request, response);
         }
     }

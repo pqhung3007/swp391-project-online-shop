@@ -1,5 +1,7 @@
 <%-- Document : SellerDashboard Created on : 13-Jun-2022, 09:34:30 Author : Administrator --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,54 +65,40 @@
                 <!-- ORDER TABLE -->
                 <div class="recent-orders">
                     <h2>Recent Orders</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Product ID</th>
-                                <th>Product Name</th>
-                                <th>Payment</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>0005</td>
-                                <td>Pham Quang Hung</td>
-                                <td>Due</td>
-                                <td class="success">Done</td>
-                                <td><a href="#">See details</a></td>
-                            </tr>
-                            <tr>
-                                <td>0062</td>
-                                <td>Ha Hai Anh</td>
-                                <td>Due</td>
-                                <td class="warning">Pending</td>
-                                <td><a href="#">See details</a></td>
-                            </tr>
-                            <tr>
-                                <td>0247</td>
-                                <td>Cao Quynh Anh</td>
-                                <td>Due</td>
-                                <td class="success">Done</td>
-                                <td><a href="#">See details</a></td>
-                            </tr>
-                            <tr>
-                                <td>1517</td>
-                                <td>Tran Minh Hieu</td>
-                                <td>Due</td>
-                                <td class="warning">Pending</td>
-                                <td><a href="#">See details</a></td>
-                            </tr>
-                            <tr>
-                                <td>3508</td>
-                                <td>Le Ba Viet</td>
-                                <td>Due</td>
-                                <td class="warning">Pending</td>
-                                <td><a href="#">See details</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <c:choose>
+                        <c:when test="${orderList.size()== 0 || orderList == null}">
+                            <h1>No recent order</h1>
+                        </c:when>
+                        <c:otherwise>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Order ID</th>
+                                        <th>Order Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="l" items="${orderList}">
+                                        <tr>
+                                            <td>${l.customerName}</td>
+                                            <td>${l.phone}</td>
+                                            <td>${l.address}</td>
+                                            <td>${l.orderId}</td>
+                                            <td>
+                                                <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
+                                            </td>
+                                            <td><a href="#"class="success">See details</a></td>
+                                        </tr>
+                                    </c:forEach>
+
+                                </tbody>
+                            </table>
+                        </c:otherwise>
+                    </c:choose>
                     <a href="#" class="cta-btn">Show All</a>
                 </div>
 
