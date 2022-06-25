@@ -204,20 +204,27 @@ button:hover{
     margin-top: 2rem;
 }
 
-.recent-orders .cta-btn {
-    display: block;
+.recent-orders select {
     margin-top: 2rem;
     background-color: #fff;
     color: var(--color-primary);
     padding: 0.5rem 1rem;
     text-align: center;
     width: 30%;
+    border: none;
     border-radius: var(--bdrd-3);
-    transition: 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+    appearance: none;
+    cursor: pointer;
 }
 
-.recent-orders .cta-btn:hover {
+.recent-orders select:hover{
     background-color: var(--color-light);
+}
+
+.recent-orders select:focus-visible{
+    outline: none;
 }
 
 table {
@@ -230,11 +237,16 @@ table {
     transition: 0.3s ease;
 }
 
-table:hover {
+table:hover{
     box-shadow: var(--box-shadow);
 }
 
-table td {
+tbody tr:hover{
+    background-color: var(--color-light);
+}
+
+table td,
+table th {
     height: 2.7rem;
     border-bottom: 1px solid var(--color-light);
 }

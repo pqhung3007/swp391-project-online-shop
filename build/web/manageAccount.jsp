@@ -12,33 +12,11 @@
         <title>Admin Management</title>
         <link rel="stylesheet" href="css/admin/manage.css" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
-            rel="stylesheet">
-
-        <!-- Icon Font Stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="js/animate/animate.min.css" rel="stylesheet">
-        <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="css/admin.css" rel="stylesheet">
-        <link href="css/home.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
-        
-
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet" />
-        
-
-
-
+            href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+            rel="stylesheet"
+            />
     </head>
+
     <body>
         <div class="container">
             <!-- VERTICAL NAVBAR -->
@@ -54,7 +32,8 @@
                     <form action="manage" method="post">
                         <select name="roles" onchange="this.form.submit();">
                             <c:forEach items="${roles}" var="r">
-                                <option value="${r.roleId}" ${selectedId == r.roleId?"selected":""}>${r.roleName}</option>
+                                <option value="${r.roleId}" ${selectedId == r.roleId?"selected":""}>${r.roleName}
+                                </option>
                             </c:forEach>
                         </select>
                         <table>
@@ -97,16 +76,6 @@
                     </form>
                 </div>
            
-
-
-
-       
-
-
-
-
-
-
         <!-- <script src="js/seller.js"></script> -->
     </body>
 </html>
