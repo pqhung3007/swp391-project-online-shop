@@ -25,6 +25,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto p-4 p-lg-0">
+            
             <a href="home" class="nav-item nav-link active">Home</a>
             <a href="about.html" class="nav-item nav-link">About</a>
             <a href="products" class="nav-item nav-link">Products</a>
@@ -38,8 +39,8 @@
                         >${sessionScope.account.userName}</a
                     >
                     <ul class="dropitems">
-                        <li class="m-8"><a href="#">My Profile</a></li>
-                        <li class="m-8"><a href="#">My Orders</a></li>
+                        <li class="m-8"><a href="profile?aid=${sessionScope.account.accountId}">My Profile</a></li>
+                        <li class="m-8"><a href="myorder">My Orders</a></li>
                         <li class="m-8"><a href="logout">Logout</a></li>
                     </ul>
             </div>

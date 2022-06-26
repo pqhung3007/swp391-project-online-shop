@@ -58,7 +58,7 @@ public class AccountDAO extends DBContext {
         return accounts;
     }
 
-    public void updateUser(String fullname, String phone,String address, String email, int AccountID) {
+    public void updateUser(String fullname, String phone, String address, String email, int AccountID) {
         try {
             String sql = "UPDATE [dbo].[User]\n"
                     + "   SET [FullName] = ?\n"
@@ -72,6 +72,21 @@ public class AccountDAO extends DBContext {
             stm.setString(3, address);
             stm.setString(4, email);
             stm.setInt(5, AccountID);
+            stm.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void updateProfile(String name, String password, int AccountID) {
+        try {
+            String sql = "UPDATE [dbo].[Account]\n"
+                    + "   SET [Username] = ?\n"
+                    + "      ,[Password] = ?    \n"
+                    + " WHERE AccountID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, name);
+            stm.setString(2, password);
+            stm.setInt(3, AccountID);
             stm.executeUpdate();
         } catch (Exception e) {
         }
@@ -98,46 +113,93 @@ public class AccountDAO extends DBContext {
             stm.setInt(1, AccountID);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+                User user = new User();
+                user.setName(rs.getString("FullName"));
+                user.setAddress(rs.getString("Address"));
+                user.setPhone(rs.getString("Phone"));
+                user.setUserID(rs.getInt("UserID"));
+//                Account account = new Account();
+//                account.setUserName(rs.getString("Username"));
+//                user.setUsername(account);
+//                Account acc = new Account();
+//                acc.setPassWord(rs.getString("Password"));
+//                user.setPassword(acc);
+                user.setEmail(rs.getString("Email"));
+                user.setAccountID(rs.getInt("AccountID"));
+                return user;
             }
         } catch (Exception e) {
         }
-        return u;
+        return null;
     }
-    
-    public List<Role> getAllRole(){
+
+    public List<Role> getAllRole() {
         List<Role> roles = new ArrayList<>();
         try {
             String sql = "select * from Role where RoleID > 1";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 roles.add(new Role(rs.getInt(1), rs.getString(2)));
             }
         } catch (Exception e) {
         }
         return roles;
     }
-    
-    public List<Account> getUserByRole(int roleId){
+
+    public List<Account> getUserByRole(int roleId) {
         List<Account> accounts = new ArrayList<>();
         try {
             String sql = "select * from Account where RoleID = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, roleId);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
             }
         } catch (Exception e) {
         }
         return accounts;
     }
+
     public static void main(String[] args) {
-//        User u = new AccountDAO().getUserByID(1);
-        List<Role> roles = new AccountDAO().getAllRole();
-        for (Role role : roles) {
-            System.out.println(role);
-        }
+        User u = new AccountDAO().getUserProfileByID(2);
+//        List<Role> roles = new AccountDAO().getAllRole();
+//        for (Role role : roles) {
+//            System.out.println(role);
+//        }
+        System.out.println(u);
     }
+
+    public User getUserProfileByID(int id) {
+
+        String sql = "select u.* , a.Username , a.[Password] from [User] u inner join Account a\n"
+                + "on u.UserID = a.AccountID\n"
+                + "where u.UserID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setName(rs.getString("FullName"));
+                user.setAddress(rs.getString("Address"));
+                user.setPhone(rs.getString("Phone"));
+                user.setUserID(rs.getInt("UserID"));
+                Account account = new Account();
+                account.setUserName(rs.getString("Username"));
+                user.setUsername(account);
+                Account acc = new Account();
+                acc.setPassWord(rs.getString("Password"));
+                user.setPassword(acc);
+                user.setEmail(rs.getString("Email"));
+                user.setAccountID(rs.getInt("AccountID"));
+                return user;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 }

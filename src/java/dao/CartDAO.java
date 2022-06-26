@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -100,18 +101,35 @@ public class CartDAO extends DBContext {
     }
 
     public User getUserbyAccountID(int aid) {
-        User u = null;
+
         try {
             String sql = "select u.* from [User] u where u.AccountID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, aid);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+                User user = new User();
+                user.setName(rs.getString("FullName"));
+                user.setAddress(rs.getString("Address"));
+                user.setPhone(rs.getString("Phone"));
+                user.setUserID(rs.getInt("UserID"));
+//                Account account = new Account();
+//                account.setUserName(rs.getString("Username"));
+//                user.setUsername(account);
+//                Account acc = new Account();
+//                acc.setPassWord(rs.getString("Password"));
+//                user.setPassword(acc);
+                user.setEmail(rs.getString("Email"));
+                user.setAccountID(rs.getInt("AccountID"));
+                return user;
             }
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return u;
+        return null;
+    }
+    public static void main(String[] args) {
+        User user = new CartDAO().getUserbyAccountID(1);
+        System.out.println(user);
     }
 }
