@@ -40,7 +40,7 @@ public class SellerDashboardController extends BaseAuthController {
             int sellerId = account.getAccountId();
             int totalProducts = new SellerDAO().getTotalProduct(sellerId);
             int totalMoney = new SellerDAO().getTotalMoney(sellerId);
-            ArrayList<Seller> list = new SellerDAO().getRecentOrders(sellerId);
+            ArrayList<Seller> list = new SellerDAO().getAllOrders(sellerId);
 
             request.setAttribute("totalProducts", totalProducts);
             request.setAttribute("totalMoney", totalMoney);

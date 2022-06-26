@@ -11,8 +11,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Order;
+import model.OrderDetail;
+import model.Product;
 import model.Seller;
-import model.Seller;
+import model.User;
 
 /**
  *
@@ -56,7 +59,8 @@ public class SellerDAO extends DBContext {
         }
         return 0;
     }
-    public ArrayList<Seller> getRecentOrders(int sellerId) {
+
+    public ArrayList<Seller> getAllOrders(int sellerId) {
         ArrayList<Seller> sellerOrder = new ArrayList<>();
         try {
             String sql = "SELECT\n"
@@ -82,5 +86,41 @@ public class SellerDAO extends DBContext {
         }
         return sellerOrder;
     }
-    
+
+    public ArrayList<OrderDetail> getOrderDetail(int orderID) {
+        ArrayList<OrderDetail> OrderDetail = new ArrayList<>();
+        try {
+            String sql = "select OrderDetail.Quantity,Product.UnitPrice,Product.ProductName,FullName,[Address],Phone,ProductImage\n"
+                    + "from [Order] inner join OrderDetail\n"
+                    + "on [Order].OrderID=OrderDetail.OrderID\n"
+                    + "inner join Product\n"
+                    + "on OrderDetail.ProductID=Product.ProductID\n"
+                    + "inner join [User]\n"
+                    + "on [User].UserID=[Order].UserID\n"
+                    + "where OrderDetail.OrderID=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, orderID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User u = new User();
+                u.setName(rs.getString("FullName"));
+                u.setAddress(rs.getString("Address"));
+                u.setPhone(rs.getString("Phone"));
+                
+                Product p=new Product();
+                p.setName(rs.getString("ProductName"));
+                p.setPrice(rs.getInt("UnitPrice"));
+                p.setProductImage(rs.getString("ProductImage"));
+                
+                OrderDetail od=new OrderDetail();
+                od.setQuantity(rs.getInt("Quantity"));
+                od.setProduct(p);
+                od.setUser(u);
+                
+                OrderDetail.add(od);
+            }
+        } catch (SQLException ex) {
+        }
+        return OrderDetail;
+    }
 }

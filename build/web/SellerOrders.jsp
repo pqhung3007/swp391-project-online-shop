@@ -12,6 +12,7 @@
         <title>Seller Dashboard</title>
         <link rel="stylesheet" href="css/seller/home.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -50,7 +51,7 @@
                                             <td>
                                                 <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
                                             </td>
-                                            <td><a href="#"class="success">See details</a></td>
+                                            <td><a href="#" class="success detail">See details</a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
@@ -59,7 +60,7 @@
                     </c:choose>
                 </div>
             </main>
-            
+
             <!-- TOP RIGHT COLUMN -->
             <div class="right-col">
                 <div class="top">
@@ -74,43 +75,37 @@
                 <div class="recent-updates">
                     <h1>Order Detail</h1>
                     <div class="updates" style="margin-top: 2rem">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Quang Hung</b> received his order of Doner Kebab </p>
-                                <small class="text-muted">2 minutes ago</small>
-                            </div>
-                        </div>
+                        <div>
+                            <div id="content">
 
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-3.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Hai Anh</b> rated 5 stars for your product </p>
-                                <small class="text-muted">3 minutes ago</small>
-                            </div>
-                        </div>
-
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-4.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Minh Hieu</b> received his order of roasted chicken </p>
-                                <small class="text-muted">5 minutes ago</small>
                             </div>
                         </div>
                     </div>
-                    
-                </div>
                 </div>
             </div>
-
         </div>
 
-        <script src="js/seller.js"></script>
-    </body>
+    </div>
+
+    <!--<script src="js/seller.js"></script>-->
+    <script>
+        $(document).ready(function () {
+            $(".detail").click(function () {
+                var currentRow=$(this).closest("tr");
+                var data=currentRow.find("td:eq(3)").text();
+                console.log(data);
+                $.ajax({
+                    url: "load-detail",
+                    type: 'GET',
+                    data: {
+                        "id": data
+                    },
+                    success: function (results) {
+                        $("#content").html(results);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>

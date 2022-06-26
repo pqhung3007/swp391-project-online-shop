@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/controller/SellerDashboardController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/model/User.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/model/Product.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/SellerOrders.jsp</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/controller/SellerOrderController.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/dao/SellerDAO.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/context/DBContext.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/src/java/model/OrderDetail.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Máy%20tính/swp391-project-online-shop/web/css/seller/home.css</file>
         </group>
     </open-files>
 </project-private>

@@ -7,20 +7,19 @@ package controller;
 
 import dao.SellerDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.Account;
 import model.OrderDetail;
-import model.Seller;
 
 /**
  *
- * @author Administrator
+ * @author Admin
  */
-public class SellerOrderController extends HttpServlet {
+public class LoadOrderController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,15 +30,31 @@ public class SellerOrderController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-            Account account = (Account) request.getSession().getAttribute("account");
-            int sellerId = account.getAccountId();
-            ArrayList<Seller> list = new SellerDAO().getAllOrders(sellerId);
-//            ArrayList<OrderDetail> orderDetail=new SellerDAO().getOrderDetail(1);
-            
-            request.setAttribute("orderList", list);
-//            request.setAttribute("orderDetail", orderDetail);
-            
-            request.getRequestDispatcher("SellerOrders.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        int orderID=Integer.parseInt(request.getParameter("id"));
+        ArrayList<OrderDetail> orderDetail=new SellerDAO().getOrderDetail(orderID);
+        PrintWriter out =response.getWriter();
+        
+        out.println("<div class=\"customer-info\">\n" +
+"                                <h2>"+orderDetail.get(0).getUser().getName()+"</h2>\n" +
+"                                <h5>"+orderDetail.get(0).getUser().getPhone()+"</h5>\n" +
+"                                <h5>"+orderDetail.get(0).getUser().getAddress()+"</h5>\n" +
+"                            </div>");
+        
+        for (OrderDetail od : orderDetail) {
+            out.println("<div class=\"detail-info\">\n" +
+"                                    <div class=\"detail-photo\">\n" +
+"                                        <img src=\""+od.getProduct().getProductImage()+"\" alt=\"\">\n" +
+"                                    </div>\n" +
+"                                    <div class=\"detail-text\">\n" +
+"                                        <p class=\"text-title\">\n" +
+"                                            <b>"+od.getProduct().getName()+"</b>\n" +
+"                                            <small>"+od.getProduct().getPrice()+"</small>\n" +
+"                                        </p>\n" +
+"                                        <small class=\"text-muted\">"+od.getQuantity()+" cups</small>\n" +
+"                                    </div>\n" +
+"                                </div>");
+        }
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

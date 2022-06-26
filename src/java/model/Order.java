@@ -18,7 +18,7 @@ public class Order {
     private Date shippedDate;
     private int shipperID;
     private int paymentID;
-
+    
     public Order() {
     }
 

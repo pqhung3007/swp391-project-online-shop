@@ -501,6 +501,34 @@ table td a:hover {
     width: 100%;
 }
 
+/*Order detail*/
+.detail-info{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.detail-photo{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    display:flex;
+    align-items: center;
+}
+
+.detail-photo img{
+    width:100%;
+    border-radius:4px;
+}
+
+.detail-text{
+    width: 100%;
+}
+
+.detail-text .text-title{
+    display: flex;
+    justify-content: space-between;
+}
 @media screen and (max-width: 968px) {
     .container {
         width: 94%;

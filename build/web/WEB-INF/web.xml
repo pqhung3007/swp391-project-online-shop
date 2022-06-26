@@ -60,6 +60,10 @@
         <servlet-name>UpdateProductController</servlet-name>
         <servlet-class>controller.UpdateProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadOrderController</servlet-name>
+        <servlet-class>controller.LoadOrderController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>UpdateProductController</servlet-name>
         <url-pattern>/update-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadOrderController</servlet-name>
+        <url-pattern>/load-detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
