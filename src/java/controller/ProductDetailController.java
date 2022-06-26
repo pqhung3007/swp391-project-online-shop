@@ -55,8 +55,8 @@ public class ProductDetailController extends HttpServlet {
             response.sendRedirect("login");
         } else {
             ProductDAO dao = new ProductDAO();
-            String rate = request.getParameter("rate");
-            String productID = request.getParameter("productID");
+            int rate = Integer.parseInt(request.getParameter("rate"));
+            int productID = Integer.parseInt(request.getParameter("productID"));
 
             dao.insertProductReview(productID, rate,a.getAccountId());
             response.sendRedirect("products");

@@ -150,21 +150,46 @@ public class ProductDAO extends DBContext {
         return products;
     }
     
-    public void insertProductReview(String productID, String reviewID, int aid) {
+    public boolean checkExistId(int aid, int pid) {       
         try {
-            String sql = "INSERT INTO [dbo].[Product Review]\n"
+            String sql = "select * from [Product Review] where AccountID = ? and ProductID = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, aid);
+            ps.setInt(2, pid);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+    
+    public void insertProductReview(int productID, int reviewID, int aid) {
+        String sql = "";
+        if(!checkExistId(aid, productID)){
+            try {
+            sql = "INSERT INTO [dbo].[Product Review]\n"
                     + "           ([ProductID]\n"
                     + "           ,[ReviewID]\n"
                     + "           ,[AccountID])\n"
                     + "     VALUES\n"
                     + "           (?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, productID);
-            statement.setString(2, reviewID);
+            statement.setInt(1, productID);
+            statement.setInt(2, reviewID);
             statement.setInt(3, aid);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+            sql = "UPDATE [dbo].[Product Review] SET [ReviewID] = " +reviewID+ " WHERE AccountID = " + aid + " AND ProductID = " + productID;
+            try {
+                PreparedStatement ps = connection.prepareStatement(sql);
+                ps.executeUpdate();
+            } catch (Exception e) {
+            }
         }
     }
     
