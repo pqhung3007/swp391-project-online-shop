@@ -323,8 +323,19 @@ button:hover{
     margin-top: 20px;
 }
 
-.input-image input{
-    width: 100%;
+.input-image div{
+    width: 80%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: var(--bdrd-3);
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.input-image label {
+    cursor: pointer;
 }
 
 .input-fields, .input-image{
