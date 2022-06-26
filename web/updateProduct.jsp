@@ -26,7 +26,18 @@
                 <form action="update-product" method="POST">
                     <div class="input-product">
                         <div class="input-image">
-                            <input class="field image-name" type="text" placeholder="Product Image URL" name="image" value="${product.productImage}">
+                            <div>
+                                <label for="input">
+                                    Choose Image <br>
+                                    <i class="fa-solid fa-camera"></i>
+                                    <input class="field image-name" 
+                                           id="input"
+                                           type="file" 
+                                           name="image"
+                                           style="display: none">
+                                </label>
+                            </div>
+                            <input class="field image-name" type="hidden" placeholder="Product Image URL" name="image" value="${product.productImage}">
                             <img id="image" src="${product.productImage}"/>
                         </div>
                         <div class="input-fields">

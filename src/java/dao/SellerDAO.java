@@ -67,7 +67,7 @@ public class SellerDAO extends DBContext {
                     + "	   u.FullName, u.Phone,u.[Address], o.OrderID, o.OrderDate\n"
                     + "  FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
                     + "       join Product p on od.ProductID = p.ProductID\n"
-                    + "	   join Account a on o.UserID = a.AccountID\n"
+                    + "	   join Account a on o.customerID = a.AccountID\n"
                     + "	   join [User] u  on a.AccountID = u.AccountID\n"
                     + "where p.sellerID = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class SellerDAO extends DBContext {
                     + "inner join Product\n"
                     + "on OrderDetail.ProductID=Product.ProductID\n"
                     + "inner join [User]\n"
-                    + "on [User].UserID=[Order].UserID\n"
+                    + "on [User].UserID=[Order].customerID\n"
                     + "where OrderDetail.OrderID=?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, orderID);

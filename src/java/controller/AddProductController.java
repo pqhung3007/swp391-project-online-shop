@@ -1,4 +1,4 @@
-    /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
@@ -9,11 +9,16 @@ import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Base64;
 import model.Account;
 import model.Category;
 
@@ -21,6 +26,12 @@ import model.Category;
  *
  * @author Administrator
  */
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2 MB
+        maxFileSize = 1024 * 1024 * 10, // 10 MB
+        maxRequestSize = 1024 * 1024 * 100 // 100 MB
+)
+
 public class AddProductController extends BaseAuthController {
 
     /**
@@ -73,17 +84,27 @@ public class AddProductController extends BaseAuthController {
     @Override
     protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String image = request.getParameter("image");
+       
+        Part filePart = request.getPart("image");
+        String fileName = filePart.getSubmittedFileName();
+
+        File imagePath = new File("D:\\upload\\" + fileName);
+        FileInputStream fileInputStreamReader = new FileInputStream(imagePath);
+        byte[] bytes = new byte[(int) imagePath.length()];
+        fileInputStreamReader.read(bytes);
+
+        String encodedImageUrl = Base64.getEncoder().encodeToString(bytes);
+        String image = "data:image/jpg;base64, " + encodedImageUrl;
         String name = request.getParameter("name");
         int price = Integer.parseInt(request.getParameter("price"));
         int categoryId = Integer.parseInt(request.getParameter("category"));
         String description = request.getParameter("description");
-        
+
         HttpSession session = request.getSession();
-         Account account = (Account)request.getSession().getAttribute("account");
+        Account account = (Account) request.getSession().getAttribute("account");
         int sellerId = account.getAccountId();
-        
-        new ProductDAO().insertProduct(name, image, price, categoryId, description,sellerId);
+
+        new ProductDAO().insertProduct(name, image, price, categoryId, description, sellerId);
         response.sendRedirect("seller-dashboard");
     }
 
@@ -96,5 +117,4 @@ public class AddProductController extends BaseAuthController {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

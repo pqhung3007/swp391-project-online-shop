@@ -19,11 +19,20 @@
             <!-- MAIN SECTION -->
             <div style="margin-top: 2rem">
                 <h1>Add new product</h1>
-                <form action="add-product" method="POST">
+                <form action="add-product" method="POST" enctype='multipart/form-data'>
                     <div class="input-product">
                         <div class="input-image">
-                            <input class="field image-name" type="text" placeholder="Product Image URL" name="image">
-                            <img id="image" />
+                            <div>
+                                <label for="input">
+                                    Choose Image <br>
+                                    <i class="fa-solid fa-camera"></i>
+                                    <input class="field image-name" 
+                                           id="input"
+                                           type="file" 
+                                           name="image"
+                                           style="display: none">
+                                </label>
+                            </div>
                         </div>
                         <div class="input-fields">
                             <input class="field" type="text" placeholder="Product Name" name="name">
@@ -53,6 +62,6 @@
             }
             pictureURL.addEventListener("input", changePicture)
         </script>
-
+        <script src="https://kit.fontawesome.com/3a6c73e27c.js" crossorigin="anonymous"></script>
     </body>
 </html>
