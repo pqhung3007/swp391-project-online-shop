@@ -16,16 +16,18 @@ public class Seller {
     private String address;
     private int orderId;
     private Date orderDate;
+    private String orderTime;
 
     public Seller() {
     }
 
-    public Seller(String customerName, String phone, String address, int orderId, Date orderDate) {
+    public Seller(String customerName, String phone, String address, int orderId, Date orderDate, String orderTime) {
         this.customerName = customerName;
         this.phone = phone;
         this.address = address;
         this.orderId = orderId;
         this.orderDate = orderDate;
+        this.orderTime = orderTime;
     }
 
     public String getCustomerName() {
@@ -67,7 +69,15 @@ public class Seller {
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
-    
-    
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
+    }
+
+   
    
 }

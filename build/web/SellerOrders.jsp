@@ -36,7 +36,7 @@
                                         <th>Customer Name</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>Order ID</th>
+                                        <th>Order Time</th>
                                         <th>Order Date</th>
                                         <th>Status</th>
                                     </tr>
@@ -44,10 +44,11 @@
                                 <tbody>
                                     <c:forEach var="l" items="${orderList}">
                                         <tr>
+                                            <td style="display: none">${l.orderId}</td>
                                             <td>${l.customerName}</td>
                                             <td>${l.phone}</td>
                                             <td>${l.address}</td>
-                                            <td>${l.orderId}</td>
+                                            <td>${l.orderTime}</td>
                                             <td>
                                                 <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
                                             </td>
@@ -92,7 +93,7 @@
         $(document).ready(function () {
             $(".detail").click(function () {
                 var currentRow=$(this).closest("tr");
-                var data=currentRow.find("td:eq(3)").text();
+                var data=currentRow.find("td:eq(0)").text();
                 console.log(data);
                 $.ajax({
                     url: "load-detail",

@@ -73,10 +73,10 @@
                             <table>
                                 <thead>
                                     <tr>
+                                        <th>Order ID</th>
                                         <th>Customer Name</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>Order ID</th>
                                         <th>Order Date</th>
                                         <th>Status</th>
                                     </tr>
@@ -84,10 +84,10 @@
                                 <tbody>
                                     <c:forEach var="l" items="${orderList}">
                                         <tr>
+                                            <td>${l.orderId}</td>
                                             <td>${l.customerName}</td>
                                             <td>${l.phone}</td>
                                             <td>${l.address}</td>
-                                            <td>${l.orderId}</td>
                                             <td>
                                                 <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
                                             </td>
@@ -99,7 +99,7 @@
                             </table>
                         </c:otherwise>
                     </c:choose>
-                    <a href="#" class="cta-btn">Show All</a>
+                    <a href="my-orders" class="cta-btn">Show All</a>
                 </div>
 
             </main>

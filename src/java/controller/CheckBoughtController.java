@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -88,19 +89,19 @@ public class CheckBoughtController extends BaseAuthController {
 //        PrintWriter out = response.getWriter();
 //        out.print(account.getAccountId());
 
-        Date date = java.sql.Date.valueOf(LocalDate.now());
-
+        
         CartDAO db = new CartDAO();
         //get latest order to get orderID to add new order
         Order latestOrder = db.getLatestOrder();
         //insert order
-        Order o  = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), date, date, 2, pay);
+        Order o  = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 2, pay);
         db.insertOrder(o);
         //inser order details
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        
         for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
             Cart cart = c.getValue();
-            OrderDetail od = new OrderDetail(o.getOrderId(), cart.getProduct().getProductId(), cart.getQuantity(), cart.getProduct().getPrice(), null);
+            OrderDetail od = new OrderDetail(o.getOrderId(), cart.getProduct().getProductId(), cart.getQuantity());
             db.insertOrderDetail(od);
         }
         response.sendRedirect("home");

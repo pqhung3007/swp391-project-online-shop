@@ -13,8 +13,6 @@ public class OrderDetail {
     private int orderId;
     private int productId;
     private int quantity;
-    private int unitPrice;
-    private String discount;
 
     private User user;
     private Product product;
@@ -22,27 +20,21 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderId, int productId, int quantity, int unitPrice, String discount) {
+    public OrderDetail(int orderId, int productId, int quantity) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.discount = discount;
+
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
+    
+    
+    
+    public OrderDetail(int orderId, int productId, int quantity, String OrderTime, User user, Product product) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
         this.user = user;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
         this.product = product;
     }
 
@@ -70,20 +62,26 @@ public class OrderDetail {
         this.quantity = quantity;
     }
 
-    public int getUnitPrice() {
-        return unitPrice;
+    
+
+    public User getUser() {
+        return user;
     }
 
-    public void setUnitPrice(int unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getDiscount() {
-        return discount;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setDiscount(String discount) {
-        this.discount = discount;
+    public void setProduct(Product product) {
+        this.product = product;
     }
+
+   
+
+    
 
 }
