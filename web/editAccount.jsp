@@ -27,14 +27,25 @@
 
                 <!-- EDIT USER -->
                 <div class="edit-user">
-                    <form class="edit-form" name="form1" action="editAccount" method="post" onsubmit="required()">
                         <input type="hidden" name="accountID" value="${user.accountID}">
-                        Full name<input type="text" name="name" value="${user.name}">
-                        Phone<input type="text" name="phone" value="${user.phone}">
-                        Address<input type="text" name="address" value="${user.address}">
-                        Email<input type="text" name="email" value="${user.email}">
-                        <input class="btn-submit" type="submit" value="Edit">
-                    </form>
+                        <div class="user-image">
+                            <img src="img/team-1.jpg" alt="" srcset="">
+                        </div>
+                        <div class="user-info">
+                            <div>
+                                <label for="">Full Name</label>
+                                <input type="text" name="name" value="${user.name}" disabled>
+                                <label for="">Phone</label>
+                                <input type="text" name="phone" value="${user.phone}" disabled>
+                            </div>
+                            <div>
+                                <label for="">Address</label>
+                                <input type="text" name="address" value="${user.address}" disabled>
+                                <label for="">Email</label>
+                                <input type="text" name="email" value="${user.email}" disabled>
+                            </div>
+                            <button class="btn-submit" type="submit"><a href="manage">Back</a></button>
+                        </div>
                 </div>
             </main>
 
