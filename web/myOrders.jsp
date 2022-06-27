@@ -33,94 +33,94 @@
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet" />
-        <link href="css/home.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/home.css">
     </head>
-    <style>
-        .card{
-            border: 1px solid rgb(234 166 54);
-        }
-
-    </style>
+    
     <body>
         <%@include file="components/navbar.jsp" %>
-        <div class="container mt-5">
+        <div class="container mt-7">
             <div class="row">
-                <div class="col-2 pt-5">
+                <!-- Order detail -->
+                <div class="col-5 pt-5">
+                    <div class="tab-group w-100">
+                        <a class="tab-item order-header" href=""><h4 class="tab-item">Order Detail</h4></a>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card mb-2 w-100">
+                                <div class="card-body text-secondary">
+                                    <div class="card-heading">
+                                        <h4 class="card-title">Le Phuong Chi</h4>
+                                        <p class="m-0">Order #1234</p>
+                                    </div>
+                                    <div class="order-info">
+                                        <div class="order-item">
+                                            <img class="item-img" src="./img/service-1.jpg" alt="">
+                                            <div class="item-info">
+                                                <div class="item-title">
+                                                    <p class="m-0"><b>Caramel Macchiato</b></p>
+                                                    <small>$7.5</small>
+                                                </div>
+                                                <div class="item-desc">
+                                                    <p class="m-0">2 cups</p>
+                                                </div>
+                                                <hr class="m-0">
+                                                <div class="item-price">
+                                                    <p>$15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> 
-                <div class="col-10 pt-5">
 
-
+                <!-- Orders list -->
+                <div class="col-7 pt-5">
                     <div class="container px-4 px-lg-1">
-                        <div class="btn-group w-100" role="group" aria-label="Basic checkbox toggle button group" style="background-color: white">
-                            <a class="btn btn-outline-secondary" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" href="">All Order</a>
-                            <a class="btn btn-outline-secondary" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" href="">Processing</a>
-                            <a class="btn btn-outline-secondary" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" href="">Confirmed</a>
-                            <a class="btn btn-outline-secondary" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" href="">Cancel</a>
+                        <div class="tab-group w-100" role="group" aria-label="Basic checkbox toggle button group">
+                            <a class="tab-item hvr-sweep-to-left" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" href=""><h4>All Orders</h4></a>
+                            <a class="tab-item hvr-sweep-to-left" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active" href=""><h4>Processing</h4></a>
+                            <a class="tab-item hvr-sweep-to-left" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active" href=""><h4>History</h4></a>
                         </div>
 
                         <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-5" data-bs-ride="true">
-                            <c:forEach var="orderDetail" items="${OrderDetails}">
-
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="card mb-2 w-100">
-
-                                            <div class="card-body text-secondary">
-                                                <div class="row">
-                                                    <div class="col-2 ">                                                    
-                                                        <img style="width: 100px; height: 100px" class="card-img-center ms-4" src="${orderDetail.productImage}" alt="..." />
-                                                    </div>
-                                                    <div class="col-8">
-                                                        <h4 class="card-title">${orderDetail.name}</h4>
-                                                        <p class="card-text"></p>                             
-                                                    </div>
-                                                    <div class="col-2"> 
-                                                        <p class="card-text">Price: ${orderDetail.price}</p>
-                                                        <p class="card-text">Quantity: ${orderDetail.quantity}</p>
-                                                        <p class="card-text">Total cost: ${orderDetail.price * orderDetail.quantity}</p>
-                                                    </div>
-                                                </div> 
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="card mb-2 w-100">
+                                        <div class="card-body text-secondary">
+                                            <div class="card-heading">
+                                                <h4 class="card-title">Order #1234</h4>
+                                                <button class="card-button">View detail</button>
                                             </div>
-                                            <div class="card-footer bg-transparent"> 
-                                                <div class="row">
-                                                    <div class="col-9">
-
-                                                    </div>
-                                                    <!--                                                    <div class="col-3">
-                                                                                                            Total product: 1000 </br>
-                                                                                                            Order total cost: 1000 </br>                                
-                                                                                                        </div>-->
-                                                </div> 
+                                            <div class="card-info">
+                                                <p class="card-text m-0">Time ordered
+                                                    <span class="card-text__detail"><b>10:39AM 27/06/22</b></span>
+                                                </p>
+                                                <p class="card-text m-0">Total products
+                                                    <span class="card-text__detail"><b>1000</b></span>
+                                                </p>
+                                                <p class="card-text m-0">Total cost
+                                                    <span class="card-text__detail"><b>1000</b></span>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </c:forEach>
+                            </div>
+                            
                         </div>
-                    </div>
-
-                    <!--Paging-->
-                    <c:choose>
-                        <c:when test="${OrderDetails == null || OrderDetails.size() == 0}">
-                        </c:when>
-                        <c:otherwise>
-                            <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
-                                <ul class="pagination">
-                                    <li class="page-item ${page lt 1 ? "disabled" : ""}">
-                                        <a class="page-link" href="myorder?page=${page-1}">Previous</a>
-                                    </li>
-                                    <c:forEach begin="1" end="${totalPages}" var="i">
-                                        <li class="page-item ${i == page ? "active":""}">
-                                            <a class="page-link" href="myorder?page=${i}">${i}</a>
-                                        </li>
-                                    </c:forEach>
-                                    <li class="page-item ${page gt totalPages ? "disabled" : ""}">
-                                        <a class="page-link" href="myorder?page=${page+1}">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </c:otherwise>
-                    </c:choose>
+                    </div
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" >1</a></li>
+                            <li class="page-item"><a class="page-link" >2</a></li>
+                            <li class="page-item"><a class="page-link" >3</a></li>
+                        </ul>
+                    </nav>
 
                 </div>
             </div>
@@ -148,3 +148,4 @@
         <script src="js/app.js"></script>
     </body>
 </html>
+
