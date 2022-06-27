@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.ProductDAO;
 import dao.SellerDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import model.Account;
+import model.Product;
 import model.Seller;
 
 /**
@@ -41,7 +43,9 @@ public class SellerDashboardController extends BaseAuthController {
             int totalProducts = new SellerDAO().getTotalProduct(sellerId);
             int totalMoney = new SellerDAO().getTotalMoney(sellerId);
             ArrayList<Seller> list = new SellerDAO().getAllOrders(sellerId);
+            ArrayList<Product> bestSellers = new ProductDAO().getTop4ProductSold(account.getAccountId());
 
+            request.setAttribute("bestSellers", bestSellers);
             request.setAttribute("totalProducts", totalProducts);
             request.setAttribute("totalMoney", totalMoney);
             request.setAttribute("orderList", list);

@@ -35,12 +35,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             </span>
                             <h3>Dashboard</h3>
                         </a>
-                        <a href="#">
-                            <span class="material-symbols-outlined">
-                                person
-                            </span>
-                            <h3>Customers</h3>
-                        </a>
                         <a href="my-orders">
                             <span class="material-symbols-outlined">
                                 receipt_long

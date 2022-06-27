@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     --bdrd-2: 0.8rem;
     --bdrd-3: 1.2rem;
 
-    --card-padding: 1.5rem;
+    --card-padding: 1.2rem;
     --padding-1: 1.2rem;
 
     --box-shadow: 0 2rem 3rem var(--color-light);
@@ -100,7 +100,6 @@ small {
 
 .profile-photo {
     display: flex;
-    margin-top: 1rem;
     justify-content: center;
     width: 3rem;
     height: 3rem;
@@ -480,7 +479,7 @@ table td a:hover {
 .update {
     display: grid;
     grid-template-columns: 3.5rem auto;
-    margin-bottom: 0.5rem;
+    align-items: center;
 }
 .sale-analytics {
     margin-top: 2rem;

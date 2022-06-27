@@ -114,92 +114,23 @@
                     </button>
 
                 </div>
-
+                
+                <!--Insert bestseller here-->
                 <div class="recent-updates">
-                    <h2>Recent Updates</h2>
-                    <div class="updates">
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-2.jpg" alt="">
+                    <h2>Best Sellers</h2>
+                    <small>Last updated 24 hours ago</small>
+                    <c:forEach var="product" items="${bestSellers}">
+                        <div class="updates">
+                            <div class="update">
+                                <div class="profile-photo">
+                                    <img src="${product.productImage}" alt="">
+                                </div>
+                                <div class="message">
+                                    <p><b>${product.name}</b> was ordered <b>${product.quantity}</b> times</p>
+                                </div>
                             </div>
-                            <div class="message">
-                                <p><b>Quang Hung</b> received his order of Doner Kebab </p>
-                                <small class="text-muted">2 minutes ago</small>
-                            </div>
-                        </div>
-
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-3.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Hai Anh</b> rated 5 stars for your product </p>
-                                <small class="text-muted">3 minutes ago</small>
-                            </div>
-                        </div>
-
-                        <div class="update">
-                            <div class="profile-photo">
-                                <img src="img/testimonial-4.jpg" alt="">
-                            </div>
-                            <div class="message">
-                                <p><b>Minh Hieu</b> received his order of roasted chicken </p>
-                                <small class="text-muted">5 minutes ago</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SALE ANALYTICS -->
-                <div class="sale-analytics">
-                    <h2>Sale Analytics</h2>
-                    <div class="item online">
-                        <div class="icon">
-                            <span class="material-symbols-outlined">
-                                shopping_cart
-                            </span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Online Orders</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+39%</h5>
-                            <h4>3849</h4>
-                        </div>
-                    </div>
-
-                    <div class="item offline">
-                        <div class="icon">
-                            <span class="material-symbols-outlined">
-                                credit_card
-                            </span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>Offline Orders</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="danger">-16%</h5>
-                            <h4>130</h4>
-                        </div>
-                    </div>
-
-                    <div class="item customers">
-                        <div class="icon">
-                            <span class="material-symbols-outlined">
-                                group
-                            </span>
-                        </div>
-                        <div class="right">
-                            <div class="info">
-                                <h3>New Customers</h3>
-                                <small class="text-muted">Last 24 hours</small>
-                            </div>
-                            <h5 class="success">+20%</h5>
-                            <h4>49</h4>
-                        </div>
-                    </div>
+                        </div>    
+                    </c:forEach>
                 </div>
             </div>
 
