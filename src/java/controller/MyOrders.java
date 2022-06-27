@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,6 +12,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import model.Account;
+import model.OrderDetail;
 
 /**
  *
@@ -30,13 +35,29 @@ public class MyOrders extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            
-            
-            request.getRequestDispatcher("myOrders.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+
+        int page = 1;
+        int pageSize = 4;
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
         }
-        
+
+        OrderDAO db = new OrderDAO();
+        ArrayList<OrderDetail> orderDetails = db.getOrderDetailsByPaging(account.getAccountId(), page, pageSize);
+
+        int totalOrderDetails = db.getOrderDetailQuantityOfCustomer(account.getAccountId());
+        int totalPages = totalOrderDetails / pageSize;
+        if (totalPages % pageSize != 0) {
+            totalPages += 1;
+        }
+
+        request.setAttribute("page", page);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("OrderDetails", orderDetails);
+        request.getRequestDispatcher("myOrders.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

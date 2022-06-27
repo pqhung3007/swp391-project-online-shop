@@ -59,151 +59,68 @@
                         </div>
 
                         <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-5" data-bs-ride="true">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card mb-2 w-100">
+                            <c:forEach var="orderDetail" items="${OrderDetails}">
 
-                                        <div class="card-body text-secondary">
-                                            <div class="row">
-                                                <div class="col-2 ">                                                    
-                                                    <img style="width: 100px; height: 100px" class="card-img-center ms-4" src="img/about-1.jpg" alt="..." />
-                                                </div>
-                                                <div class="col-8">
-                                                    <h4 class="card-title">Caffe Nóng</h4>
-                                                    <p class="card-text"></p>                             
-                                                </div>
-                                                <div class="col-2"> 
-                                                    <p class="card-text">Price: 1000</p>
-                                                    <p class="card-text">Quantity: 5</p>
-                                                    <p class="card-text">Total cost: 1000</p>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="card-footer bg-transparent"> 
-                                            <div class="row">
-                                                <div class="col-9">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="card mb-2 w-100">
 
-                                                </div>
-                                                <div class="col-3">
-                                                    Total product: 1000 </br>
-                                                    Order total cost: 1000 </br>                                
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card mb-2 w-100">
+                                            <div class="card-body text-secondary">
+                                                <div class="row">
+                                                    <div class="col-2 ">                                                    
+                                                        <img style="width: 100px; height: 100px" class="card-img-center ms-4" src="${orderDetail.productImage}" alt="..." />
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <h4 class="card-title">${orderDetail.name}</h4>
+                                                        <p class="card-text"></p>                             
+                                                    </div>
+                                                    <div class="col-2"> 
+                                                        <p class="card-text">Price: ${orderDetail.price}</p>
+                                                        <p class="card-text">Quantity: ${orderDetail.quantity}</p>
+                                                        <p class="card-text">Total cost: ${orderDetail.price * orderDetail.quantity}</p>
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <div class="card-footer bg-transparent"> 
+                                                <div class="row">
+                                                    <div class="col-9">
 
-                                        <div class="card-body text-secondary">
-                                            <div class="row">
-                                                <div class="col-2 ">                                                    
-                                                    <img style="width: 100px; height: 100px" class="card-img-center ms-4" src="img/about-1.jpg" alt="..." />
-                                                </div>
-                                                <div class="col-8">
-                                                    <h4 class="card-title">Caffe Nóng</h4>
-                                                    <p class="card-text"></p>                             
-                                                </div>
-                                                <div class="col-2"> 
-                                                    <p class="card-text">Price: 1000</p>
-                                                    <p class="card-text">Quantity: 5</p>
-                                                    <p class="card-text">Total cost: 1000</p>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="card-footer bg-transparent"> 
-                                            <div class="row">
-                                                <div class="col-9">
-
-                                                </div>
-                                                <div class="col-3">
-                                                    Total product: 1000 </br>
-                                                    Order total cost: 1000 </br>                                
-                                                </div>
-                                            </div> 
+                                                    </div>
+                                                    <!--                                                    <div class="col-3">
+                                                                                                            Total product: 1000 </br>
+                                                                                                            Order total cost: 1000 </br>                                
+                                                                                                        </div>-->
+                                                </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card mb-2 w-100">
-
-                                        <div class="card-body text-secondary">
-                                            <div class="row">
-                                                <div class="col-2 ">                                                    
-                                                    <img style="width: 100px; height: 100px" class="card-img-center ms-4" src="img/about-1.jpg" alt="..." />
-                                                </div>
-                                                <div class="col-8">
-                                                    <h4 class="card-title">Caffe Nóng</h4>
-                                                    <p class="card-text"></p>                             
-                                                </div>
-                                                <div class="col-2"> 
-                                                    <p class="card-text">Price: 1000</p>
-                                                    <p class="card-text">Quantity: 5</p>
-                                                    <p class="card-text">Total cost: 1000</p>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="card-footer bg-transparent"> 
-                                            <div class="row">
-                                                <div class="col-9">
-
-                                                </div>
-                                                <div class="col-3">
-                                                    Total product: 1000 </br>
-                                                    Order total cost: 1000 </br>                                
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card mb-2 w-100">
-
-                                        <div class="card-body text-secondary">
-                                            <div class="row">
-                                                <div class="col-2 ">                                                    
-                                                    <img style="width: 100px; height: 100px" class="card-img-center ms-4" src="img/about-1.jpg" alt="..." />
-                                                </div>
-                                                <div class="col-8">
-                                                    <h4 class="card-title">Caffe Nóng</h4>
-                                                    <p class="card-text"></p>                             
-                                                </div>
-                                                <div class="col-2"> 
-                                                    <p class="card-text">Price: 1000</p>
-                                                    <p class="card-text">Quantity: 5</p>
-                                                    <p class="card-text">Total cost: 1000</p>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="card-footer bg-transparent"> 
-                                            <div class="row">
-                                                <div class="col-9">
-
-                                                </div>
-                                                <div class="col-3">
-                                                    Total product: 1000 </br>
-                                                    Order total cost: 1000 </br>                                
-                                                </div>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
-                    </div
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" >1</a></li>
-                            <li class="page-item"><a class="page-link" >2</a></li>
-                            <li class="page-item"><a class="page-link" >3</a></li>
-                        </ul>
-                    </nav>
+                    </div>
+
+                    <!--Paging-->
+                    <c:choose>
+                        <c:when test="${OrderDetails == null || OrderDetails.size() == 0}">
+                        </c:when>
+                        <c:otherwise>
+                            <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
+                                <ul class="pagination">
+                                    <li class="page-item ${page lt 1 ? "disabled" : ""}">
+                                        <a class="page-link" href="myorder?page=${page-1}">Previous</a>
+                                    </li>
+                                    <c:forEach begin="1" end="${totalPages}" var="i">
+                                        <li class="page-item ${i == page ? "active":""}">
+                                            <a class="page-link" href="myorder?page=${i}">${i}</a>
+                                        </li>
+                                    </c:forEach>
+                                    <li class="page-item ${page gt totalPages ? "disabled" : ""}">
+                                        <a class="page-link" href="myorder?page=${page+1}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </c:otherwise>
+                    </c:choose>
 
                 </div>
             </div>

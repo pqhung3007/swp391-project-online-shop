@@ -8,7 +8,7 @@ package model;
  *
  * @author Admin
  */
-public class OrderDetail {
+public class OrderDetail extends Product {
 
     private int orderId;
     private int productId;
@@ -17,6 +17,10 @@ public class OrderDetail {
     private String discount;
 
     public OrderDetail() {
+    }
+
+    public OrderDetail(int productId, String name, String productImage, int price, String description) {
+        super(productId, name, productImage, price, description);
     }
 
     public OrderDetail(int orderId, int productId, int quantity, int unitPrice, String discount) {
@@ -35,10 +39,12 @@ public class OrderDetail {
         this.orderId = orderId;
     }
 
+    @Override
     public int getProductId() {
         return productId;
     }
 
+    @Override
     public void setProductId(int productId) {
         this.productId = productId;
     }
