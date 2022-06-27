@@ -18,6 +18,8 @@ public class Order {
     private Date shippedDate;
     private int shipperID;
     private int paymentID;
+    private int numberOfProducts;
+    private int cost;
 
     public Order() {
     }
@@ -29,6 +31,22 @@ public class Order {
         this.shippedDate = shippedDate;
         this.shipperID = shipperID;
         this.paymentID = paymentID;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public int getNumberOfProducts() {
+        return numberOfProducts;
+    }
+
+    public void setNumberOfProducts(int numberOfProducts) {
+        this.numberOfProducts = numberOfProducts;
     }
 
     public int getOrderId() {
@@ -77,6 +95,11 @@ public class Order {
 
     public void setPaymentID(int paymentID) {
         this.paymentID = paymentID;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "orderId=" + orderId + ", userId=" + userId + ", orderDate=" + orderDate + ", shippedDate=" + shippedDate + ", shipperID=" + shipperID + ", paymentID=" + paymentID + ", numberOfProducts=" + numberOfProducts + ", cost=" + cost + '}';
     }
 
 }

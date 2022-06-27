@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Order;
 import model.OrderDetail;
 
 /**
@@ -37,7 +38,7 @@ public class OrderDAO extends DBContext {
         }
     }
 
-    public ArrayList<OrderDetail> getAllOrderDetailsOfCustomer(int customerID) {
+    public ArrayList<OrderDetail> getOrderDetailsByOrderId(int orderId) {
         ArrayList<OrderDetail> orderDetails = new ArrayList<>();
         try {
             String sql = "SELECT *"
@@ -45,9 +46,9 @@ public class OrderDAO extends DBContext {
                     + " ON product.ProductID = OrderDetail.ProductID"
                     + " JOIN [Order]"
                     + " ON [Order].OrderID = OrderDetail.OrderID"
-                    + " WHERE [Order].customerID = ?";
+                    + " WHERE [Order].OrderID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, customerID);
+            statement.setInt(1, orderId);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 OrderDetail o = new OrderDetail();
@@ -56,7 +57,7 @@ public class OrderDAO extends DBContext {
                 o.setQuantity(rs.getInt("Quantity"));
                 o.setName(rs.getString("ProductName"));
                 o.setProductImage(rs.getString("ProductImage"));
-                o.setPrice(rs.getInt("UnitPrice"));
+                o.setUnitPrice(rs.getInt("UnitPrice"));
                 orderDetails.add(o);
             }
         } catch (SQLException ex) {
@@ -64,17 +65,18 @@ public class OrderDAO extends DBContext {
         return orderDetails;
     }
 
-    public ArrayList<OrderDetail> getOrderDetailsByPaging(int customerId, int page, int pageSize) {
-        ArrayList<OrderDetail> orderDetails = new ArrayList<>();
+    public ArrayList<Order> getOrderByPaging(int customerId, int page, int pageSize) {
+        ArrayList<Order> orders = new ArrayList<>();
         try {
-            String query = "SELECT *"
-                    + " FROM [OrderDetail] JOIN [Product]"
-                    + " ON product.ProductID = OrderDetail.ProductID"
-                    + " JOIN [Order]"
-                    + " ON [Order].OrderID = OrderDetail.OrderID"
-                    + " WHERE [Order].customerID = ?"
-                    + " ORDER BY [Order].orderID"
-                    + " offset (?-1)*? row fetch next ? rows only";
+            String query = "SELECT [Order].OrderID, [Order].OrderDate "
+                    + "FROM [Order] JOIN [OrderDetail] "
+                    + "ON [Order].OrderID = [OrderDetail].OrderID "
+                    + "JOIN Product "
+                    + "ON OrderDetail.ProductID = Product.ProductID "
+                    + "WHERE customerID = ? "
+                    + "GROUP BY [Order].orderID, [Order].OrderDate "
+                    + "ORDER BY [Order].orderID "
+                    + "offset (?-1)*? row fetch next ? rows only ";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, customerId);
             ps.setInt(2, page);
@@ -82,24 +84,21 @@ public class OrderDAO extends DBContext {
             ps.setInt(4, pageSize);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                OrderDetail o = new OrderDetail();
+                Order o = new Order();
                 o.setOrderId(rs.getInt("OrderID"));
-                o.setProductId(rs.getInt("ProductID"));
-                o.setQuantity(rs.getInt("Quantity"));
-                o.setName(rs.getString("ProductName"));
-                o.setProductImage(rs.getString("ProductImage"));
-                o.setPrice(rs.getInt("UnitPrice"));
-                orderDetails.add(o);
+                o.setOrderDate(rs.getDate("OrderDate"));
+                o.setNumberOfProducts(getNumberOfProductOfOrderById(o.getOrderId()));
+                orders.add(o);
             }
         } catch (Exception ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return orderDetails;
+        return orders;
     }
 
-    public int getOrderDetailQuantityOfCustomer(int accountId) {
+    public int getTotalNumberOfOrderOfCustomer(int accountId) {
         try {
-            String query = "SELECT count(*) FROM [Order] JOIN OrderDetail ON [Order].OrderID = OrderDetail.OrderID WHERE customerID = ?";
+            String query = "SELECT count(*) FROM [Order] WHERE customerID = ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, accountId);
             ResultSet rs = ps.executeQuery();
@@ -113,9 +112,26 @@ public class OrderDAO extends DBContext {
         return 0;
     }
 
+    public int getNumberOfProductOfOrderById(int orderId) {
+        try {
+            String query = "SELECT count(*) FROM [OrderDetail] WHERE OrderID = ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         OrderDAO db = new OrderDAO();
-        System.out.println(db.getOrderDetailQuantityOfCustomer(10));
+        System.out.println(db.getTotalNumberOfOrderOfCustomer(10));
+        System.out.println(db.getNumberOfProductOfOrderById(4));
     }
 
 }

@@ -14,7 +14,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import model.Account;
+import model.Order;
 import model.OrderDetail;
 
 /**
@@ -35,6 +37,8 @@ public class MyOrders extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
 
@@ -46,17 +50,30 @@ public class MyOrders extends HttpServlet {
         }
 
         OrderDAO db = new OrderDAO();
-        ArrayList<OrderDetail> orderDetails = db.getOrderDetailsByPaging(account.getAccountId(), page, pageSize);
+        ArrayList<Order> orders = db.getOrderByPaging(account.getAccountId(), page, pageSize);
 
-        int totalOrderDetails = db.getOrderDetailQuantityOfCustomer(account.getAccountId());
+        //calculate total cost for each order
+        for (int i = 0; i < orders.size(); i++) {
+            ArrayList<OrderDetail> od = db.getOrderDetailsByOrderId(orders.get(i).getOrderId());
+            int cost = 0;
+            for (int j = 0; j < od.size(); j++) {
+                cost += od.get(j).getUnitPrice() * od.get(j).getQuantity();
+            }
+            orders.get(i).setCost(cost);
+        }
+
+        int totalOrderDetails = db.getTotalNumberOfOrderOfCustomer(account.getAccountId());
         int totalPages = totalOrderDetails / pageSize;
         if (totalPages % pageSize != 0) {
             totalPages += 1;
         }
+        //log
+        out.print(orders);
 
         request.setAttribute("page", page);
         request.setAttribute("totalPages", totalPages);
-        request.setAttribute("OrderDetails", orderDetails);
+        request.setAttribute("OrderDetails", orders);
+
         request.getRequestDispatcher("myOrders.jsp").forward(request, response);
     }
 
