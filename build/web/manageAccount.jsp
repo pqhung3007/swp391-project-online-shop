@@ -28,7 +28,6 @@
 
                 <!-- USER TABLE -->
                 <div class="recent-orders">
-                    <h2>Recent Users</h2>
                     <form action="manage" method="post">
                         <select name="roles" onchange="this.form.submit();">
                             <c:forEach items="${roles}" var="r">
@@ -41,7 +40,6 @@
                                 <tr>
                                     <th>Account ID</th>
                                     <th>Username</th>
-                                    <th>Role Name</th>
                                     <th>Status</th>
                                     <th colspan="2">Action</th>
                                 </tr>
@@ -51,7 +49,6 @@
                                     <tr>
                                         <td>${a.accountId}</td>
                                         <td>${a.userName}</td>
-                                        <td>${a.roleId}</td>
                                         <td>
                                             <c:if test="${a.status == true}">
                                                 Active
@@ -60,8 +57,8 @@
                                                 Inactive
                                             </c:if>
                                         </td>
-                                        <td class="primary"><a href="editAccount?aid=${a.accountId}">Edit</a></td>
-                                        <td class="primary" style="width: 7rem">
+                                        <td class="primary cta-btn"><a href="editAccount?aid=${a.accountId}">View</a></td>
+                                        <td class="primary cta-btn" style="width: 7rem">
                                             <c:if test="${!a.status}">
                                                 <a href="updateStatus?aid=${a.accountId}&status=1">Authorize</a>
                                             </c:if>
