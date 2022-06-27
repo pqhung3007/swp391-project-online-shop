@@ -15,7 +15,9 @@ public class User {
     private String address;
     private String email;
     private int accountID;
-    
+    private Account username;
+    private Account password;
+
     public User() {
     }
 
@@ -27,8 +29,18 @@ public class User {
         this.email = email;
         this.accountID = accountID;
     }
-
     
+
+    public User(int userID, String name, String phone, String address, String email, int accountID, Account username, Account password) {
+        this.userID = userID;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
+        this.accountID = accountID;
+        this.username = username;
+        this.password = password;
+    }
 
     public int getUserID() {
         return userID;
@@ -36,14 +48,6 @@ public class User {
 
     public void setUserID(int userID) {
         this.userID = userID;
-    }
-
-    public int getAccountID() {
-        return accountID;
-    }
-
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
     }
 
     public String getName() {
@@ -78,10 +82,38 @@ public class User {
         this.email = email;
     }
 
+    public int getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
+    }
+
+    public Account getUsername() {
+        return username;
+    }
+
+    public void setUsername(Account username) {
+        this.username = username;
+    }
+
+    public Account getPassword() {
+        return password;
+    }
+
+    public void setPassword(Account password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "userID=" + userID + ", accountID=" + accountID + ", name=" + name + ", phone=" + phone + ", address=" + address + ", email=" + email + '}';
+        return "User{" + "userID=" + userID + ", name=" + name + ", phone=" + phone + ", address=" + address + ", email=" + email + ", accountID=" + accountID + ", username=" + username + ", password=" + password + '}';
     }
+    
+    
+    
+   
     
     
 }

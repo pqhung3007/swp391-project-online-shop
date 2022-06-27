@@ -56,6 +56,10 @@
         <servlet-name>UpdateStatusController</servlet-name>
         <servlet-class>controller.UpdateStatusController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfileController</servlet-name>
+        <servlet-class>controller.ProfileController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>UpdateStatusController</servlet-name>
         <url-pattern>/updateStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileController</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

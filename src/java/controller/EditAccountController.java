@@ -26,7 +26,7 @@ public class EditAccountController extends HttpServlet {
     throws ServletException, IOException {
         int accountID = Integer.parseInt(request.getParameter("aid"));
         AccountDAO dao = new AccountDAO();
-        User u = dao.getUserByID(accountID);
+        User u = dao.getUserProfileByID(accountID);
         request.setAttribute("user", u);
         request.getRequestDispatcher("editAccount.jsp").forward(request, response);
     } 
