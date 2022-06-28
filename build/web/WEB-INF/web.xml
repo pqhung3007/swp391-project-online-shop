@@ -60,6 +60,10 @@
         <servlet-name>ProfileController</servlet-name>
         <servlet-class>controller.ProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminCreateAccount</servlet-name>
+        <servlet-class>controller.AdminCreateAccount</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>ProfileController</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateAccount</servlet-name>
+        <url-pattern>/create-account</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -133,10 +133,15 @@ public class AccountDAO extends DBContext {
         return null;
     }
 
-    public List<Role> getAllRole() {
+    public List<Role> getAllRole(int choice) {
         List<Role> roles = new ArrayList<>();
         try {
-            String sql = "select * from Role where RoleID > 1";
+            String sql = "select * from Role ";
+            if (choice == 1) {
+                sql += "where RoleID > 1";
+            } else {
+                sql += "where RoleID >2";
+            }
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -200,6 +205,27 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public void createAccount(int roleID, String username, String password) {
+
+        try {
+            String sql = "INSERT INTO [Account]\n"
+                    + "           ([Username]\n"
+                    + "           ,[Password]\n"
+                    + "           ,[RoleID]\n"
+                    + "           ,[status])\n"
+                    + "     VALUES\n"
+                    + "           (?,?,?,1)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            statement.setString(2, password);
+            statement.setInt(3, roleID);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

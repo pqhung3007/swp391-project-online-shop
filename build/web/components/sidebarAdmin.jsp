@@ -16,17 +16,13 @@
             <span class="material-symbols-outlined"> grid_view </span>
             <h3>Dashboard</h3>
         </a>
-        <a href="#">
+        <a href="create-account">
             <span class="material-symbols-outlined"> person </span>
-            <h3>About</h3>
+            <h3>Create Account</h3>
         </a>
         <a href="#" class="active">
             <span class="material-symbols-outlined"> inventory </span>
             <h3>Manage Accounts</h3>
-        </a>
-        <a href="#">
-            <span class="material-symbols-outlined"> insights </span>
-            <h3>Contact</h3>
         </a>
         <a href="#" class="logout">
             <span class="material-symbols-outlined"> logout </span>

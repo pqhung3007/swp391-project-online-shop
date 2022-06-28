@@ -28,7 +28,7 @@ public class ManageAccountController extends HttpServlet {
     throws ServletException, IOException {
         AccountDAO dao = new AccountDAO();
         List<Account> list = dao.getAll();
-        List<Role> roles = dao.getAllRole();
+        List<Role> roles = dao.getAllRole(1);
         request.setAttribute("roles", roles);
         request.setAttribute("accounts", list);
         
@@ -39,7 +39,7 @@ public class ManageAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        List<Role> roles = new AccountDAO().getAllRole();
+        List<Role> roles = new AccountDAO().getAllRole(1);
         request.setAttribute("roles", roles);
         int roleId = Integer.parseInt(request.getParameter("roles"));
         List<Account> accounts = new AccountDAO().getUserByRole(roleId);
