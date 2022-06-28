@@ -169,8 +169,8 @@ public class AccountDAO extends DBContext {
     public User getUserProfileByID(int id) {
 
         String sql = "select u.* , a.Username , a.[Password] from [User] u inner join Account a\n"
-                + "on u.UserID = a.AccountID\n"
-                + "where u.UserID = ?";
+                + "on u.AccountID = a.AccountID\n"
+                + "where u.AccountID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);

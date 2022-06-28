@@ -77,33 +77,33 @@
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
                     <form action="profile" method="POST">
-                    <input type="hidden" name="accountID" value="${user.accountID}">
-                    <input type="hidden" name="accountIDS" value="${sessionScope.account.accountId}">
-                    <div class="row mt-2">
-                        <div class="col-md-12"><label  class="labels"></label><input  type="text" class="form-control"
-                                                                                      placeholder="Fullname" name="name" value="${user.name}">
+                        <input type="hidden" name="accountID" value="${user.accountID}">
+                        <input type="hidden" name="accountIDS" value="${sessionScope.account.accountId}">
+                        <div class="row mt-2">
+                            <div class="col-md-12"><label  class="labels"></label><input  type="text" class="form-control"
+                                                                                          placeholder="Fullname" name="name" value="${user.name}">
+                            </div>
+                            <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control"
+                                                                                        placeholder="Username" name="fullname" value="${sessionScope.account.userName}">
+                            </div>
+                            <div class="col-md-12"><label class="labels"></label><input type="password" class="form-control"
+                                                                                        placeholder="Password" name="password" value="${sessionScope.account.passWord}">
+                            </div>
                         </div>
-                        <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control"
-                                                                                    placeholder="Username" name="fullname" value="${sessionScope.account.userName}">
+                        <div class="row mt-3">
+                            <div class="col-md-6"><label class="labels"></label><input type="text" class="form-control"
+                                                                                       placeholder="Phone" name="phone" value="${user.phone}"></div>
+                            <div class="col-md-6"><label class="labels"></label><input type="text" class="form-control"
+                                                                                       placeholder="Address" name="address" value="${user.address}"></div>
+                            <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control"
+                                                                                        placeholder="Email" name="email" value="${user.email}"></div>
                         </div>
-                        <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control"
-                                                                                    placeholder="Password" name="password" value="${sessionScope.account.passWord}">
+
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button m-4" type="submit" >Save Profile</button>
+
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels"></label><input type="text" class="form-control"
-                                                                                   placeholder="Phone" name="phone" value="${user.phone}"></div>
-                        <div class="col-md-6"><label class="labels"></label><input type="text" class="form-control"
-                                                                                   placeholder="Address" name="address" value="${user.address}"></div>
-                        <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control"
-                                                                                    placeholder="Email" name="email" value="${user.email}"></div>
-                    </div>
-                    
-                    <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button m-4" type="submit" >Save Profile</button>
-                       
-                    </div>
-                   </form>
+                    </form>
                 </div>
             </div>
 
