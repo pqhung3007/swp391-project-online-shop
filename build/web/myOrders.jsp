@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,27 +50,7 @@
                         <div class="carousel-item active">
                             <div class="card mb-2 w-100">
                                 <div class="card-body text-secondary">
-                                    <div class="card-heading">
-                                        <h4 class="card-title">Le Phuong Chi</h4>
-                                        <p class="m-0">Order #1234</p>
-                                    </div>
-                                    <div class="order-info">
-                                        <div class="order-item">
-                                            <img class="item-img" src="./img/service-1.jpg" alt="">
-                                            <div class="item-info">
-                                                <div class="item-title">
-                                                    <p class="m-0"><b>Caramel Macchiato</b></p>
-                                                    <small>$7.5</small>
-                                                </div>
-                                                <div class="item-desc">
-                                                    <p class="m-0">2 cups</p>
-                                                </div>
-                                                <hr class="m-0">
-                                                <div class="item-price">
-                                                    <p>$15</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div id="content">
 
                                     </div>
                                 </div>
@@ -82,9 +63,9 @@
                 <div class="col-7 pt-5">
                     <div class="container px-4 px-lg-1">
                         <div class="tab-group w-100" role="group" aria-label="Basic checkbox toggle button group">
-                            <a class="tab-item hvr-sweep-to-left" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" href=""><h4>All Orders</h4></a>
-                            <a class="tab-item hvr-sweep-to-left" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active" href=""><h4>Processing</h4></a>
-                            <a class="tab-item hvr-sweep-to-left" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active" href=""><h4>History</h4></a>
+                            <a class="tab-item" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" href=""><h4>All Orders</h4></a>
+                            <a class="tab-item" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active" href=""><h4>Processing</h4></a>
+                            <a class="tab-item" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active" href=""><h4>History</h4></a>
                         </div>
 
                         <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-5" data-bs-ride="true">
@@ -94,12 +75,12 @@
                                         <div class="card mb-2 w-100">
                                             <div class="card-body text-secondary">
                                                 <div class="card-heading">
-                                                    <h4 class="card-title">Order #${order.orderId}</h4>
-                                                    <button class="card-button">View detail</button>
+                                                    <h4 class="card-title">Order #<span class="card-title card-id">${order.orderId}</span></h4>
+                                                    <button class="card-button detail">View detail</button>
                                                 </div>
                                                 <div class="card-info">
                                                     <p class="card-text m-0">Time ordered
-                                                        <span class="card-text__detail"><b>${order.orderDate}</b></span>
+                                                        <span class="card-text__detail"><b><fmt:formatDate pattern = "dd/MM/yy" value = "${order.orderDate}"/></b></span>
                                                     </p>
                                                     <p class="card-text m-0">Total products
                                                         <span class="card-text__detail"><b>${order.numberOfProducts}</b></span>
@@ -122,7 +103,7 @@
                         <c:otherwise>
                             <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
                                 <ul class="pagination">
-                                    <li class="page-item ${page lt 1 ? "disabled" : ""}">
+                                    <li class="page-item ${page lt 2 ? "disabled" : ""}">
                                         <a class="page-link" href="myorder?page=${page-1}">Previous</a>
                                     </li>
                                     <c:forEach begin="1" end="${totalPages}" var="i">
@@ -130,7 +111,7 @@
                                             <a class="page-link" href="myorder?page=${i}">${i}</a>
                                         </li>
                                     </c:forEach>
-                                    <li class="page-item ${page gt totalPages ? "disabled" : ""}">
+                                    <li class="page-item ${page gt (totalPages-1) ? "disabled" : ""}">
                                         <a class="page-link" href="myorder?page=${page+1}">Next</a>
                                     </li>
                                 </ul>
@@ -162,6 +143,25 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="js/app.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".detail").click(function () {
+                    var currentRow = $(this).closest("div");
+                    var data = currentRow.find(".card-id").text();
+                    console.log(data);
+                    $.ajax({
+                        url: "myorder",
+                        type: 'POST',
+                        data: {
+                            "id": data
+                        },
+                        success: function (results) {
+                            $("#content").html(results);
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
 

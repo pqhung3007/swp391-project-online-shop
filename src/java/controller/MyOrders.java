@@ -26,16 +26,17 @@ import model.OrderDetail;
 @WebServlet(name = "MyOrders", urlPatterns = {"/myorder"})
 public class MyOrders extends HttpServlet {
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
@@ -67,29 +68,12 @@ public class MyOrders extends HttpServlet {
         if (totalPages % pageSize != 0) {
             totalPages += 1;
         }
-        //log
-        out.print(orders);
 
         request.setAttribute("page", page);
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("OrderDetails", orders);
 
         request.getRequestDispatcher("myOrders.jsp").forward(request, response);
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**
@@ -103,7 +87,34 @@ public class MyOrders extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        int orderID=Integer.parseInt(request.getParameter("id"));
+        PrintWriter out = response.getWriter();
+        ArrayList<OrderDetail> o = new OrderDAO().getOrderDetailsByOrderId(orderID);
+        out.println("<div class=\"card-heading\">\n"
+                + "                                        <h4 class=\"card-title\">Order #" + orderID + "</h4>\n"
+                + "                                    </div>");
+        for (OrderDetail orderDetail : o) {
+            int total = orderDetail.getUnitPrice() * orderDetail.getQuantity();
+            out.println("<div class=\"order-info\">\n"
+                    + "                                            <div class=\"order-item\">\n"
+                    + "                                                <img class=\"item-img\" src=\"" + orderDetail.getProductImage() + "\" alt=\"\">\n"
+                    + "                                                <div class=\"item-info\">\n"
+                    + "                                                    <div class=\"item-title\">\n"
+                    + "                                                        <p class=\"m-0\"><b>" + orderDetail.getName() + "</b></p>\n"
+                    + "                                                        <small>" + orderDetail.getUnitPrice() + "</small>\n"
+                    + "                                                    </div>\n"
+                    + "                                                    <div class=\"item-desc\">\n"
+                    + "                                                        <p class=\"m-0\">" + orderDetail.getQuantity() + " cups</p>\n"
+                    + "                                                    </div>\n"
+                    + "                                                    <hr class=\"m-0\">\n"
+                    + "                                                    <div class=\"item-price\">\n"
+                    + "                                                        <p>" + total + "</p>\n"
+                    + "                                                    </div>\n"
+                    + "                                                </div>\n"
+                    + "                                            </div>\n"
+                    + "                                        </div>");
+        }
     }
 
     /**

@@ -114,7 +114,7 @@ public class OrderDAO extends DBContext {
 
     public int getNumberOfProductOfOrderById(int orderId) {
         try {
-            String query = "SELECT count(*) FROM [OrderDetail] WHERE OrderID = ?";
+            String query = "SELECT sum(Quantity) FROM [OrderDetail] WHERE OrderID = ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, orderId);
             ResultSet rs = ps.executeQuery();
