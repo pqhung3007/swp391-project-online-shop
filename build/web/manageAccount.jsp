@@ -29,7 +29,8 @@
                 <!-- USER TABLE -->
                 <div class="recent-orders">
                     <form action="manage" method="post">
-                        <select name="roles" onchange="this.form.submit();">
+                        <select name="roles" onchange="this.form.submit()">
+                            <option value="1">All account</option>
                             <c:forEach items="${roles}" var="r">
                                 <option value="${r.roleId}" ${selectedId == r.roleId?"selected":""}>${r.roleName}
                                 </option>

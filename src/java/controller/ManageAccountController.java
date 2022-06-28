@@ -42,10 +42,16 @@ public class ManageAccountController extends HttpServlet {
         List<Role> roles = new AccountDAO().getAllRole(1);
         request.setAttribute("roles", roles);
         int roleId = Integer.parseInt(request.getParameter("roles"));
+        if(roleId == 1){
+            List<Account> list = new AccountDAO().getAll();
+            request.setAttribute("accounts", list);
+            request.getRequestDispatcher("manageAccount.jsp").forward(request, response);
+        }else{
         List<Account> accounts = new AccountDAO().getUserByRole(roleId);
         request.setAttribute("selectedId", roleId);
         request.setAttribute("accounts", accounts);
         request.getRequestDispatcher("manageAccount.jsp").forward(request, response);
+        }
     }
 
     

@@ -33,16 +33,18 @@
                         </div>
                         <div class="user-info">
                             <div>
-                                <label for="">Full Name</label>
+                                <label>Full Name</label>
                                 <input type="text" name="name" value="${user.name}" disabled>
-                                <label for="">Phone</label>
+                                <label>Phone</label>
                                 <input type="text" name="phone" value="${user.phone}" disabled>
                             </div>
                             <div>
-                                <label for="">Address</label>
+                                <label>Address</label>
                                 <input type="text" name="address" value="${user.address}" disabled>
-                                <label for="">Email</label>
+                                <label>Email</label>
                                 <input type="text" name="email" value="${user.email}" disabled>
+                                <label>Role</label>
+                                <input type="text" name="role" value="${user.roleName}" disabled>
                             </div>
                             <button class="btn-submit" type="submit"><a href="manage">Back</a></button>
                         </div>

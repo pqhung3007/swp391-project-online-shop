@@ -15,6 +15,7 @@ public class User {
     private String address;
     private String email;
     private int accountID;
+    private String roleName;
     private Account username;
     private Account password;
 
@@ -30,6 +31,15 @@ public class User {
         this.accountID = accountID;
     }
     
+    public User(int userID, String name, String phone, String address, String email, int accountID, String roleName) {
+        this.userID = userID;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
+        this.accountID = accountID;
+        this.roleName = roleName;
+    }
 
     public User(int userID, String name, String phone, String address, String email, int accountID, Account username, Account password) {
         this.userID = userID;
@@ -44,6 +54,14 @@ public class User {
 
     public int getUserID() {
         return userID;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public void setUserID(int userID) {

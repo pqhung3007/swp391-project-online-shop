@@ -108,29 +108,19 @@ public class AccountDAO extends DBContext {
     public User getUserByID(int AccountID) {
         User u = null;
         try {
-            String sql = "select * from [User] where AccountID = ?";
+            String sql = "select u.*,r.RoleName from [User] u inner join Account a \n"
+                    + "on u.AccountID = a.AccountID \n"
+                    + "inner join Role r on a.RoleID = r.RoleID\n"
+                    + "where a.AccountID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, AccountID);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                User user = new User();
-                user.setName(rs.getString("FullName"));
-                user.setAddress(rs.getString("Address"));
-                user.setPhone(rs.getString("Phone"));
-                user.setUserID(rs.getInt("UserID"));
-//                Account account = new Account();
-//                account.setUserName(rs.getString("Username"));
-//                user.setUsername(account);
-//                Account acc = new Account();
-//                acc.setPassWord(rs.getString("Password"));
-//                user.setPassword(acc);
-                user.setEmail(rs.getString("Email"));
-                user.setAccountID(rs.getInt("AccountID"));
-                return user;
+                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7));
             }
         } catch (Exception e) {
         }
-        return null;
+        return u;
     }
 
     public List<Role> getAllRole(int choice) {
