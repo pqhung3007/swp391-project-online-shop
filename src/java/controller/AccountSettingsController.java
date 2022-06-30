@@ -5,12 +5,15 @@
 
 package controller;
 
+import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Account;
+import model.User;
 
 /**
  *
@@ -29,6 +32,11 @@ public class AccountSettingsController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            Account account = (Account) request.getSession().getAttribute("account");
+            int sellerId = account.getAccountId();
+            
+             User u = new AccountDAO().getSellerProfileByID(sellerId);
+             request.setAttribute("user", u);
             request.getRequestDispatcher("sellerSettings.jsp").forward(request, response);
         }
     } 
