@@ -82,7 +82,7 @@ public class CartDAO extends DBContext {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public List<Payment> getAllPayment() {
         List<Payment> list = new ArrayList<>();
         try {
@@ -98,36 +98,4 @@ public class CartDAO extends DBContext {
         return list;
     }
 
-    public User getUserbyAccountID(int aid) {
-
-        try {
-            String sql = "select u.* from [User] u where u.AccountID = ?";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, aid);
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                User user = new User();
-                user.setName(rs.getString("FullName"));
-                user.setAddress(rs.getString("Address"));
-                user.setPhone(rs.getString("Phone"));
-                user.setUserID(rs.getInt("UserID"));
-//                Account account = new Account();
-//                account.setUserName(rs.getString("Username"));
-//                user.setUsername(account);
-//                Account acc = new Account();
-//                acc.setPassWord(rs.getString("Password"));
-//                user.setPassword(acc);
-                user.setEmail(rs.getString("Email"));
-                user.setAccountID(rs.getInt("AccountID"));
-                return user;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-    public static void main(String[] args) {
-        User user = new CartDAO().getUserbyAccountID(1);
-        System.out.println(user);
-    }
 }

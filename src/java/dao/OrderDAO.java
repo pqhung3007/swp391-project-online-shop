@@ -57,7 +57,7 @@ public class OrderDAO extends DBContext {
                 o.setQuantity(rs.getInt("Quantity"));
                 o.setName(rs.getString("ProductName"));
                 o.setProductImage(rs.getString("ProductImage"));
-                o.setUnitPrice(rs.getInt("UnitPrice"));
+//                o.setUnitPrice(rs.getInt("UnitPrice"));
                 orderDetails.add(o);
             }
         } catch (SQLException ex) {
@@ -86,7 +86,7 @@ public class OrderDAO extends DBContext {
             while (rs.next()) {
                 Order o = new Order();
                 o.setOrderId(rs.getInt("OrderID"));
-                o.setOrderDate(rs.getDate("OrderDate"));
+//                o.setOrderDate(rs.getDate("OrderDate"));
                 o.setNumberOfProducts(getNumberOfProductOfOrderById(o.getOrderId()));
                 orders.add(o);
             }

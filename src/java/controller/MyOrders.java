@@ -58,7 +58,8 @@ public class MyOrders extends HttpServlet {
             ArrayList<OrderDetail> od = db.getOrderDetailsByOrderId(orders.get(i).getOrderId());
             int cost = 0;
             for (int j = 0; j < od.size(); j++) {
-                cost += od.get(j).getUnitPrice() * od.get(j).getQuantity();
+//                cost += od.get(j).getUnitPrice() * od.get(j).getQuantity();
+                   cost += od.get(j).getQuantity();
             }
             orders.get(i).setCost(cost);
         }
@@ -95,14 +96,14 @@ public class MyOrders extends HttpServlet {
                 + "                                        <h4 class=\"card-title\">Order #" + orderID + "</h4>\n"
                 + "                                    </div>");
         for (OrderDetail orderDetail : o) {
-            int total = orderDetail.getUnitPrice() * orderDetail.getQuantity();
+            int total = orderDetail.getQuantity();
             out.println("<div class=\"order-info\">\n"
                     + "                                            <div class=\"order-item\">\n"
                     + "                                                <img class=\"item-img\" src=\"" + orderDetail.getProductImage() + "\" alt=\"\">\n"
                     + "                                                <div class=\"item-info\">\n"
                     + "                                                    <div class=\"item-title\">\n"
                     + "                                                        <p class=\"m-0\"><b>" + orderDetail.getName() + "</b></p>\n"
-                    + "                                                        <small>" + orderDetail.getUnitPrice() + "</small>\n"
+                    + "                                                        <small>" + orderDetail.getQuantity()+ "</small>\n"
                     + "                                                    </div>\n"
                     + "                                                    <div class=\"item-desc\">\n"
                     + "                                                        <p class=\"m-0\">" + orderDetail.getQuantity() + " cups</p>\n"

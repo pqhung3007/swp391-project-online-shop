@@ -118,7 +118,7 @@ public class AccountDAO extends DBContext {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-                        rs.getString(6));
+                        rs.getString(7));
             }
         } catch (Exception e) {
         }

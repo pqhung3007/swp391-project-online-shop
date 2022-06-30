@@ -78,10 +78,9 @@ public class LoginController extends HttpServlet {
         if (account != null) {
             request.getSession().setAttribute("account", account);
             if(account.isStatus()){               
-//            response.getWriter().println("Login successful!");
             switch (account.getRoleId()) {
                 case 1:
-                    request.getRequestDispatcher("Admin.jsp").forward(request, response);
+                    response.sendRedirect("manage");
                     break;
                 case 2:
                     response.sendRedirect("home");

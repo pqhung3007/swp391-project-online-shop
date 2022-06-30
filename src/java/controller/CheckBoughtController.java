@@ -61,8 +61,8 @@ public class CheckBoughtController extends BaseAuthController {
         }else{
         CartDAO dao = new CartDAO();
         List<Payment> list = dao.getAllPayment();
-        User u = dao.getUserbyAccountID(account.getAccountId());
-        request.setAttribute("user", u);
+//        User u = dao.getUserbyAccountID(account.getAccountId());
+//        request.setAttribute("user", u);
         request.setAttribute("listP", list);
         request.getRequestDispatcher("checkBought.jsp").forward(request, response);
         }
@@ -88,10 +88,6 @@ public class CheckBoughtController extends BaseAuthController {
 
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        //log
-//        PrintWriter out = response.getWriter();
-//        out.print(account.getAccountId());
-
         
         CartDAO db = new CartDAO();
         //get latest order to get orderID to add new order

@@ -41,7 +41,7 @@
         <servlet-class>controller.SearchController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
+
         <servlet-name>AdminController</servlet-name>
         <servlet-class>controller.AdminController</servlet-class>
     </servlet>
@@ -64,7 +64,7 @@
     <servlet>
         <servlet-name>AdminCreateAccount</servlet-name>
         <servlet-class>controller.AdminCreateAccount</servlet-class>
-=======
+
         <servlet-name>AddProductController</servlet-name>
         <servlet-class>controller.AddProductController</servlet-class>
     </servlet>
@@ -99,7 +99,7 @@
     <servlet>
         <servlet-name>SettingAccountController</servlet-name>
         <servlet-class>controller.SettingAccountController</servlet-class>
->>>>>>> main
+
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -142,7 +142,7 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
+
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
@@ -165,7 +165,7 @@
     <servlet-mapping>
         <servlet-name>AdminCreateAccount</servlet-name>
         <url-pattern>/create-account</url-pattern>
-=======
+
         <servlet-name>AddProductController</servlet-name>
         <url-pattern>/add-product</url-pattern>
     </servlet-mapping>
@@ -200,7 +200,7 @@
     <servlet-mapping>
         <servlet-name>SettingAccountController</servlet-name>
         <url-pattern>/update-account</url-pattern>
->>>>>>> main
+
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
