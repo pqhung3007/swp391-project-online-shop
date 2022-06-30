@@ -29,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </div>
 
         <div class="navbar-content">
-            <a href="seller-dashboard" class="active">
+            <a href="seller-dashboard">
                 <span class="material-symbols-outlined">
                     grid_view
                 </span>
@@ -67,5 +67,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </a>
         </div>
     </aside>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            var href = window.location.href;
+            $('.navbar-content a').each(function (e, i) {
+                if (href.indexOf($(this).attr('href')) >= 0) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
