@@ -27,7 +27,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   --bdrd-2: 0.8rem;
   --bdrd-3: 1.2rem;
 
+<<<<<<< HEAD
   --card-padding: 1.5rem;
+=======
+  --card-padding: 1.2rem;
+>>>>>>> main
   --padding-1: 1.2rem;
 
   --box-shadow: 0 2rem 3rem var(--color-light);
@@ -50,9 +54,51 @@ body {
 .container {
   display: grid;
   /* width: 95%;
-  margin: 0 auto; */
+    margin: 0 auto; */
   gap: 2rem;
   grid-template-columns: 14rem auto 21rem;
+}
+
+.container-product {
+  display: grid;
+  grid-template-columns: 14rem auto;
+  gap: 2rem;
+  margin-right: 3rem;
+}
+
+.container-settings {
+  display: flex;
+  gap: 5rem;
+  margin-top: 5rem;
+}
+
+.container-info {
+  width: 60%;
+}
+
+.container-title {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.container-settings input {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.container-settings input:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 a {
@@ -82,12 +128,14 @@ p {
 }
 
 small {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .profile-photo {
-  width: 2.2rem;
-  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -118,7 +166,7 @@ p {
 
 /* VERTICAL NAVBAR */
 aside {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #fff;
 }
 
@@ -207,6 +255,7 @@ main .date input {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  margin-top: 1.2rem;
 }
 
 .insight {
@@ -215,11 +264,10 @@ main .date input {
   background-color: #fff;
   padding: var(--card-padding);
   border-radius: var(--card-border-radius);
-  margin-top: 1.2rem;
   transition: 0.3s ease;
 }
 
-.insight-figure img{
+.insight-figure img {
   border-radius: var(--bdrd-2);
 }
 .insight:hover {
@@ -244,8 +292,8 @@ main .date input {
   background-color: var(--color-danger);
 }
 
-.insight.income span {
-  background-color: var(--color-warning);
+.insight.ratings span {
+  background-color: var(--color-success);
 }
 
 .insight-content {
@@ -268,77 +316,114 @@ button {
   font-family: inherit;
 }
 
-button:hover{
+button:hover {
   background-color: var(--color-warning);
   border: none;
   transform: scale(1.05);
 }
 
-#scroll-bar::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(42, 41, 41, 0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+#scroll-bar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(42, 41, 41, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
 }
 
-#scroll-bar::-webkit-scrollbar
-{
-	width: 5px;
-	background-color: #F5F5F5;
+#scroll-bar::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5;
 }
 
-#scroll-bar::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(42, 41, 41, 0.3);
-	background-color: #555;
+#scroll-bar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(42, 41, 41, 0.3);
+  background-color: #555;
 }
 
-.input-product{
-  margin-top: 3rem;
+.update-product {
+  margin-top: -1rem;
+}
+
+.input-product {
+  margin-top: 2rem;
   display: grid;
-  grid-template-columns: 24rem auto;
+  grid-template-columns: 30rem auto;
+  gap: 3rem;
 }
 
-.input-image img{
+.input-image img {
   width: 100%;
   border-radius: var(--card-border-radius);
   margin-top: 20px;
 }
 
-.input-image input{
-  width: 100%;
+.input-image div {
+  width: 80%;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: var(--bdrd-3);
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.input-info, .input-image{
+.input-image label {
+  cursor: pointer;
+}
+
+.input-fields,
+.input-image {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-left: 25px;
+  gap: 2rem;
 }
 
-.info{
+.input-fields field {
+  padding: 0.8rem 1.5rem;
+  font-size: 2rem;
+  width: 70%;
+}
+
+.info,
+.field {
+  padding: 1rem;
   font-size: 100%;
-  padding: 10px;
   border-radius: 10px;
   border: none;
 }
-fieldset{
+
+fieldset {
   padding: 10px;
 }
-textarea{
+
+textarea {
+  font-family: inherit;
   width: 100%;
   height: 200px;
   padding: 10px;
   border-radius: 10px;
 }
-.btn{
+
+.btn {
   width: 100%;
   text-align: center;
   margin: 30px 25px;
 }
-.btn button{
-  width: 20%;
+
+.btn-submit {
+  max-width: 30%;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--color-primary);
+  transition: all 0.3s;
+}
+
+.btn-submit:hover {
+  transform: scale(0.95);
 }
 
 /* ORDER TABLE */
@@ -386,7 +471,12 @@ table tr:last-child td {
 }
 
 table td a {
-  color: var(--color-primary);
+  color: var(--color-info-dark);
+  transition: all 0.3s;
+}
+
+table td a:hover {
+  color: var(--color-dark);
 }
 
 /* RIGHT */
@@ -424,9 +514,9 @@ table td a {
 
 .update {
   display: grid;
-  grid-template-columns: 2.8rem auto;
+  grid-template-columns: 3.5rem auto;
+  align-items: center;
 }
-
 .sale-analytics {
   margin-top: 2rem;
 }
@@ -453,11 +543,39 @@ table td a {
 .right-col .sale-analytics .item .right {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   width: 100%;
 }
 
-@media screen and (max-width: 1100px) {
+/*Order detail*/
+.detail-info {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.detail-photo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.detail-photo img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.detail-text {
+  width: 100%;
+}
+
+.detail-text .text-title {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 968px) {
   .container {
     width: 94%;
     grid-template-columns: 6rem auto 22rem;
@@ -478,9 +596,9 @@ table td a {
   main .recent-orders {
     width: 95%;
     position: absolute;
-    left: 50%;
+    left: 67%;
+    top: 120%;
     transform: translateX(-50%);
-    margin: 3rem 0 0 8rem;
   }
 
   main .recent-orders table {
@@ -494,6 +612,10 @@ table td a {
 
   table td:nth-of-type(2),
   table td:nth-of-type(3) {
+    display: none;
+  }
+
+  aside .profile .info {
     display: none;
   }
 }

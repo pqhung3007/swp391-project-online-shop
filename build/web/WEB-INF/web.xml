@@ -41,6 +41,7 @@
         <servlet-class>controller.SearchController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>AdminController</servlet-name>
         <servlet-class>controller.AdminController</servlet-class>
     </servlet>
@@ -63,6 +64,42 @@
     <servlet>
         <servlet-name>AdminCreateAccount</servlet-name>
         <servlet-class>controller.AdminCreateAccount</servlet-class>
+=======
+        <servlet-name>AddProductController</servlet-name>
+        <servlet-class>controller.AddProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SellerDashboardController</servlet-name>
+        <servlet-class>controller.SellerDashboardController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SellerProductController</servlet-name>
+        <servlet-class>controller.SellerProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SellerOrderController</servlet-name>
+        <servlet-class>controller.SellerOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProductController</servlet-name>
+        <servlet-class>controller.UpdateProductController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadOrderController</servlet-name>
+        <servlet-class>controller.LoadOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountSettingsController</servlet-name>
+        <servlet-class>controller.AccountSettingsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingInfoController</servlet-name>
+        <servlet-class>controller.SettingInfoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingAccountController</servlet-name>
+        <servlet-class>controller.SettingAccountController</servlet-class>
+>>>>>>> main
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -105,6 +142,7 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
@@ -127,6 +165,42 @@
     <servlet-mapping>
         <servlet-name>AdminCreateAccount</servlet-name>
         <url-pattern>/create-account</url-pattern>
+=======
+        <servlet-name>AddProductController</servlet-name>
+        <url-pattern>/add-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SellerDashboardController</servlet-name>
+        <url-pattern>/seller-dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SellerProductController</servlet-name>
+        <url-pattern>/my-products</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SellerOrderController</servlet-name>
+        <url-pattern>/my-orders</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProductController</servlet-name>
+        <url-pattern>/update-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadOrderController</servlet-name>
+        <url-pattern>/load-detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountSettingsController</servlet-name>
+        <url-pattern>/settings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingInfoController</servlet-name>
+        <url-pattern>/update-info</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingAccountController</servlet-name>
+        <url-pattern>/update-account</url-pattern>
+>>>>>>> main
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

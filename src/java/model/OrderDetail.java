@@ -13,22 +13,26 @@ public class OrderDetail extends Product {
     private int orderId;
     private int productId;
     private int quantity;
-    private int unitPrice;
-    private String discount;
+
+    private User user;
+    private Product product;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(int productId, String name, String productImage, int price, String description) {
-        super(productId, name, productImage, price, description);
-    }
-
-    public OrderDetail(int orderId, int productId, int quantity, int unitPrice, String discount) {
+    public OrderDetail(int orderId, int productId, int quantity) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.discount = discount;
+
+    }
+
+    public OrderDetail(int orderId, int productId, int quantity, String OrderTime, User user, Product product) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.user = user;
+        this.product = product;
     }
 
     public int getOrderId() {
@@ -57,20 +61,19 @@ public class OrderDetail extends Product {
         this.quantity = quantity;
     }
 
-    public int getUnitPrice() {
-        return unitPrice;
+    public User getUser() {
+        return user;
     }
 
-    public void setUnitPrice(int unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getDiscount() {
-        return discount;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setDiscount(String discount) {
-        this.discount = discount;
+    public void setProduct(Product product) {
+        this.product = product;
     }
-
 }

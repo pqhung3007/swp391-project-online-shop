@@ -64,7 +64,16 @@
                 <ul class="nav nav-tabs flex-md-column flex-sm-row" id="myTab" role="tablist">
                     <c:forEach var="category" items="${sessionScope.categories}">
                         <li class="nav-item" role="presentation">
-                            <a href="listProducts?categoryId=${category.categoryId}" class="nav-link" >
+                            <a href="listProducts?categoryId=${category.categoryId}" 
+                               <c:choose>
+                                   <c:when test="${category.categoryId == sessionScope.catID}">
+                                       class="nav-link active"
+                                   </c:when>
+                                   <c:otherwise>
+                                       class="nav-link"
+                                   </c:otherwise>
+                               </c:choose>
+                               >
                                 ${category.categoryName}
                             </a>
                         </li>
@@ -85,24 +94,31 @@
                     </form>
                 </div>
 
-                <div class="tab-pane fade show active row" id="espresso" role="tabpanel" aria-labelledby="espresso-tab">
-                    <c:forEach var="product" items="${products}">
-                        <div class="col-md-4 col-sm-6 mb-4">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="${product.productImage}" alt="">
+                <c:choose>
+                    <c:when test="${products == null || products.size() == 0}">
+                        <p class="text-center mb-4" style="font-size: 1.2rem">Oops, cannot find any product :(</p>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="tab-pane fade show active row" id="espresso" role="tabpanel" aria-labelledby="espresso-tab">
+                            <c:forEach var="product" items="${products}">
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="product">
+                                        <div class="product-image">
+                                            <img src="${product.productImage}" alt="">
+                                        </div>
+                                        <h5 class="mt-4">${product.name}</h5>
+                                        <p>Price: ${product.price} VND</p>
+                                        <p class="text-end mb-0"><a
+                                                href="productDetail?pid=${product.productId}"
+                                                class="btn btn-primary rounded-pill"
+                                                >View Product</a>
+                                        </p>
+                                    </div>
                                 </div>
-                                <h5 class="mt-4">${product.name}</h5>
-                                <p>Price: ${product.price} VND</p>
-                                <p class="text-end mb-0"><a
-                                        href="productDetail?pid=${product.productId}"
-                                        class="btn btn-primary rounded-pill"
-                                        >View Product</a>
-                                </p>
-                            </div>
+                            </c:forEach>
                         </div>
-                    </c:forEach>
-                </div>
+                    </c:otherwise>
+                </c:choose>
 
             </div>
         </div>

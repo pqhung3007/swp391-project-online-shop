@@ -32,7 +32,7 @@ public class CartDAO extends DBContext {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Order o = new Order(rs.getInt("OrderID"), rs.getInt("UserID"), rs.getDate("OrderDate"), rs.getDate("ShippedDate"), rs.getInt("ShipperID"), rs.getInt("PaymentID"));
+                Order o = new Order(rs.getInt("OrderID"), rs.getInt("UserID"), rs.getInt("ShipperID"), rs.getInt("PaymentID"));
                 return o;
             }
         } catch (SQLException ex) {
@@ -54,8 +54,8 @@ public class CartDAO extends DBContext {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, o.getOrderId());
             statement.setInt(2, o.getUserId());
-            statement.setDate(3, o.getOrderDate());
-            statement.setDate(4, o.getShippedDate());
+            statement.setString(3, "getDate()");
+            statement.setString(4, "getDate()");
             statement.setInt(5, o.getShipperID());
             statement.setInt(6, o.getPaymentID());
             statement.executeUpdate();
@@ -77,8 +77,6 @@ public class CartDAO extends DBContext {
             statement.setInt(1, o.getOrderId());
             statement.setInt(2, o.getProductId());
             statement.setInt(3, o.getQuantity());
-            statement.setInt(4, o.getUnitPrice());
-            statement.setString(5, o.getDiscount());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);

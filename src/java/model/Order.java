@@ -14,8 +14,8 @@ public class Order {
 
     private int orderId;
     private int userId;
-    private Date orderDate;
-    private Date shippedDate;
+    private String orderDate;
+    private String orderTime;
     private int shipperID;
     private int paymentID;
     private int numberOfProducts;
@@ -24,11 +24,18 @@ public class Order {
     public Order() {
     }
 
-    public Order(int orderId, int userId, Date orderDate, Date shippedDate, int shipperID, int paymentID) {
+    public Order(int orderId, int userId, int shipperID, int paymentID) {
+        this.orderId = orderId;
+        this.userId = userId;
+        this.shipperID = shipperID;
+        this.paymentID = paymentID;
+    }
+
+    public Order(int orderId, int userId, String orderDate, String orderTime, int shipperID, int paymentID) {
         this.orderId = orderId;
         this.userId = userId;
         this.orderDate = orderDate;
-        this.shippedDate = shippedDate;
+        this.orderTime = orderTime;
         this.shipperID = shipperID;
         this.paymentID = paymentID;
     }
@@ -65,22 +72,6 @@ public class Order {
         this.userId = userId;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public Date getShippedDate() {
-        return shippedDate;
-    }
-
-    public void setShippedDate(Date shippedDate) {
-        this.shippedDate = shippedDate;
-    }
-
     public int getShipperID() {
         return shipperID;
     }
@@ -95,11 +86,6 @@ public class Order {
 
     public void setPaymentID(int paymentID) {
         this.paymentID = paymentID;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" + "orderId=" + orderId + ", userId=" + userId + ", orderDate=" + orderDate + ", shippedDate=" + shippedDate + ", shipperID=" + shipperID + ", paymentID=" + paymentID + ", numberOfProducts=" + numberOfProducts + ", cost=" + cost + '}';
     }
 
 }

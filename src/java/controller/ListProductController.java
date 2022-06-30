@@ -12,6 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import model.Category;
 import model.Product;
@@ -29,7 +30,8 @@ public class ListProductController extends HttpServlet {
         ProductDAO product = new ProductDAO();
         int cid = Integer.parseInt(request.getParameter("categoryId"));
         ArrayList<Product> list = product.getProductsByCategory(cid);
-        
+        HttpSession session = request.getSession();
+        session.setAttribute("catID", cid);
         request.setAttribute("products", list);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }

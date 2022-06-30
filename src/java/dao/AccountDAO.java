@@ -51,7 +51,8 @@ public class AccountDAO extends DBContext {
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
+                accounts.add(
+                        new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
             }
         } catch (Exception e) {
         }
@@ -116,7 +117,8 @@ public class AccountDAO extends DBContext {
             stm.setInt(1, AccountID);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7));
+                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+                        rs.getString(6));
             }
         } catch (Exception e) {
         }
@@ -150,45 +152,54 @@ public class AccountDAO extends DBContext {
             ps.setInt(1, roleId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                accounts.add(new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
+                accounts.add(
+                        new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBoolean(5)));
             }
         } catch (Exception e) {
         }
         return accounts;
     }
 
-    public static void main(String[] args) {
-        User u = new AccountDAO().getUserProfileByID(2);
-//        List<Role> roles = new AccountDAO().getAllRole();
-//        for (Role role : roles) {
-//            System.out.println(role);
-//        }
-        System.out.println(u);
+    // lấy quyền của tài khoản đăng nhập
+    public int getPermission(String username, String url) {
+        try {
+            String sql = "SELECT count(*) as total FROM  \n" +
+                    "                    Account a inner join [Role] r on a.RoleID = r.RoleID\n" +
+                    "                    inner join Role_Feature gf on gf.rid = r.RoleID\n" +
+                    "                    inner join Feature f on f.fid = gf.fid\n" +
+                    "                    where a.userName = ? and f.url = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, username);
+            stm.setString(2, url);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("total");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
 
-    public User getUserProfileByID(int id) {
-
+    public User getSellerProfileByID(int sellerId) {
         String sql = "select u.* , a.Username , a.[Password] from [User] u inner join Account a\n"
                 + "on u.AccountID = a.AccountID\n"
                 + "where u.AccountID = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, sellerId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
                 user.setName(rs.getString("FullName"));
                 user.setAddress(rs.getString("Address"));
                 user.setPhone(rs.getString("Phone"));
-                user.setUserID(rs.getInt("UserID"));
-                Account account = new Account();
-                account.setUserName(rs.getString("Username"));
-                user.setUsername(account);
-                Account acc = new Account();
-                acc.setPassWord(rs.getString("Password"));
-                user.setPassword(acc);
                 user.setEmail(rs.getString("Email"));
-                user.setAccountID(rs.getInt("AccountID"));
+
+                Account a = new Account();
+                a.setUserName(rs.getString("Username"));
+                a.setPassWord(rs.getString("Password"));
+                user.setAccount(a);
                 return user;
             }
         } catch (SQLException ex) {
