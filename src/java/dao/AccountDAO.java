@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
+import model.User;
 
 /**
  *
@@ -66,5 +67,34 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return -1;
+    }
+
+    public User getSellerProfileByID(int sellerId) {
+         String sql = "select u.* , a.Username , a.[Password] from [User] u inner join Account a\n"
+                + "on u.AccountID = a.AccountID\n"
+                + "where u.AccountID = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, sellerId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User();
+                user.setName(rs.getString("FullName"));
+                user.setAddress(rs.getString("Address"));
+                user.setPhone(rs.getString("Phone"));
+                user.setUserID(rs.getInt("UserID"));
+                user.setEmail(rs.getString("Email"));
+
+                
+                Account a = new Account();
+                a.setUserName(rs.getString("Username"));
+                a.setPassWord(rs.getString("Password"));
+                user.setAccount(a);
+                return user;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

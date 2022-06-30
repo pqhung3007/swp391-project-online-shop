@@ -64,6 +64,18 @@
         <servlet-name>LoadOrderController</servlet-name>
         <servlet-class>controller.LoadOrderController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountSettingsController</servlet-name>
+        <servlet-class>controller.AccountSettingsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingInfoController</servlet-name>
+        <servlet-class>controller.SettingInfoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SettingAccountController</servlet-name>
+        <servlet-class>controller.SettingAccountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -127,6 +139,18 @@
     <servlet-mapping>
         <servlet-name>LoadOrderController</servlet-name>
         <url-pattern>/load-detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountSettingsController</servlet-name>
+        <url-pattern>/settings</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingInfoController</servlet-name>
+        <url-pattern>/update-info</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SettingAccountController</servlet-name>
+        <url-pattern>/update-account</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

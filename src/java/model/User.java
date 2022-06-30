@@ -14,21 +14,25 @@ public class User {
     private String phone;
     private String address;
     private String email;
-    private int accountID;
+    private Account account;
     
     public User() {
     }
-
-    public User(int userID, String name, String phone, String address, String email, int accountID) {
+ public User(int userID, String name, String phone, String address, String email, int accountid) {
         this.userID = userID;
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.email = email;
-        this.accountID = accountID;
     }
-
-    
+    public User(int userID, String name, String phone, String address, String email, Account account) {
+        this.userID = userID;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
+        this.account = account;
+    }
 
     public int getUserID() {
         return userID;
@@ -36,14 +40,6 @@ public class User {
 
     public void setUserID(int userID) {
         this.userID = userID;
-    }
-
-    public int getAccountID() {
-        return accountID;
-    }
-
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
     }
 
     public String getName() {
@@ -78,10 +74,15 @@ public class User {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "User{" + "userID=" + userID + ", accountID=" + accountID + ", name=" + name + ", phone=" + phone + ", address=" + address + ", email=" + email + '}';
+    public Account getAccount() {
+        return account;
     }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    
     
     
 }
