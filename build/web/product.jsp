@@ -132,7 +132,7 @@
             <c:otherwise>
                 <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
                     <ul class="pagination">
-                        <li class="page-item ${page lt 1 ? "disabled" : ""}">
+                        <li class="page-item ${page lt 2 ? "disabled" : ""}">
                             <a class="page-link" href="products?page=${page-1}">Previous</a>
                         </li>
                         <c:forEach begin="1" end="${totalPages}" var="i">
@@ -140,7 +140,7 @@
                                 <a class="page-link" href="products?page=${i}">${i}</a>
                             </li>
                         </c:forEach>
-                        <li class="page-item ${page gt totalPages ? "disabled" : ""}">
+                        <li class="page-item ${page gt (totalPages-1) ? "disabled" : ""}">
                             <a class="page-link" href="products?page=${page+1}">Next</a>
                         </li>
                     </ul>
