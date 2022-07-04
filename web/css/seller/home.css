@@ -84,7 +84,7 @@ body {
   font-size: 1rem;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: none;
   margin: 0.5rem 0 1.5rem;
 }
 
@@ -347,13 +347,8 @@ button:hover {
   gap: 3rem;
 }
 
+.input-image div,
 .input-image img {
-  width: 100%;
-  border-radius: var(--card-border-radius);
-  margin-top: 20px;
-}
-
-.input-image div {
   width: 80%;
   text-align: center;
   padding: 1rem;
@@ -362,6 +357,11 @@ button:hover {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+
+.input-image img {
+  padding: 0;
+  height: auto;
 }
 
 .input-image label {

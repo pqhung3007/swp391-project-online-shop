@@ -237,10 +237,12 @@ main {
 }
 
 .user-image {
-  width: 15rem;
-  height: 15rem;
-  overflow: hidden;
+  width: 20rem;
+  height: 20rem;
+  /* overflow: hidden; */
   margin: 3rem auto 0;
+  margin-left: 6rem;
+  position: relative;
 }
 
 .user-image img {
@@ -248,6 +250,57 @@ main {
   height: auto;
   border-radius: 50%;
 }
+
+.user-role{
+  position: absolute;
+  top: 0;
+  padding: 5px 20px;
+  color: var(--color-dark);
+  background-color: var(--color-primary);
+  /* border-radius: 5px; */
+  font-size: 1.4rem;
+  font-weight: 600;
+  transform: translateX(-15%);
+  height: 44px;
+}
+
+.user-role::before{
+  content: '';
+  position: absolute;
+  right: -44px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 22px solid var(--color-primary);
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-right: 22px solid transparent;
+}
+
+.user-role::after{
+  content: '';
+  position: absolute;
+  left: -30px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-right: 22px solid var(--color-primary);
+  border-top: 22px solid var(--color-primary);
+  border-bottom: 22px solid var(--color-primary);
+  border-left: 22px solid transparent;
+}
+
+
+
+  /* &::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0; width: 0; height: 0;
+    border-left: 25px solid #7eb4e2;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+  } */
+
 
 .btn-submit {
   border-radius: var(--card-border-radius);
@@ -264,8 +317,11 @@ main {
 
 .btn-submit:hover {
   background-color: var(--color-primary);
+  /* border: none; */
+}
+
+.btn-submit:hover a{
   color: #fff;
-  border: none;
 }
 
 select {
