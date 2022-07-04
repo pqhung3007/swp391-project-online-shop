@@ -32,7 +32,7 @@ public class CartDAO extends DBContext {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Order o = new Order(rs.getInt("OrderID"), rs.getInt("UserID"), rs.getInt("ShipperID"), rs.getInt("PaymentID"));
+                Order o = new Order(rs.getInt("OrderID"), rs.getInt("customerID"), rs.getInt("ShipperID"), rs.getInt("PaymentID"));
                 return o;
             }
         } catch (SQLException ex) {
@@ -43,21 +43,18 @@ public class CartDAO extends DBContext {
 
     public void insertOrder(Order o) {
         try {
-            String sql = "INSERT INTO [Order]\n"
-                    + "     VALUES\n"
-                    + "     (?\n"
-                    + "     ,?\n"
-                    + "     ,?\n"
-                    + "     ,?\n"
-                    + "     ,?\n"
-                    + "     ,?)";
+            String sql = "INSERT INTO [Order]"
+                    + " (customerID, OrderDate, ShipperID, PaymentID)"
+                    + " VALUES"
+                    + " (?,"
+                    + " getDate(),"
+                    + " ?,"
+                    + " ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, o.getOrderId());
-            statement.setInt(2, o.getUserId());
-            statement.setString(3, "getDate()");
-            statement.setString(4, "getDate()");
-            statement.setInt(5, o.getShipperID());
-            statement.setInt(6, o.getPaymentID());
+            statement.setInt(1, o.getUserId());
+//            statement.setString(2, "getDate()");
+            statement.setInt(2, o.getShipperID());
+            statement.setInt(3, o.getPaymentID());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,8 +66,6 @@ public class CartDAO extends DBContext {
             String sql = "INSERT INTO [OrderDetail]\n"
                     + "     VALUES\n"
                     + "     (?\n"
-                    + "     ,?\n"
-                    + "     ,?\n"
                     + "     ,?\n"
                     + "     ,?)";
             PreparedStatement statement = connection.prepareStatement(sql);

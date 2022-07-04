@@ -31,6 +31,12 @@ public class Order {
         this.paymentID = paymentID;
     }
 
+    public Order(int userId, int shipperID, int paymentID) {
+        this.userId = userId;
+        this.shipperID = shipperID;
+        this.paymentID = paymentID;
+    }
+
     public Order(int orderId, int userId, String orderDate, String orderTime, int shipperID, int paymentID) {
         this.orderId = orderId;
         this.userId = userId;
@@ -104,5 +110,4 @@ public class Order {
         this.orderTime = orderTime;
     }
 
-    
 }
