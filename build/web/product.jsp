@@ -104,9 +104,13 @@
                                 <div class="col-md-4 col-sm-6 mb-4">
                                     <div class="product">
                                         <div class="product-image">
-                                            <img src="${product.productImage}" alt="">
+                                            <a href="productDetail?pid=${product.productId}">
+                                                <img src="${product.productImage}" alt="">
+                                            </a>
                                         </div>
-                                        <h5 class="mt-4">${product.name}</h5>
+                                        <a href="productDetail?pid=${product.productId}">
+                                            <h5 class="mt-4">${product.name}</h5>
+                                        </a>
                                         <p>Price: ${product.price} VND</p>
                                         <p class="text-end mb-0"><a
                                                 href="productDetail?pid=${product.productId}"
