@@ -74,9 +74,8 @@
                                                     CoffeeMaker has always been passionate about connecting
                                                     loyal customers with carefully handcrafted products.
                                                 </p>
-                                                <a href=""
-                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Read
-                                                    More</a>
+                                                <a href="#readMore"
+                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Buy Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -99,9 +98,8 @@
                                                     We're passionate about delivering the best handcrafted
                                                     products and take pride in the journey from seed to cup.
                                                 </p>
-                                                <a href=""
-                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Read
-                                                    More</a>
+                                                <a href="#readMore"
+                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Buy Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +147,7 @@
                     <!-- Facts End -->
 
                     <!-- About Start -->
-                    <div class="container-xxl py-6">
+                    <div id="about" class="container-xxl py-6">
                         <div class="container">
                             <div class="row g-5">
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -203,7 +201,7 @@
                     <!-- About End -->
 
                     <!-- Product Start -->
-                    <div class="container-xxl bg-light my-6 py-6 pt-0">
+                    <div id="readMore" class="container-xxl bg-light my-6 py-6 pt-0">
                         <div class="container">
 
                             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"
@@ -242,7 +240,7 @@
                     <!-- Product End -->
 
                     <!-- Service Start -->
-                    <div class="container-xxl py-6">
+                    <div id="service" class="container-xxl py-6">
                         <div class="container">
                             <div class="row g-5">
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
