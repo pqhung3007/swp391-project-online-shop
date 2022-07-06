@@ -62,7 +62,7 @@
                                                            href="updatequantity?action=dec&id=${c.value.product.productId}">
                                                             <i class="fas fa-minus"></i>
                                                         </a>
-                                                        <input id="form1" name="quantity" value="${c.value.quantity}" type="text"
+                                                        <input id="form1" name="quantity" value="${c.value.quantity}" type="number"
                                                                style="max-width: 3rem; text-align: center"
                                                                class="form-control-sm"
                                                                />
