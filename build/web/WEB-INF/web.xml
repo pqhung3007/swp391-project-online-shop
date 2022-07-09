@@ -64,7 +64,9 @@
     <servlet>
         <servlet-name>AdminCreateAccount</servlet-name>
         <servlet-class>controller.AdminCreateAccount</servlet-class>
+    </servlet>
 
+    <servlet>
         <servlet-name>AddProductController</servlet-name>
         <servlet-class>controller.AddProductController</servlet-class>
     </servlet>
@@ -165,7 +167,8 @@
     <servlet-mapping>
         <servlet-name>AdminCreateAccount</servlet-name>
         <url-pattern>/create-account</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddProductController</servlet-name>
         <url-pattern>/add-product</url-pattern>
     </servlet-mapping>

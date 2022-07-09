@@ -32,7 +32,7 @@ public class AdminCreateAccount extends HttpServlet {
     throws ServletException, IOException {
         
         AccountDAO  a = new AccountDAO();
-        List<Role> allRole = a.getAllRole(0);
+        List<Role> allRole = a.getAllRole(1);
         request.setAttribute("roles", allRole);
         request.getRequestDispatcher("createAccountAdmin.jsp").forward(request, response);
     
