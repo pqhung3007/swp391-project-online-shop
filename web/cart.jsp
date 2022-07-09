@@ -39,7 +39,7 @@
                             <div class="p-5">
                                 <div class="d-flex justify-content-between align-items-center mb-5">
                                     <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                                    <h6 class="mb-0 text-muted"${sessionScope.carts.size()} items</h6>
+                                    <h6 class="mb-0 text-muted"> ${sessionScope.carts.size()} items</h6>
                                 </div>
                                 <c:choose>
                                     <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
@@ -84,60 +84,60 @@
                                     </c:otherwise>
                                 </c:choose> 
                                 <div class="pt-5">
-                                    <h6 class="mb-0"><a href="products" class="text-body"><i
+                                    <p class="mb-0"><a href="products" class="text-body"><i
                                                 class="fas fa-long-arrow-alt-left me-2"></i>Back to searching</a>
-                                    </h6>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                                    <c:choose>
-                                        <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
+                        <c:choose>
+                            <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
 
-                                        </c:when>
-                                        <c:otherwise>
-                                            <div class="col-lg-4">
-                                                <div class="p-5">
-                                                    <h2 class="mb-5 mt-2 pt-1">Summary</h2>
-                                                    <hr class="my-4">
-                                                    <c:forEach items="${carts}" var="c"> 
-                                                        <div class="d-flex justify-content-between">
-                                                            <p>${c.value.product.name}</p>
-                                                            <p>${c.value.product.price * c.value.quantity}</p>
-                                                        </div>
-                                                    </c:forEach>
-
-                                                    <hr class="my-4">
-
-
-                                                    <div class="d-flex justify-content-between mb-5">
-                                                        <h5 class="text-uppercase">Total price</h5>
-                                                        <h5>${sessionScope.totalPrice}</h5>
-                                                    </div>
-                                                    <form action="checkbought" method="get">
-                                                        <button type="submit" class="btn btn-dark btn-block btn-lg"
-                                                                data-mdb-ripple-color="dark">Register</button>
-                                                    </form>
-
-                                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="col-lg-4">
+                                    <div class="p-5">
+                                        <h2 class="mb-5 mt-2 pt-1">Summary</h2>
+                                        <hr class="my-4">
+                                        <c:forEach items="${carts}" var="c"> 
+                                            <div class="d-flex justify-content-between">
+                                                <p>${c.value.product.name}</p>
+                                                <p>${c.value.product.price * c.value.quantity}</p>
                                             </div>
-                                        </c:otherwise>             
-                                    </c:choose>       
+                                        </c:forEach>
+
+                                        <hr class="my-4">
 
 
+                                        <div class="d-flex justify-content-between mb-5">
+                                            <h5 class="text-uppercase">Total price</h5>
+                                            <h5>${sessionScope.totalPrice}</h5>
+                                        </div>
+                                        <form action="checkbought" method="get">
+                                            <button type="submit" class="btn btn-dark btn-block btn-lg"
+                                                    data-mdb-ripple-color="dark">Register</button>
+                                        </form>
+
+                                    </div>
                                 </div>
-      
-                            </div>
-                        </div>
+                            </c:otherwise>             
+                        </c:choose>       
+
+
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
+</div>
+</div>
 
 
-        <%@include file="components/footer.jsp" %>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+<%@include file="components/footer.jsp" %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"></script>
 
-    </body>
+</body>
 </html>
