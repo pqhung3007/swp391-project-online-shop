@@ -9,9 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Product;
+import model.Product_Review;
 
 /**
  *
@@ -147,23 +149,137 @@ public class ProductDAO extends DBContext {
         }
         return products;
     }
-
-    public void insertProductReview(String productID, String reviewID, int aid) {
+    public boolean checkExistId(int aid, int pid) {       
         try {
-            String sql = "INSERT INTO [dbo].[Product Review]\n"
+            String sql = "select * from [Product Review] where AccountID = ? and ProductID = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, aid);
+            ps.setInt(2, pid);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    public void insertProductReview(int productID, int reviewID, int aid) {
+        String sql = "";
+        if(!checkExistId(aid, productID)){
+            try {
+            sql = "INSERT INTO [dbo].[Product Review]\n"
                     + "           ([ProductID]\n"
                     + "           ,[ReviewID]\n"
                     + "           ,[AccountID])\n"
                     + "     VALUES\n"
                     + "           (?,?,?)";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, productID);
-            ps.setString(2, reviewID);
-            ps.setInt(3, aid);
-            ps.executeUpdate();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, productID);
+            statement.setInt(2, reviewID);
+            statement.setInt(3, aid);
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }else{
+            sql = "UPDATE [dbo].[Product Review] SET [ReviewID] = " +reviewID+ " WHERE AccountID = " + aid + " AND ProductID = " + productID;
+            try {
+                PreparedStatement ps = connection.prepareStatement(sql);
+                ps.executeUpdate();
+            } catch (Exception e) {
+            }
+        }
+    }
+    
+    public List<Product_Review> getReviewByProductId(int productId){
+        List<Product_Review> reviews = new ArrayList<>();
+        try {
+            String sql = "select * from [Product Review] where ProductID = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reviews.add(new Product_Review(rs.getInt(1), rs.getInt(2)));
+            }
+        } catch (Exception e) {
+        }
+        return reviews;
+    }
+    
+    public List<Product_Review> get1StarProduct(int productId){
+        List<Product_Review> reviews = new ArrayList<>();
+        try {
+            String sql = "select * from [Product Review] where ProductID = ? and ReviewID = 1";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reviews.add(new Product_Review(rs.getInt(1), rs.getInt(2)));
+            }
+        } catch (Exception e) {
+        }
+        return reviews;
+    }
+    
+    public List<Product_Review> get2StarProduct(int productId){
+        List<Product_Review> reviews = new ArrayList<>();
+        try {
+            String sql = "select * from [Product Review] where ProductID = ? and ReviewID = 2";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reviews.add(new Product_Review(rs.getInt(1), rs.getInt(2)));
+            }
+        } catch (Exception e) {
+        }
+        return reviews;
+    }
+    
+    public List<Product_Review> get3StarProduct(int productId){
+        List<Product_Review> reviews = new ArrayList<>();
+        try {
+            String sql = "select * from [Product Review] where ProductID = ? and ReviewID = 3";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reviews.add(new Product_Review(rs.getInt(1), rs.getInt(2)));
+            }
+        } catch (Exception e) {
+        }
+        return reviews;
+    }
+    
+    public List<Product_Review> get4StarProduct(int productId){
+        List<Product_Review> reviews = new ArrayList<>();
+        try {
+            String sql = "select * from [Product Review] where ProductID = ? and ReviewID = 4";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reviews.add(new Product_Review(rs.getInt(1), rs.getInt(2)));
+            }
+        } catch (Exception e) {
+        }
+        return reviews;
+    }
+    
+    public List<Product_Review> get5StarProduct(int productId){
+        List<Product_Review> reviews = new ArrayList<>();
+        try {
+            String sql = "select * from [Product Review] where ProductID = ? and ReviewID = 5";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                reviews.add(new Product_Review(rs.getInt(1), rs.getInt(2)));
+            }
+        } catch (Exception e) {
+        }
+        return reviews;
     }
 
     public void insertProduct(String name, String image, int price, int categoryId, String description, int sellerId) {

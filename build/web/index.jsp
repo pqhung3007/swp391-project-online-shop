@@ -12,12 +12,10 @@
                 <meta content="" name="keywords" />
                 <meta content="" name="description" />
 
-                <<<<<<< HEAD <!-- Favicon -->
+                     <!-- Favicon -->
                     <link href="img/favicon.ico" rel="icon" />
-                    =======
                     <!-- Favicon -->
                     <!--<link href="img/favicon.ico" rel="icon" />-->
-                    >>>>>>> main
 
                     <!-- Google Web Fonts -->
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
