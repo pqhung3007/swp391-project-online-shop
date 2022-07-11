@@ -35,7 +35,7 @@ public class ProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int accountID = Integer.parseInt(request.getParameter("aid"));
         AccountDAO dao = new AccountDAO();
-//        User u = dao.getUserProfileByID(accountID);
+//        User u = dao.getUserByID(accountID);
 //        request.setAttribute("user", u);
 
         request.getRequestDispatcher("profile.jsp").forward(request, response);

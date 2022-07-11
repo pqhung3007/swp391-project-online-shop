@@ -15,9 +15,9 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto p-4 p-lg-0">
                         <a href="home" class="nav-item nav-link status">Home</a>
-                        <a href="about.html" class="nav-item nav-link status">About</a>
+                        <a href="#about" class="nav-item nav-link status">About</a>
                         <a href="products" class="nav-item nav-link status">Products</a>
-                        <a href="contact.html" class="nav-item nav-link status">Contact</a>
+                        <a href="#service" class="nav-item nav-link status">Service</a>
                         <div class="nav-item dropdown dropmenu">
                             <c:if test="${sessionScope.account !=null}">
                                 <a href="#" class="nav-link dropdown-toggle"
@@ -29,15 +29,22 @@
                                     <li class="m-8"><a href="logout">Logout</a></li>
                                 </ul>
                         </div>
-                        <a class="shopping-cart nav-item nav-link" href="cart?aid=${sessionScope.account.accountId}"><i
-                                class="fas fa-shopping-cart"></i></a>
+                        <c:url value="/cart" var="completeURL">
+                            <c:param name="action" value="gocart" />
+                            <c:forEach items="${carts}" var="c">
+                                <c:param name="pid" value="${c.value.product.productId}" />
+                            </c:forEach>
+                                
+                        </c:url>
+                        <a class="shopping-cart nav-item nav-link" href="${completeURL}">
+                            <i class="fas fa-shopping-cart"></i></a>
 
                         </c:if>
 
                         <c:if test="${sessionScope.account == null}">
                             <div class="navbar-nav mx-auto p-4 p-lg-0">
                                 <a href="login" class="nav-item nav-link">Login</a>
-                                <a href="register.jsp" class="nav-item nav-link">Register</a>
+                                <a href="register" class="nav-item nav-link">Register</a>
                             </div>
                         </c:if>
                     </div>
@@ -51,6 +58,7 @@
                         <p class="text-light fs-5 mb-0">+012 345 6789</p>
                     </div>
                 </div>
-                </div>
             </nav>
+            
+            <script src="js/app.js"></script>
             <!-- Navbar End -->

@@ -33,6 +33,7 @@
                                            style="display: none">
                                 </label>
                             </div>
+                            <img src="./img/imgPreview.jpg" alt="" class="input-image__display">
                         </div>
                         <div class="input-fields">
                             <input class="field" type="text" placeholder="Product Name" name="name">
@@ -54,13 +55,23 @@
 
         </div>
 
-        <script src="app.js"></script>
         <script>
             const pictureURL = document.querySelector('.image-name');
             function changePicture() {
                 document.querySelector('#image').src = pictureURL.value;
             }
             pictureURL.addEventListener("input", changePicture)
+
+            //image preview
+            const inputImg=document.querySelector("input[type=file]");
+            inputImg.addEventListener("change",()=>{
+                const reader=new FileReader();
+                reader.addEventListener("load",()=>{
+                    imgFile=reader.result;
+                    document.querySelector(".input-image__display").src=imgFile;
+                });
+                reader.readAsDataURL(inputImg.files[0]);
+            })
         </script>
         <script src="https://kit.fontawesome.com/3a6c73e27c.js" crossorigin="anonymous"></script>
     </body>

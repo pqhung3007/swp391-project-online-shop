@@ -95,7 +95,7 @@
                                     <label for="note" class="form-label">Note</label>
                                     <textarea class="form-control" id="note" name="note" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-primary w-100" onclick="orderSubmit()">Submit</button>
                         </div>
 
                         </div>
@@ -112,5 +112,10 @@
                         </style>
         <%@include file="components/footer.jsp" %>
     </body>
+    <script>
+        function orderSubmit(){
+            alert("Đặt hàng thành công!");
+        }
+    </script>
 
 </html>
