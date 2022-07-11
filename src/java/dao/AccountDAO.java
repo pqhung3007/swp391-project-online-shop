@@ -27,7 +27,6 @@ public class AccountDAO extends DBContext {
             String sql = "select * from Account where Username COLLATE Latin1_General_CS_AS = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
-            stm.setString(2, passWord);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Account account = new Account();
