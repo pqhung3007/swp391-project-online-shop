@@ -17,21 +17,20 @@ import model.Seller;
  *
  * @author Admin
  */
-public class ShipperDAO extends DBContext{
-    public List<Seller> getAllShippedOrder()
-    {     
+public class ShipperDAO extends DBContext {
+
+    public List<Seller> getAllShippedOrder() {
         List<Seller> shippedOrder = new ArrayList<>();
         try {
-            String sql = "SELECT distinct\n" +
-"                    o.OrderID, u.FullName as CustomerName, u.Phone,u.[Address] \n" +
-"                       ,CONVERT(date, OrderDate) as [DateOrder]\n" +
-"                    ,CONVERT(VARCHAR(5),CAST(OrderDate AS TIME), 108) as OrderTime, o.status\n" +
-"                   FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n" +
-"                        join Product p on od.ProductID = p.ProductID\n" +
-"                     join Account a on o.customerID= a.AccountID\n" +
-"                     join [User] u  on a.AccountID = u.AccountID\n" +
-"      \n" +
-"                    where o.status = 1";
+            String sql = "SELECT distinct\n"
+                    + "                    o.OrderID, u.FullName as CustomerName, u.Phone,u.[Address] \n"
+                    + "                       ,CONVERT(date, OrderDate) as [DateOrder]\n"
+                    + "                    ,CONVERT(VARCHAR(5),CAST(OrderDate AS TIME), 108) as OrderTime, o.status\n"
+                    + "                   FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
+                    + "                        join Product p on od.ProductID = p.ProductID\n"
+                    + "                     join Account a on o.customerID= a.AccountID\n"
+                    + "                     join [User] u  on a.AccountID = u.AccountID\n"
+                    + "                    where o.status = 1";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -42,7 +41,7 @@ public class ShipperDAO extends DBContext{
                 s.setAddress(rs.getString("Address"));
                 s.setOrderDate(rs.getDate("DateOrder"));
                 s.setOrderTime(rs.getString("OrderTime"));
-                
+
                 s.setStatus(rs.getBoolean("status"));
                 shippedOrder.add(s);
 
@@ -51,7 +50,7 @@ public class ShipperDAO extends DBContext{
         }
         return shippedOrder;
     }
-    
+
     public static void main(String[] args) {
         List<Seller> list = new ShipperDAO().getAllShippedOrder();
         for (Seller seller : list) {

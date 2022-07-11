@@ -1,10 +1,14 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%-- 
+    Document   : sidebarShipper
+    Created on : 11-Jul-2022, 16:09:45
+    Author     : Administrator
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <aside>
     <div class="navbar-top">
         <div class="navbar-heading">
-            <h2>Welcome back, admin</h2>
+            <h2>Welcome back, ${sessionScope.account.userName}</h2>
         </div>
         <div class="btn-close">
             <span class="material-symbols-outlined"> close </span>
@@ -12,17 +16,17 @@
     </div>
 
     <div class="navbar-content">
-        <a href="#">
+        <a href="shipper-dashboard">
             <span class="material-symbols-outlined"> grid_view </span>
             <h3>Dashboard</h3>
         </a>
-        <a href="create-account">
-            <span class="material-symbols-outlined"> person </span>
-            <h3>Create Account</h3>
-        </a>
-        <a href="manage" class="active">
+        <a href="#">
             <span class="material-symbols-outlined"> inventory </span>
-            <h3>Manage Accounts</h3>
+            <h3>View Orders</h3>
+        </a>
+        <a href="settings">
+            <span class="material-symbols-outlined"> person </span>
+            <h3>View Settings</h3>
         </a>
         <a href="logout" class="logout">
             <span class="material-symbols-outlined"> logout </span>

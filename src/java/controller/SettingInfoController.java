@@ -34,7 +34,7 @@ public class SettingInfoController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            request.getRequestDispatcher("sellerSettings.jsp").forward(request, response);
+            request.getRequestDispatcher("userSettings.jsp").forward(request, response);
         }
     } 
 

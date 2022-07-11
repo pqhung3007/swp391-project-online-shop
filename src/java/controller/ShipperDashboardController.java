@@ -5,12 +5,15 @@
 
 package controller;
 
+import dao.ShipperDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import model.Seller;
 
 /**
  *
@@ -27,6 +30,9 @@ public class ShipperDashboardController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        List<Seller> orderList = new ShipperDAO().getAllShippedOrder();
+        
+        request.setAttribute("orderList", orderList);
         request.getRequestDispatcher("shipperDashboard.jsp").forward(request, response);
     } 
 
