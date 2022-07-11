@@ -101,27 +101,8 @@
 
 
                 <!-- Related Product Start -->
-                <div class="container">
-                    <h5>You may also like</h5>
-                    <div class="row mt-3 relateProduct">
-                        <div class="col-3">
+                
 
-                            <div class="product">
-                                <img src="./img/service-1.jpg" alt="" class="productImg" />
-                                <p class="text-truncate">Caramel Macchiato</p>
-                                <p>$7.5</p>
-                                <p class="text-end mb-0"><a href="productDetail?pid="
-                                        class="btn btn-primary rounded-pill">View Product</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <div class="col-md-6 text-center">
-                    <img class="w-75 h-100" src="${productDetail.productImage}" alt="" />
-                </div>
                 <div class="col-md-3 d-flex flex-column justify-content-start rating">
                     <h3>Rating of Customers: ${reviews}</h3>
                     <div class="skills">
@@ -184,48 +165,12 @@
                         </div>
                         <h3 class="name">${reviews5} reviews</h3>
 
-                    </div>
-                    <!--                <button
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#viewMore"
-                    >
-                    View more
-                </button>-->
-                    <!--                <div
-                    class="modal fade"
-                    id="viewMore"
-                    tabindex="-1"
-                    aria-labelledby="reviewExtend"
-                    aria-hidden="true"
-                    >
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="reviewExtend">
-                                    ${productDetail.name}
-                                </h5>
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                    ></button>
-                            </div>
-                            <div class="form-group mb-0">
-                                <input type="hidden" name="productID" value="${productDetail.productId}">
-                                <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
+                    </div>               
                 </div>
 
 
 
 
-                </div>
-                </div>
                 <!-- Product End -->
 
 
@@ -249,23 +194,30 @@
                 <div class="container">
                     <div class="row mt-3">
                         <form action="productDetail" method="post">
-                            <h4 class="mb-4">Leave a review</h4>
-                            <small>Your email address will not be published. Required fields are marked *</small>
-                            <div class="d-flex my-3">
-                                <p class="mb-0 mr-2">Your Rating * :</p>
-                                <div class="rate">
-                                    <input type="radio" id="star5" name="rate" value="5" />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
-                                </div>
-                            </div>
+                <h4 class="mb-4">Leave a review</h4>
+                <small>Your email address will not be published. Required fields are marked *</small>
+                <div class="d-flex my-3">
+                    <p class="mb-0 mr-2">Your Rating * :</p>
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                </div>
+                <div class="form-group mb-0">
+                    <input type="hidden" name="productID" value="${productDetail.productId}">
+                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                </div>
+            </form>
+                      </div>
+    </div>
                             <!-- Related Product End -->
 
                             <%@include file="components/footer.jsp" %>
