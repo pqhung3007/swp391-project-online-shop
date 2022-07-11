@@ -163,11 +163,11 @@ public class AccountDAO extends DBContext {
     // lấy quyền của tài khoản đăng nhập
     public int getPermission(String username, String url) {
         try {
-            String sql = "SELECT count(*) as total FROM  \n" +
-                    "                    Account a inner join [Role] r on a.RoleID = r.RoleID\n" +
-                    "                    inner join Role_Feature gf on gf.rid = r.RoleID\n" +
-                    "                    inner join Feature f on f.fid = gf.fid\n" +
-                    "                    where a.userName = ? and f.url = ?";
+            String sql = "SELECT count(*) as total FROM  \n"
+                    + "                    Account a inner join [Role] r on a.RoleID = r.RoleID\n"
+                    + "                    inner join Role_Feature gf on gf.rid = r.RoleID\n"
+                    + "                    inner join Feature f on f.fid = gf.fid\n"
+                    + "                    where a.userName = ? and f.url = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, url);
@@ -209,7 +209,6 @@ public class AccountDAO extends DBContext {
     }
 
     public void createAccount(int roleID, String username, String password) {
-
         try {
             String sql = "INSERT INTO [Account]\n"
                     + "           ([Username]\n"
@@ -226,7 +225,40 @@ public class AccountDAO extends DBContext {
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
+    public int getAccountID(String username) {
+        try {
+            String sql = "select AccountID\n"
+                    + "from Account\n"
+                    + "where Username=?";
+            PreparedStatement statement=connection.prepareStatement(sql);
+            statement.setString(1, username);
+            ResultSet rs=statement.executeQuery();
+            if(rs.next()){
+                return rs.getInt("AccountID");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
+
+    public void changePassword(String email, String password) {
+        try {
+            String sql = "with t as (\n"
+                    + "select  Account.AccountID, [Password], Email\n"
+                    + "from Account inner join [User] on Account.AccountID=[User].UserID\n"
+                    + ")\n"
+                    + "UPDATE t\n"
+                    + "SET Password=?\n"
+                    + "WHERE  t.Email=?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, password);
+            statement.setString(2, email);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
