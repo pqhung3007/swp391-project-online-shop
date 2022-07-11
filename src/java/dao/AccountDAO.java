@@ -22,9 +22,9 @@ import model.User;
  */
 public class AccountDAO extends DBContext {
 
-    public Account getAccount(String userName, String passWord) {
+    public Account getAccount(String userName) {
         try {
-            String sql = "select * from Account where Username COLLATE Latin1_General_CS_AS = ? and Password COLLATE Latin1_General_CS_AS = ?";
+            String sql = "select * from Account where Username COLLATE Latin1_General_CS_AS = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
             stm.setString(2, passWord);

@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
         String user = request.getParameter("userName");
         String pass = request.getParameter("passWord");
         AccountDAO db = new AccountDAO();
-        Account account = db.getAccount(user, pass);
+        Account account = db.getAccount(user);
         // check password
         if (account != null) {
             // boolean valuate = BCrypt.checkpw(pass, account.getPassWord());
