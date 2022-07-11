@@ -95,8 +95,8 @@
                                             <!--login failed message-->
                                             <p style="color:red">${loginFailed}</p>
                                             <p style="color:red">${loginFailedMessage}</p>
-                                            <p class="forget">Forgot Password ? <a href="#">Click Here</a></p>
-                                            <p class="forget">Don't have an account ? <a href="#">Sign up</a></p>
+                                            <p class="forget">Forgot Password ? <a href="resetpassword">Click Here</a></p>
+                                            <p class="forget">Don't have an account ? <a href="register">Sign up</a></p>
 
                                             <div class="col-12 text-center">
                                                 <div class="gradient-border" id="box"></div>
