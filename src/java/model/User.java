@@ -14,35 +14,31 @@ public class User {
     private String phone;
     private String address;
     private String email;
+    private String image;
     private String roleName;
     private Account account;
 
     public User() {
     }
 
-    public User(int userID, String name, String phone, String address, String email) {
+    public User(int userID, String name, String phone, String address, String email, String image, String roleName) {
         this.userID = userID;
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.email = email;
-    }
-
-    public User(int userID, String name, String phone, String address, String email, String roleName) {
-        this.userID = userID;
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
-        this.email = email;
+        this.image = image;
         this.roleName = roleName;
     }
 
-    public User(int userID, String name, String phone, String address, String email, Account account) {
+    
+    public User(int userID, String name, String phone, String address, String email, String image, Account account) {
         this.userID = userID;
         this.name = name;
         this.phone = phone;
         this.address = address;
         this.email = email;
+        this.image = image;
         this.account = account;
     }
 
@@ -97,5 +93,15 @@ public class User {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
+    
 
 }

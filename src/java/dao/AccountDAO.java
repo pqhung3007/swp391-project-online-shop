@@ -116,12 +116,17 @@ public class AccountDAO extends DBContext {
             stm.setInt(1, AccountID);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-                        rs.getString(7));
+                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(7),
+                        rs.getString(8));
             }
         } catch (Exception e) {
         }
         return u;
+    }
+    
+    public static void main(String[] args) {
+        User u = new AccountDAO().getUserByID(7);
+        System.out.println(u.getImage());
     }
 
     public List<Role> getAllRole(int choice) {

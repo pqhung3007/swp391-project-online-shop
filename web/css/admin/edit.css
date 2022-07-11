@@ -237,16 +237,18 @@ main {
 }
 
 .user-image {
-  width: 15rem;
-  height: 15rem;
+  width: 16rem;
+  height: 16rem;
   overflow: hidden;
   margin: 3rem auto 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .user-image img {
   width: 100%;
   height: auto;
-  border-radius: 50%;
 }
 
 .btn-submit {
