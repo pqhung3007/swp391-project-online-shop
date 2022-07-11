@@ -17,7 +17,7 @@
                         <a href="home" class="nav-item nav-link status">Home</a>
                         <a href="#about" class="nav-item nav-link status">About</a>
                         <a href="products" class="nav-item nav-link status">Products</a>
-                        <a href="#service" class="nav-item nav-link status">Contact</a>
+                        <a href="#service" class="nav-item nav-link status">Service</a>
                         <div class="nav-item dropdown dropmenu">
                             <c:if test="${sessionScope.account !=null}">
                                 <a href="#" class="nav-link dropdown-toggle"
@@ -59,4 +59,6 @@
                     </div>
                 </div>
             </nav>
+            
+            <script src="js/app.js"></script>
             <!-- Navbar End -->

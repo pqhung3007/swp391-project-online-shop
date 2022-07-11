@@ -60,7 +60,7 @@
                                     <p class="text-primary text-uppercase fw-bold mb-2">
                                         // The Best Coffee In Town
                                     </p>
-                                    <h1 class="display-1 text-light mb-4 animated slideInDown">
+                                    <h1 class="main-text display-1 text-light mb-4 animated slideInDown">
                                         We Shake With Passion
                                     </h1>
                                     <p class="text-light fs-5 mb-4 pb-3">
