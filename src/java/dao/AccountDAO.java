@@ -207,11 +207,6 @@ public class AccountDAO extends DBContext {
         }
         return null;
     }
-    
-    public static void main(String[] args) {
-        User u = new AccountDAO().getSellerProfileByID(9);
-        System.out.println(u.getImage());
-    }
 
     public void createAccount(int roleID, String username, String password) {
         try {

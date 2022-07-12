@@ -10,7 +10,7 @@
         <div class="profile">
             <div class="info">
                 <h2>Welcome back, ${sessionScope.account.userName}</h2>
-                <p class="text-muted">Seller</p>
+                <p class="text-muted">Shipper</p>
             </div>
             <div class="profile-photo">
                 <img src="${user.image}" alt="">
