@@ -12,36 +12,30 @@
                 <meta content="" name="keywords" />
                 <meta content="" name="description" />
 
-                <<<<<<< HEAD <!-- Favicon -->
-                    <link href="img/favicon.ico" rel="icon" />
-                    =======
-                    <!-- Favicon -->
-                    <!--<link href="img/favicon.ico" rel="icon" />-->
-                    >>>>>>> main
+                <link href="img/favicon.ico" rel="icon" />
+                <!-- Google Web Fonts -->
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+                    rel="stylesheet" />
 
-                    <!-- Google Web Fonts -->
-                    <link rel="preconnect" href="https://fonts.googleapis.com" />
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
-                        rel="stylesheet" />
+                <!-- Icon Font Stylesheet -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+                    rel="stylesheet" />
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+                    rel="stylesheet" />
 
-                    <!-- Icon Font Stylesheet -->
-                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-                        rel="stylesheet" />
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-                        rel="stylesheet" />
+                <!--Libraries Stylesheet-->
+                <link href="js/animate/animate.min.css" rel="stylesheet" />
+                <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
-                    <!--Libraries Stylesheet-->
-                    <link href="js/animate/animate.min.css" rel="stylesheet" />
-                    <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+                <!-- Customized Bootstrap Stylesheet -->
+                <link href="css/bootstrap.min.css" rel="stylesheet" />
 
-                    <!-- Customized Bootstrap Stylesheet -->
-                    <link href="css/bootstrap.min.css" rel="stylesheet" />
-
-                    <!-- Template Stylesheet -->
-                    <link href="css/style.css" rel="stylesheet" />
-                    <link href="css/home.css" rel="stylesheet" />
+                <!-- Template Stylesheet -->
+                <link href="css/style.css" rel="stylesheet" />
+                <link href="css/home.css" rel="stylesheet" />
             </head>
 
             <body>
@@ -66,7 +60,7 @@
                                                 <p class="text-primary text-uppercase fw-bold mb-2">
                                                     // The Best Coffee In Town
                                                 </p>
-                                                <h1 class="display-1 text-light mb-4 animated slideInDown">
+                                                <h1 class="main-text display-1 text-light mb-4 animated slideInDown">
                                                     We Shake With Passion
                                                 </h1>
                                                 <p class="text-light fs-5 mb-4 pb-3">
@@ -74,9 +68,9 @@
                                                     CoffeeMaker has always been passionate about connecting
                                                     loyal customers with carefully handcrafted products.
                                                 </p>
-                                                <a href=""
-                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Read
-                                                    More</a>
+                                                <a href="#readMore"
+                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Buy
+                                                    Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -99,9 +93,9 @@
                                                     We're passionate about delivering the best handcrafted
                                                     products and take pride in the journey from seed to cup.
                                                 </p>
-                                                <a href=""
-                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Read
-                                                    More</a>
+                                                <a href="#readMore"
+                                                    class="btn btn-primary rounded-pill py-3 px-5 hvr-ripple-out">Buy
+                                                    Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +143,7 @@
                     <!-- Facts End -->
 
                     <!-- About Start -->
-                    <div class="container-xxl py-6">
+                    <div id="about" class="container-xxl py-6">
                         <div class="container">
                             <div class="row g-5">
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -203,7 +197,7 @@
                     <!-- About End -->
 
                     <!-- Product Start -->
-                    <div class="container-xxl bg-light my-6 py-6 pt-0">
+                    <div id="readMore" class="container-xxl bg-light my-6 py-6 pt-0">
                         <div class="container">
 
                             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"
@@ -242,7 +236,7 @@
                     <!-- Product End -->
 
                     <!-- Service Start -->
-                    <div class="container-xxl py-6">
+                    <div id="service" class="container-xxl py-6">
                         <div class="container">
                             <div class="row g-5">
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">

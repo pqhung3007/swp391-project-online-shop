@@ -32,3 +32,9 @@
     border-bottom-right-radius: 16px;
   }
 }
+
+#form1::-webkit-outer-spin-button,
+#form1::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

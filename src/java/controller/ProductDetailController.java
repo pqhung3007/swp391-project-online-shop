@@ -13,7 +13,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 import model.Account;
+import model.Product_Review;
 
 /**
  *
@@ -27,6 +29,18 @@ public class ProductDetailController extends HttpServlet {
         int pid = Integer.parseInt(request.getParameter("pid"));
         ProductDAO dao = new ProductDAO();
         Product p = dao.getProductsByID(pid);
+        List<Product_Review> reviews = dao.getReviewByProductId(pid);
+        List<Product_Review> reviews1 = dao.get1StarProduct(pid);
+        List<Product_Review> reviews2 = dao.get2StarProduct(pid);
+        List<Product_Review> reviews3 = dao.get3StarProduct(pid);
+        List<Product_Review> reviews4 = dao.get4StarProduct(pid);
+        List<Product_Review> reviews5 = dao.get5StarProduct(pid);
+        request.setAttribute("reviews", reviews.size());
+        request.setAttribute("reviews1", reviews1.size());
+        request.setAttribute("reviews2", reviews2.size());
+        request.setAttribute("reviews3", reviews3.size());
+        request.setAttribute("reviews4", reviews4.size());
+        request.setAttribute("reviews5", reviews5.size());
         request.setAttribute("productDetail", p);
         request.getRequestDispatcher("productDetail.jsp").forward(request, response);
     } 
@@ -41,8 +55,8 @@ public class ProductDetailController extends HttpServlet {
             response.sendRedirect("login");
         } else {
             ProductDAO dao = new ProductDAO();
-            String rate = request.getParameter("rate");
-            String productID = request.getParameter("productID");
+            int rate = Integer.parseInt(request.getParameter("rate"));
+            int productID = Integer.parseInt(request.getParameter("productID"));
 
             dao.insertProductReview(productID, rate,a.getAccountId());
             response.sendRedirect("products");

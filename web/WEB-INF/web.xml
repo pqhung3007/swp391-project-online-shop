@@ -41,7 +41,6 @@
         <servlet-class>controller.SearchController</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>AdminController</servlet-name>
         <servlet-class>controller.AdminController</servlet-class>
     </servlet>
@@ -64,7 +63,8 @@
     <servlet>
         <servlet-name>AdminCreateAccount</servlet-name>
         <servlet-class>controller.AdminCreateAccount</servlet-class>
-
+    </servlet>
+    <servlet>
         <servlet-name>AddProductController</servlet-name>
         <servlet-class>controller.AddProductController</servlet-class>
     </servlet>
@@ -99,7 +99,22 @@
     <servlet>
         <servlet-name>SettingAccountController</servlet-name>
         <servlet-class>controller.SettingAccountController</servlet-class>
-
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>controller.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerifyController</servlet-name>
+        <servlet-class>controller.VerifyController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <servlet-class>controller.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePassController</servlet-name>
+        <servlet-class>controller.ChangePassController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
@@ -142,7 +157,6 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
@@ -165,7 +179,8 @@
     <servlet-mapping>
         <servlet-name>AdminCreateAccount</servlet-name>
         <url-pattern>/create-account</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddProductController</servlet-name>
         <url-pattern>/add-product</url-pattern>
     </servlet-mapping>
@@ -200,7 +215,22 @@
     <servlet-mapping>
         <servlet-name>SettingAccountController</servlet-name>
         <url-pattern>/update-account</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerifyController</servlet-name>
+        <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <url-pattern>/resetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassController</servlet-name>
+        <url-pattern>/changepassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

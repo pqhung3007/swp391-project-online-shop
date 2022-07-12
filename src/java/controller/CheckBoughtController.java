@@ -103,6 +103,9 @@ public class CheckBoughtController extends BaseAuthController {
             OrderDetail od = new OrderDetail(o.getOrderId(), cart.getProduct().getProductId(), cart.getQuantity());
             db.insertOrderDetail(od);
         }
+        
+        //remove products from order after insertion
+        request.getSession().removeAttribute("carts");
         response.sendRedirect("home");
     }
 

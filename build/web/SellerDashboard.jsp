@@ -91,7 +91,7 @@
                                             <td>
                                                 <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
                                             </td>
-                                            <td><a href="my-orders"class="success">See details</a></td>
+                                            <td><a href="my-orders" class="success">See details</a></td>
                                         </tr>
                                     </c:forEach>
 

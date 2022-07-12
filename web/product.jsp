@@ -104,9 +104,13 @@
                                 <div class="col-md-4 col-sm-6 mb-4">
                                     <div class="product">
                                         <div class="product-image">
-                                            <img src="${product.productImage}" alt="">
+                                            <a href="productDetail?pid=${product.productId}">
+                                                <img src="${product.productImage}" alt="">
+                                            </a>
                                         </div>
-                                        <h5 class="mt-4">${product.name}</h5>
+                                        <a href="productDetail?pid=${product.productId}">
+                                            <h5 class="mt-4">${product.name}</h5>
+                                        </a>
                                         <p>Price: ${product.price} VND</p>
                                         <p class="text-end mb-0"><a
                                                 href="productDetail?pid=${product.productId}"
@@ -132,7 +136,7 @@
             <c:otherwise>
                 <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
                     <ul class="pagination">
-                        <li class="page-item ${page lt 1 ? "disabled" : ""}">
+                        <li class="page-item ${page lt 2 ? "disabled" : ""}">
                             <a class="page-link" href="products?page=${page-1}">Previous</a>
                         </li>
                         <c:forEach begin="1" end="${totalPages}" var="i">
@@ -140,7 +144,7 @@
                                 <a class="page-link" href="products?page=${i}">${i}</a>
                             </li>
                         </c:forEach>
-                        <li class="page-item ${page gt totalPages ? "disabled" : ""}">
+                        <li class="page-item ${page gt (totalPages-1) ? "disabled" : ""}">
                             <a class="page-link" href="products?page=${page+1}">Next</a>
                         </li>
                     </ul>

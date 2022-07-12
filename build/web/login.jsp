@@ -56,20 +56,20 @@
                             <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="row img-twice position-relative h-100">
                                     <div class="col-6">
-                                        <img class="img-fluid rounded" src="anh-ly-ca-phe-dep-2.jpg" alt="">
+                                        <img class="img-fluid rounded" src="./img/about-1.jpg" alt="">
                                     </div>
                                     <div class="col-6 align-self-end">
                                         <img class="img-fluid rounded"
-                                            src="phan-biet-8-loai-thuc-uong-ca-phe-hot-nhat-hien-nay-6.jpg" alt="">
+                                            src="./img/about-2.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-1 wow fadeInUp" data-wow-delay="0.5s"></div>
                             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                                 <div class="h-100">
-                                    <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-                                        <h1 class=" m-0 text-center">Coffe Baker</h1>
-                                    </a>
+                                    <span class="navbar-brand ms-4 ms-lg-0">
+                                        <h1 class=" m-0 text-center">The Coffee Maker</h1>
+                                    </span>
                                     <form action="login" method="post">
                                         <div class="row g-3">
 
@@ -78,7 +78,7 @@
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control text-primary" id="name"
                                                         placeholder="Your Name" name="userName">
-                                                    <label for="name">UserName</label>
+                                                    <label for="name">Username</label>
                                                 </div>
                                             </div>
 
@@ -95,8 +95,8 @@
                                             <!--login failed message-->
                                             <p style="color:red">${loginFailed}</p>
                                             <p style="color:red">${loginFailedMessage}</p>
-                                            <p class="forget">Forgot Password ? <a href="#">Click Here</a></p>
-                                            <p class="forget">Don't have an account ? <a href="#">Sign up</a></p>
+                                            <p class="forget">Forgot Password ? <a href="resetpassword">Click Here</a></p>
+                                            <p class="forget">Don't have an account ? <a href="register">Sign up</a></p>
 
                                             <div class="col-12 text-center">
                                                 <div class="gradient-border" id="box"></div>
