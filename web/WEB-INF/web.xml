@@ -120,6 +120,10 @@
         <servlet-name>ShipperDashboardController</servlet-name>
         <servlet-class>controller.ShipperDashboardController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStatusOrderController</servlet-name>
+        <servlet-class>controller.UpdateStatusOrderController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -239,6 +243,10 @@
     <servlet-mapping>
         <servlet-name>ShipperDashboardController</servlet-name>
         <url-pattern>/shipper-dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStatusOrderController</servlet-name>
+        <url-pattern>/updateStatusOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

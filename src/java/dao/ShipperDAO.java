@@ -50,10 +50,20 @@ public class ShipperDAO extends DBContext {
         return shippedOrder;
     }
 
-    public static void main(String[] args) {
-        List<Seller> list = new ShipperDAO().getAllShippedOrder();
-        for (Seller seller : list) {
-            System.out.println(seller);
+    public void updateStatusOrder(int status, int orderId) {
+        try {
+            String sql = "UPDATE [dbo].[Order]\n"
+                    + "   SET [status] = ?\n"
+                    + " WHERE OrderID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, status);
+            stm.setInt(2, orderId);
+            stm.executeUpdate();
+        } catch (Exception e) {
         }
+    }
+
+    public static void main(String[] args) {
+        new ShipperDAO().updateStatusOrder(1, 1);
     }
 }

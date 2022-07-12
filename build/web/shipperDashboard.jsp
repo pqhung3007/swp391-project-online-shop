@@ -31,19 +31,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="l" items="${orderList}">
-                            <tr>
-                                <td>${l.orderId}</td>
-                                <td>${l.customerName}</td>
-                                <td>${l.phone}</td>
-                                <td>${l.address}</td>
-                                <td>
-                            <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
-                            </td>
-                            <td>${l.status == 3 ? "Waiting" : "Completed"}</td>
-                            <td><a href="my-orders" class="success">Ship</a></td>
-                            </tr>
-                        </c:forEach>
+                            <c:forEach var="l" items="${orderList}">
+                                <tr>
+                                    <td>${l.orderId}</td>
+                                    <td>${l.customerName}</td>
+                                    <td>${l.phone}</td>
+                                    <td>${l.address}</td>
+                                    <td>
+                                        <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
+                                    </td>
+                                    <td>${l.status == 3 ? "Waiting" : "Completed"}</td>
+                                    <td>
+                                        <a href="updateStatusOrder?oid=${l.orderId}&status=4">Ship</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
 
                         </tbody>
                     </table>
