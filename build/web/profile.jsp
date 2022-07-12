@@ -54,14 +54,14 @@
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
                     <form action="profile" method="POST">
-                        <input type="hidden" name="accountID" value="${user.accountID}">
+                        <input type="hidden" name="accountID" value="${user.userID}">
                         <input type="hidden" name="accountIDS" value="${sessionScope.account.accountId}">
                         <div class="row mt-2">
                             <div class="col-md-12"><label  class="labels"></label><input  type="text" class="form-control"
                                                                                           placeholder="Fullname" name="name" value="${user.name}">
                             </div>
                             <div class="col-md-12"><label class="labels"></label><input type="text" class="form-control"
-                                                                                        placeholder="Username" name="fullname" value="${sessionScope.account.userName}">
+                                                                                        placeholder="Username" name="fullname" value="${sessionScope.account.userName}" readonly>
                             </div>
                             <div class="col-md-12"><label class="labels"></label><input type="password" class="form-control"
                                                                                         placeholder="Password" name="password" value="${sessionScope.account.passWord}">
