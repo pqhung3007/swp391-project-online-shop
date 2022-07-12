@@ -75,7 +75,6 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("loginFailed", "User is inactive");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-            // }
         } else {
             request.getSession().setAttribute("account", null);
             request.setAttribute("loginFailedMessage", "Login failed!");

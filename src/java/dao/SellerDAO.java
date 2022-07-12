@@ -93,7 +93,7 @@ public class SellerDAO extends DBContext {
         return sellerOrder;
     }
 
-    public ArrayList<OrderDetail> getOrderDetail(int orderID) {
+    public ArrayList<OrderDetail> getOrderDetail(int orderID, int accountId) {
         ArrayList<OrderDetail> OrderDetail = new ArrayList<>();
         try {
             String sql = "select OrderDetail.Quantity,Product.UnitPrice,Product.ProductName,u.FullName,u.[Address],Phone,ProductImage\n"
@@ -103,9 +103,10 @@ public class SellerDAO extends DBContext {
                     + "                    on OrderDetail.ProductID=Product.ProductID\n"
                     + "                   inner join Account a   on a.AccountID =[Order].customerID\n"
                     + "				   inner join [User] u on u.AccountID = a.AccountID\n"
-                    + "                   where OrderDetail.OrderID= ?";
+                    + "                   where OrderDetail.OrderID= ? and Product.sellerID = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, orderID);
+            ps.setInt(2, accountId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User u = new User();
