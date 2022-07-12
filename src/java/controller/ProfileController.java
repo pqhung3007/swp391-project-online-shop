@@ -78,7 +78,8 @@ public class ProfileController extends HttpServlet {
         AccountDAO dao = new AccountDAO();
         dao.updateUser(name, phone, address, email, aid);
         dao.updateProfile(fullname, password, sid);
-        response.sendRedirect("products");
+        
+        response.sendRedirect("home");
     }
 
     /**

@@ -123,11 +123,6 @@ public class AccountDAO extends DBContext {
         }
         return u;
     }
-    
-    public static void main(String[] args) {
-        User u = new AccountDAO().getUserByID(7);
-        System.out.println(u.getImage());
-    }
 
     public List<Role> getAllRole(int choice) {
         List<Role> roles = new ArrayList<>();
@@ -199,6 +194,7 @@ public class AccountDAO extends DBContext {
                 user.setAddress(rs.getString("Address"));
                 user.setPhone(rs.getString("Phone"));
                 user.setEmail(rs.getString("Email"));
+                user.setImage(rs.getString("image"));
 
                 Account a = new Account();
                 a.setUserName(rs.getString("Username"));
@@ -210,6 +206,11 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public static void main(String[] args) {
+        User u = new AccountDAO().getSellerProfileByID(9);
+        System.out.println(u.getImage());
     }
 
     public void createAccount(int roleID, String username, String password) {
