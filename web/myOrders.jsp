@@ -106,12 +106,12 @@
                                     <li class="page-item ${page lt 2 ? "disabled" : ""}">
                                         <a class="page-link" href="myorder?page=${page-1}">Previous</a>
                                     </li>
-                                    <c:forEach begin="1" end="${totalPages-1}" var="i">
+                                    <c:forEach begin="1" end="${totalPages}" var="i">
                                         <li class="page-item ${i == page ? "active":""}">
                                             <a class="page-link" href="myorder?page=${i}">${i}</a>
                                         </li>
                                     </c:forEach>
-                                    <li class="page-item ${page gt (totalPages-2) ? "disabled" : ""}">
+                                    <li class="page-item ${page gt (totalPages-1) ? "disabled" : ""}">
                                         <a class="page-link" href="myorder?page=${page+1}">Next</a>
                                     </li>
                                 </ul>
