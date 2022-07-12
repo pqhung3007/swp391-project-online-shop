@@ -52,8 +52,8 @@ public class LoginController extends HttpServlet {
         Account account = db.getAccount(user, pass);
         //check password
         if (account != null) {
-            boolean valuate = BCrypt.checkpw(pass, account.getPassWord());
-            if (valuate) {
+            //boolean valuate = BCrypt.checkpw(pass, account.getPassWord());
+            //if (valuate) {
                 request.getSession().setAttribute("account", account);
                 if (account.isStatus()) {
                     switch (account.getRoleId()) {
@@ -75,11 +75,11 @@ public class LoginController extends HttpServlet {
                     request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
             }
-        } else {
-            request.getSession().setAttribute("account", null);
-            request.setAttribute("loginFailedMessage", "Login failed!");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
+//        } else {
+//            request.getSession().setAttribute("account", null);
+//            request.setAttribute("loginFailedMessage", "Login failed!");
+//            request.getRequestDispatcher("login.jsp").forward(request, response);
+//        }
     }
 
     /**

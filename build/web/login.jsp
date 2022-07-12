@@ -58,7 +58,7 @@
                                     <div class="col-6">
                                         <img class="img-fluid rounded" src="./img/about-1.jpg" alt="">
                                     </div>
-                                    <div class="col-6 align-self-end">
+                                    <div class="col-6 align-self-end pt-6">
                                         <img class="img-fluid rounded"
                                             src="./img/about-2.jpg" alt="">
                                     </div>
