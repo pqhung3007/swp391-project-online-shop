@@ -30,7 +30,7 @@ public class ShipperDAO extends DBContext {
                     + "                        join Product p on od.ProductID = p.ProductID\n"
                     + "                     join Account a on o.customerID= a.AccountID\n"
                     + "                     join [User] u  on a.AccountID = u.AccountID\n"
-                    + "                    where o.status = 1";
+                    + "                    where o.status = 3";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -41,8 +41,7 @@ public class ShipperDAO extends DBContext {
                 s.setAddress(rs.getString("Address"));
                 s.setOrderDate(rs.getDate("DateOrder"));
                 s.setOrderTime(rs.getString("OrderTime"));
-
-                s.setStatus(rs.getBoolean("status"));
+                s.setStatus(rs.getInt("status"));
                 shippedOrder.add(s);
 
             }

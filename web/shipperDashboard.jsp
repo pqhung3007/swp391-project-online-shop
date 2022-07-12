@@ -40,8 +40,8 @@
                                 <td>
                             <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
                             </td>
-                            <td>${l.status}</td>
-                            <td><a href="my-orders" class="success">See details</a></td>
+                            <td>${l.status == 3 ? "Waiting" : "Completed"}</td>
+                            <td><a href="my-orders" class="success">Ship</a></td>
                             </tr>
                         </c:forEach>
 

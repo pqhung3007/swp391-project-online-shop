@@ -17,7 +17,7 @@ public class Seller {
     private int orderId;
     private Date orderDate;
     private String orderTime;
-    private boolean status;
+    private int status;
     
     public Seller() {
     }
@@ -79,11 +79,11 @@ public class Seller {
         this.orderTime = orderTime;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
