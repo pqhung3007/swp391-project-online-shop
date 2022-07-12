@@ -7,8 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <aside>
     <div class="navbar-top">
-        <div class="navbar-heading">
-            <h2>Welcome back, ${sessionScope.account.userName}</h2>
+        <div class="profile">
+            <div class="info">
+                <h2>Welcome back, ${sessionScope.account.userName}</h2>
+                <p class="text-muted">Seller</p>
+            </div>
+            <div class="profile-photo">
+                <img src="${user.image}" alt="">
+            </div>
         </div>
         <div class="btn-close">
             <span class="material-symbols-outlined"> close </span>
