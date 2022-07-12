@@ -35,7 +35,12 @@ public class CartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        int productID = Integer.parseInt(request.getParameter("pid"));
+        int productID = 0;
+        try {
+            productID = Integer.parseInt(request.getParameter("pid"));
+        } catch (NumberFormatException e) {
+            request.getRequestDispatcher("cart.jsp").forward(request, response);
+        }
         // map with key = productID value: Cart (Model)
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
@@ -43,10 +48,12 @@ public class CartController extends HttpServlet {
             response.sendRedirect("home");
         }else{
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
+        session.removeAttribute("carts");
         if (carts == null) {
             carts = new LinkedHashMap<>();// Products added will have order
 
         }
+
         //select product with productID
 
         //TH1: CART contain productID( The product already exists in the cart)
