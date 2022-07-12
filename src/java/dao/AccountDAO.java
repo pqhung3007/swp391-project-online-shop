@@ -43,7 +43,7 @@ public class AccountDAO extends DBContext {
         }
         return null;
     }
-
+    
     public List<Account> getAll() {
         List<Account> accounts = new ArrayList<>();
         try {

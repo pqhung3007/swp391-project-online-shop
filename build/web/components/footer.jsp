@@ -4,6 +4,7 @@
     Author     : Administrator
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <!-- Footer Start -->
         <div
@@ -27,10 +28,11 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <h4 class="text-light mb-4">Quick Links</h4>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="#about">About Us</a>
                         <a class="btn btn-link" href="products">Our Products</a>
-                        <a class="btn btn-link" href="">Your Account</a>
+                        <c:if test="${sessionScope.account != null}">
+                            <a class="btn btn-link" href="profile?aid=${account.accountId}">Your Account</a>
+                        </c:if>
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <h4 class="text-light mb-4">Photo Gallery</h4>
