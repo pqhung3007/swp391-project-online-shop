@@ -59,11 +59,11 @@ body {
   margin-top: 5rem;
 }
 
-.container-info{
+.container-info {
   width: 60%;
 }
 
-.container-title{
+.container-title {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
@@ -78,7 +78,7 @@ body {
   margin: 0.5rem 0 1.5rem;
 }
 
-.container-settings input:focus{
+.container-settings input:focus {
   outline: none;
 }
 
@@ -326,7 +326,7 @@ button:hover {
   background-color: #555;
 }
 
-.update-product{
+.update-product {
   margin-top: -1rem;
 }
 
@@ -338,24 +338,28 @@ button:hover {
 }
 
 .input-image div,
-.input-image img
- {
-  width: 80%;
+.input-image img,
+.image-input {
   text-align: center;
   padding: 1rem;
   background-color: #fff;
   border-radius: var(--bdrd-3);
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
-.input-image img{
+.image-input {
+  width: 12rem;
+}
+
+.input-image img {
   padding: 0;
   height: auto;
 }
 
-.input-image label {
+.input-image label,
+.image-input label {
   cursor: pointer;
 }
 
@@ -563,6 +567,23 @@ table td a:hover {
   display: flex;
   justify-content: space-between;
 }
+
+.user-image {
+  width: 16rem;
+  height: 16rem;
+  overflow: hidden;
+  margin: 3rem auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+}
+
+.user-image img {
+  width: 100%;
+  height: auto;
+}
+
 @media screen and (max-width: 968px) {
   .container {
     width: 94%;

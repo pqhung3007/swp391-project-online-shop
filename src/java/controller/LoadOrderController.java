@@ -12,7 +12,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import model.Account;
 import model.OrderDetail;
 
 /**
@@ -32,7 +34,10 @@ public class LoadOrderController extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int orderID=Integer.parseInt(request.getParameter("id"));
-        ArrayList<OrderDetail> orderDetail=new SellerDAO().getOrderDetail(orderID);
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        int accountId = account.getAccountId();
+        ArrayList<OrderDetail> orderDetail=new SellerDAO().getOrderDetail(orderID, accountId);
         PrintWriter out =response.getWriter();
         
         out.println("<div class=\"customer-info\">\n" +

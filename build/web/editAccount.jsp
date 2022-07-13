@@ -27,8 +27,8 @@
                             <div class="edit-user">
                                 <input type="hidden" name="accountID" value="${user.account.accountId}">
                                 <div class="user-image">
-                                    <img src="img/team-1.jpg" alt="" srcset="">
-                                    <div class="user-role">${user.roleName}</div>
+                                    <img src="${user.image}" alt="" srcset="">
+                                    <div class="user-badge">${user.roleName}</div>
                                 </div>
                                 <div class="user-info">
                                     <div>

@@ -37,7 +37,7 @@ public class AccountSettingsController extends HttpServlet {
             
              User u = new AccountDAO().getSellerProfileByID(sellerId);
              request.setAttribute("user", u);
-            request.getRequestDispatcher("sellerSettings.jsp").forward(request, response);
+            request.getRequestDispatcher("userSettings.jsp").forward(request, response);
         }
     } 
 

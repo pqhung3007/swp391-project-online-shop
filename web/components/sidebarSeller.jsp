@@ -18,7 +18,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <p class="text-muted">Seller</p>
                 </div>
                 <div class="profile-photo">
-                    <img src="img/testimonial-1.jpg" alt="">
+                    <img src="${user.image}" alt="">
                 </div>
             </div>
             <div class="btn-close">

@@ -22,12 +22,11 @@ import model.User;
  */
 public class AccountDAO extends DBContext {
 
-    public Account getAccount(String userName, String passWord) {
+    public Account getAccount(String userName) {
         try {
-            String sql = "select * from Account where Username COLLATE Latin1_General_CS_AS = ? and Password COLLATE Latin1_General_CS_AS = ?";
+            String sql = "select * from Account where Username COLLATE Latin1_General_CS_AS = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, userName);
-            stm.setString(2, passWord);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Account account = new Account();
@@ -59,20 +58,22 @@ public class AccountDAO extends DBContext {
         return accounts;
     }
 
-    public void updateUser(String fullname, String phone, String address, String email, int AccountID) {
+    public void updateUser(String fullname, String phone, String address, String email, String image, int AccountID) {
         try {
             String sql = "UPDATE [dbo].[User]\n"
                     + "   SET [FullName] = ?\n"
                     + "      ,[Phone] = ?\n"
                     + "      ,[Address] = ?\n"
                     + "      ,[Email] = ?\n"
+                    + "      ,[Image] = ?\n"
                     + " WHERE AccountID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, fullname);
             stm.setString(2, phone);
             stm.setString(3, address);
             stm.setString(4, email);
-            stm.setInt(5, AccountID);
+            stm.setString(5, image);
+            stm.setInt(6, AccountID);
             stm.executeUpdate();
         } catch (Exception e) {
         }
@@ -117,8 +118,8 @@ public class AccountDAO extends DBContext {
             stm.setInt(1, AccountID);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-                        rs.getString(7));
+                u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(7),
+                        rs.getString(8));
             }
         } catch (Exception e) {
         }
@@ -195,6 +196,7 @@ public class AccountDAO extends DBContext {
                 user.setAddress(rs.getString("Address"));
                 user.setPhone(rs.getString("Phone"));
                 user.setEmail(rs.getString("Email"));
+                user.setImage(rs.getString("image"));
 
                 Account a = new Account();
                 a.setUserName(rs.getString("Username"));

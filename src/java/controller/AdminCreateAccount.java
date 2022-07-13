@@ -36,8 +36,6 @@ public class AdminCreateAccount extends HttpServlet {
         request.setAttribute("roles", allRole);
         request.getRequestDispatcher("createAccountAdmin.jsp").forward(request, response);
     
-    
-    
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -8,12 +8,23 @@ import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Base64;
 import model.Account;
 import model.User;
+
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2 MB
+        maxFileSize = 1024 * 1024 * 10, // 10 MB
+        maxRequestSize = 1024 * 1024 * 100 // 100 MB
+)
 
 /**
  *
@@ -35,8 +46,8 @@ public class ProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int accountID = Integer.parseInt(request.getParameter("aid"));
         AccountDAO dao = new AccountDAO();
-//        User u = dao.getUserByID(accountID);
-//        request.setAttribute("user", u);
+        User u = dao.getUserByID(accountID);
+        request.setAttribute("user", u);
 
         request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
@@ -69,6 +80,17 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
         int aid = Integer.parseInt(request.getParameter("accountID"));
         int sid = Integer.parseInt(request.getParameter("accountIDS"));
+        
+        Part filePart = request.getPart("image");
+        String fileName = filePart.getSubmittedFileName();
+
+        File imagePath = new File("D:\\upload\\" + fileName);
+        FileInputStream fileInputStreamReader = new FileInputStream(imagePath);
+        byte[] bytes = new byte[(int) imagePath.length()];
+        fileInputStreamReader.read(bytes);
+
+        String encodedImageUrl = Base64.getEncoder().encodeToString(bytes);
+        String image = "data:image/jpg;base64, " + encodedImageUrl;
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
@@ -76,9 +98,10 @@ public class ProfileController extends HttpServlet {
         String fullname = request.getParameter("fullname");
         String password = request.getParameter("password");
         AccountDAO dao = new AccountDAO();
-        dao.updateUser(name, phone, address, email, aid);
+        dao.updateUser(name, phone, address, email, image, aid);
         dao.updateProfile(fullname, password, sid);
-        response.sendRedirect("products");
+        
+        response.sendRedirect("home");
     }
 
     /**

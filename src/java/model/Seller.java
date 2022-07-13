@@ -17,7 +17,8 @@ public class Seller {
     private int orderId;
     private Date orderDate;
     private String orderTime;
-
+    private int status;
+    
     public Seller() {
     }
 
@@ -76,6 +77,19 @@ public class Seller {
 
     public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" + "customerName=" + customerName + ", phone=" + phone + ", address=" + address + ", orderId=" + orderId + ", orderDate=" + orderDate + ", orderTime=" + orderTime + ", status=" + status + '}';
     }
 
    

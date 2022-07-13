@@ -191,10 +191,10 @@ main {
 
 /* EDIT USER */
 .edit-user {
-  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 5rem;
+  gap: 7rem;
+  align-items: center;
 }
 
 .form input {
@@ -204,7 +204,6 @@ main {
   opacity: 0.8;
   padding: 20px;
   margin-top: 5px;
-  margin-bottom: 30px;
   border-radius: var(--card-border-radius);
   border: none;
 }
@@ -228,7 +227,8 @@ main {
 .user-info label,
 .form label {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
 }
 
 .user-info input:hover {
@@ -237,70 +237,54 @@ main {
 }
 
 .user-image {
-  width: 20rem;
-  height: 20rem;
-  /* overflow: hidden; */
-  margin: 3rem auto 0;
-  margin-left: 6rem;
-  position: relative;
+  width: 16rem;
+  height: 24rem;
+  margin: 0 0 0 10rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid;
 }
 
 .user-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 50%;
 }
 
-.user-role{
+.user-badge {
+  --height: 42px;
   position: absolute;
   top: 0;
-  padding: 5px 20px;
-  color: var(--color-dark);
+  left: 0;
   background-color: var(--color-primary);
-  /* border-radius: 5px; */
-  font-size: 1.4rem;
-  font-weight: 600;
-  transform: translateX(-15%);
-  height: 44px;
+  height: var(--height);
+  line-height: var(--height);
+  padding: 0 8px 0 0;
+  font-size: 1.1rem;
 }
 
-.user-role::before{
-  content: '';
+.user-badge::before {
+  content: "";
   position: absolute;
-  right: -44px;
-  bottom: 0;
+  right: -42px;
   width: 0;
   height: 0;
-  border-left: 22px solid var(--color-primary);
-  border-top: 22px solid transparent;
-  border-bottom: 22px solid transparent;
-  border-right: 22px solid transparent;
+  border-style: solid;
+  border-width: 21px;
+  border-color: transparent transparent transparent var(--color-primary);
 }
 
-.user-role::after{
-  content: '';
+.user-badge::after {
+  content: "";
   position: absolute;
-  left: -30px;
-  bottom: 0;
+  left: -42px;
   width: 0;
   height: 0;
-  border-right: 22px solid var(--color-primary);
-  border-top: 22px solid var(--color-primary);
-  border-bottom: 22px solid var(--color-primary);
-  border-left: 22px solid transparent;
+  border-style: solid;
+  border-width: 21px;
+  border-color: var(--color-primary) var(--color-primary) var(--color-primary)
+    transparent;
 }
-
-
-
-  /* &::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: 0; width: 0; height: 0;
-    border-left: 25px solid #7eb4e2;
-    border-top: 25px solid transparent;
-    border-bottom: 25px solid transparent;
-  } */
-
 
 .btn-submit {
   border-radius: var(--card-border-radius);
@@ -320,7 +304,7 @@ main {
   /* border: none; */
 }
 
-.btn-submit:hover a{
+.btn-submit:hover a {
   color: #fff;
 }
 

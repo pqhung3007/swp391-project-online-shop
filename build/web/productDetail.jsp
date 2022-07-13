@@ -1,6 +1,5 @@
 <%-- Document : product Created on : May 27, 2022, 7:09:50 AM Author : Admin --%>
 
-
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@page contentType="text/html" pageEncoding="UTF-8" %>
             <!DOCTYPE html>
@@ -101,8 +100,8 @@
 
 
                 <!-- Related Product Start -->
-                
-                
+
+
                 <div class="col-md-3 d-flex flex-column justify-content-start rating">
                     <h3>Rating of Customers: ${reviews}</h3>
                     <div class="skills">
@@ -166,47 +165,8 @@
                         <h3 class="name">${reviews5} reviews</h3>
 
                     </div>
-                    <!--                <button
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#viewMore"
-                    >
-                    View more
-                </button>-->
-                    <!--                <div
-                    class="modal fade"
-                    id="viewMore"
-                    tabindex="-1"
-                    aria-labelledby="reviewExtend"
-                    aria-hidden="true"
-                    >
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="reviewExtend">
-                                    ${productDetail.name}
-                                </h5>
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                    ></button>
-                            </div>
-                            <div class="form-group mb-0">
-                                <input type="hidden" name="productID" value="${productDetail.productId}">
-                                <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
                 </div>
-
-
-
-
                 <!-- Product End -->
-
 
                 <!-- Related Product Start -->
                 <div class="container">
@@ -226,54 +186,53 @@
                     </div>
                 </div>
                 <div class="container">
-        <div class="row mt-3">
-            <form action="productDetail" method="post">
-                <h4 class="mb-4">Leave a review</h4>
-                <small>Your email address will not be published. Required fields are marked *</small>
-                <div class="d-flex my-3">
-                    <p class="mb-0 mr-2">Your Rating * :</p>
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
+                    <div class="row mt-3">
+                        <form action="productDetail" method="post">
+                            <h4 class="mb-4">Leave a review</h4>
+                            <small>Your email address will not be published. Required fields are marked *</small>
+                            <div class="d-flex my-3">
+                                <p class="mb-0 mr-2">Your Rating * :</p>
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 star</label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="hidden" name="productID" value="${productDetail.productId}">
+                                <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="form-group mb-0">
-                    <input type="hidden" name="productID" value="${productDetail.productId}">
-                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                </div>
-            </form>
-        </div>
-    </div>
-                            <!-- Related Product End -->
+                <!-- Related Product End -->
 
-                            <%@include file="components/footer.jsp" %>
+                <%@include file="components/footer.jsp" %>
 
-                                <!-- Back to Top -->
-                                <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-                                        class="bi bi-arrow-up"></i></a>
+                    <!-- Back to Top -->
+                    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+                            class="bi bi-arrow-up"></i></a>
 
 
-                                <!-- JavaScript Libraries -->
-                                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-                                <script
-                                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-                                <script src="lib/wow/wow.min.js"></script>
-                                <script src="lib/easing/easing.min.js"></script>
-                                <script src="lib/waypoints/waypoints.min.js"></script>
-                                <script src="lib/counterup/counterup.min.js"></script>
-                                <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+                    <!-- JavaScript Libraries -->
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+                    <script src="lib/wow/wow.min.js"></script>
+                    <script src="lib/easing/easing.min.js"></script>
+                    <script src="lib/waypoints/waypoints.min.js"></script>
+                    <script src="lib/counterup/counterup.min.js"></script>
+                    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-                                <!-- Template Javascript -->
-                                <script src="js/main.js"></script>
-                                <script src="js/app.js"></script>
-                                <script src="js/project/productDetail.js"></script>
-                                </body>
+                    <!-- Template Javascript -->
+                    <script src="js/main.js"></script>
+                    <script src="js/app.js"></script>
+                    <script src="js/project/productDetail.js"></script>
+                    </body>
             </html>

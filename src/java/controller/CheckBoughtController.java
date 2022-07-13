@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.AccountDAO;
 import dao.CartDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -56,15 +57,17 @@ public class CheckBoughtController extends BaseAuthController {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        if(account == null){
+        if (account == null) {
             response.sendRedirect("home");
-        }else{
-        CartDAO dao = new CartDAO();
-        List<Payment> list = dao.getAllPayment();
-//        User u = dao.getUserbyAccountID(account.getAccountId());
-//        request.setAttribute("user", u);
-        request.setAttribute("listP", list);
-        request.getRequestDispatcher("checkBought.jsp").forward(request, response);
+        } else {
+            CartDAO dao = new CartDAO();
+            List<Payment> list = dao.getAllPayment();
+            //get user information
+            AccountDAO accountDB = new AccountDAO();
+            User u = accountDB.getUserByID(account.getAccountId());
+            request.setAttribute("user", u);
+            request.setAttribute("listP", list);
+            request.getRequestDispatcher("checkBought.jsp").forward(request, response);
         }
     }
 
@@ -83,27 +86,27 @@ public class CheckBoughtController extends BaseAuthController {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String note = request.getParameter("note");
-        
+
         int pay = Integer.parseInt(request.getParameter("payment"));
 
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        
+
         CartDAO db = new CartDAO();
         //get latest order to get orderID to add new order
         Order latestOrder = db.getLatestOrder();
         //insert order
-        Order o  = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 2, pay);
+        Order o = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 2, pay);
         db.insertOrder(o);
         //inser order details
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
-        
+
         for (Map.Entry<Integer, Cart> c : carts.entrySet()) {
             Cart cart = c.getValue();
             OrderDetail od = new OrderDetail(o.getOrderId(), cart.getProduct().getProductId(), cart.getQuantity());
             db.insertOrderDetail(od);
         }
-        
+
         //remove products from order after insertion
         request.getSession().removeAttribute("carts");
         response.sendRedirect("home");

@@ -46,6 +46,9 @@ public class Order {
         this.paymentID = paymentID;
     }
 
+    
+    
+
     public int getCost() {
         return cost;
     }
@@ -109,5 +112,9 @@ public class Order {
     public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
     }
+
+   
+
+    
 
 }
