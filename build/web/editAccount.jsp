@@ -20,7 +20,7 @@
 
                         <!-- MAIN SECTION -->
                         <main>
-                            <h1>Edit Accounts</h1>
+                            <h1>View Account</h1>
                             <button class="btn-submit" type="submit"><a href="manage">Back</a></button>
 
                             <!-- EDIT USER -->
@@ -28,6 +28,7 @@
                                 <input type="hidden" name="accountID" value="${user.account.accountId}">
                                 <div class="user-image">
                                     <img src="${user.image}" alt="" srcset="">
+                                    <div class="user-badge">${user.roleName}</div>
                                 </div>
                                 <div class="user-info">
                                     <div>
@@ -41,8 +42,6 @@
                                         <input type="text" name="address" value="${user.address}" disabled>
                                         <label>Email</label>
                                         <input type="text" name="email" value="${user.email}" disabled>
-                                        <label>Role</label>
-                                        <input type="text" name="role" value="${user.roleName}" disabled>
                                     </div>
                                 </div>
                             </div>

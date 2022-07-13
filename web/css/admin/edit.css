@@ -191,10 +191,10 @@ main {
 
 /* EDIT USER */
 .edit-user {
-  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 5rem;
+  gap: 7rem;
+  align-items: center;
 }
 
 .form input {
@@ -204,7 +204,6 @@ main {
   opacity: 0.8;
   padding: 20px;
   margin-top: 5px;
-  margin-bottom: 30px;
   border-radius: var(--card-border-radius);
   border: none;
 }
@@ -228,7 +227,8 @@ main {
 .user-info label,
 .form label {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
 }
 
 .user-info input:hover {
@@ -238,17 +238,51 @@ main {
 
 .user-image {
   width: 16rem;
-  height: 16rem;
-  overflow: hidden;
-  margin: 3rem auto 0;
-  border-radius: 50%;
+  height: 24rem;
+  margin: 0 0 0 10rem;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .user-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-badge{
+  --height: 42px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  height: var(--height);
+  line-height: var(--height);
+  padding: 0 8px 0 0;
+  font-size: 1.1rem;
+}
+
+.user-badge::before{
+  content: '';
+  position: absolute;
+  right: -42px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 21px;
+  border-color: transparent transparent transparent var(--color-primary);
+}
+
+.user-badge::after{
+  content: '';
+  position: absolute;
+  left: -42px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 21px;
+  border-color: var(--color-primary) var(--color-primary) var(--color-primary) transparent;
 }
 
 .btn-submit {
@@ -267,7 +301,6 @@ main {
 .btn-submit:hover {
   background-color: var(--color-primary);
   color: #fff;
-  border: none;
 }
 
 select {
