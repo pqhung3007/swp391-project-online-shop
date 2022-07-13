@@ -8,11 +8,23 @@ import dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Base64;
 import model.Account;
 import model.User;
+
+
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2 MB
+        maxFileSize = 1024 * 1024 * 10, // 10 MB
+        maxRequestSize = 1024 * 1024 * 100 // 100 MB
+)
 
 /**
  *
@@ -68,13 +80,24 @@ public class SettingInfoController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Account account = (Account) request.getSession().getAttribute("account");
         int accountId = account.getAccountId();
+        
+        Part filePart = request.getPart("image");
+        String fileName = filePart.getSubmittedFileName();
+
+        File imagePath = new File("D:\\upload\\" + fileName);
+        FileInputStream fileInputStreamReader = new FileInputStream(imagePath);
+        byte[] bytes = new byte[(int) imagePath.length()];
+        fileInputStreamReader.read(bytes);
+
+        String encodedImageUrl = Base64.getEncoder().encodeToString(bytes);
+        String image = "data:image/jpg;base64, " + encodedImageUrl;
         String phone = request.getParameter("phone");
         String name = request.getParameter("name");
         String address = request.getParameter("address");
         String email = request.getParameter("email");
         AccountDAO dao = new AccountDAO();
         //nhows update
-        dao.updateUser(name, phone, address, email, accountId);
+        dao.updateUser(name, phone, address, email, image, accountId);
         request.getRequestDispatcher("seller-dashboard").forward(request, response);
     }
 

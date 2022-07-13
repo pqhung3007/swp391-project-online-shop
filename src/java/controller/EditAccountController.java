@@ -35,14 +35,6 @@ public class EditAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int aid = Integer.parseInt(request.getParameter("accountID"));
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String email = request.getParameter("email");
-        AccountDAO dao = new AccountDAO();
-        dao.updateUser(name, phone, address, email, aid);
-        response.sendRedirect("manage");
     }
 
  

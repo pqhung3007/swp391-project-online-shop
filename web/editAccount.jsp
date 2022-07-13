@@ -20,7 +20,7 @@
 
                         <!-- MAIN SECTION -->
                         <main>
-                            <h1>Edit Accounts</h1>
+                            <h1>View Account Info</h1>
                             <button class="btn-submit" type="submit"><a href="manage">Back</a></button>
 
                             <!-- EDIT USER -->

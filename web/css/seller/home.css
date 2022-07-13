@@ -338,15 +338,19 @@ button:hover {
 }
 
 .input-image div,
-.input-image img {
-  width: 80%;
+.input-image img,
+.image-input {
   text-align: center;
   padding: 1rem;
   background-color: #fff;
   border-radius: var(--bdrd-3);
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 1rem auto;
+}
+
+.image-input {
+  width: 12rem;
 }
 
 .input-image img {
@@ -354,7 +358,8 @@ button:hover {
   height: auto;
 }
 
-.input-image label {
+.input-image label,
+.image-input label {
   cursor: pointer;
 }
 
@@ -571,6 +576,7 @@ table td a:hover {
   border-radius: 50%;
   display: flex;
   align-items: center;
+  border: 1px solid;
 }
 
 .user-image img {
