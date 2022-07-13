@@ -91,16 +91,15 @@ small {
 
 /* VERTICAL NAVBAR */
 aside {
-    height: 100vh;
+    height: 100%;
     background-color: #fff;
 }
 
 aside .navbar-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    text-align: center;
     margin-top: 2.1rem;
-    margin-left: 2rem;
 }
 
 aside .btn-close {
@@ -205,10 +204,10 @@ button:hover{
 }
 
 .recent-orders select {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     background-color: #fff;
     color: var(--color-primary);
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     text-align: center;
     width: 30%;
     border: none;
