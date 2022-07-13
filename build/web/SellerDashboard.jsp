@@ -91,6 +91,18 @@
                                             <td>
                                                 <fmt:formatDate pattern = "dd/MM/yy" value = "${l.orderDate}"/>
                                             </td>
+                                            <td>
+                                                <c:if test="${l.status == 1}">
+                                                    Process
+                                                </c:if>
+                                                <c:if test="${l.status == 3}">
+                                                    Waiting
+                                                </c:if>
+                                                <c:if test="${l.status == 4}">
+                                                    Completed
+                                                </c:if>
+                                            </td>
+                                            <td><a href="status-seller?oid=${l.orderId}&status=3" <c:if test="${l.status == 3 || l.status == 4}">style="pointer-events: none; cursor: default;"</c:if>>Ship</a></td>
                                             <td><a href="my-orders" class="success">See details</a></td>
                                         </tr>
                                     </c:forEach>

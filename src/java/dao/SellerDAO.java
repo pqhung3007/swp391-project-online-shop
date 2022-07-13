@@ -60,19 +60,17 @@ public class SellerDAO extends DBContext {
         return 0;
     }
 
-    public ArrayList<Seller> getAllOrders(int sellerId) {
+   public ArrayList<Seller> getAllOrders(int sellerId) {
         ArrayList<Seller> sellerOrder = new ArrayList<>();
         try {
             String sql = "SELECT distinct\n"
-                    + "	  o.OrderID, u.FullName as CustomerName, u.Phone,u.[Address] \n"
-                    + "      ,CONVERT(date, OrderDate) as [DateOrder]\n"
-                    + "	  ,CONVERT(VARCHAR(5),CAST(OrderDate AS TIME), 108) as OrderTime\n"
+                    + "o.OrderID, u.FullName as CustomerName, u.Phone,u.[Address] \n"
+                    + " ,CONVERT(date, OrderDate) as [DateOrder]\n"
+                    + "        ,CONVERT(VARCHAR(5),CAST(OrderDate AS TIME), 108) as OrderTime,o.status\n"
                     + "  FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
-                    + "       join Product p on od.ProductID = p.ProductID\n"
-                    + "	   join Account a on o.customerID= a.AccountID\n"
-                    + "	   join [User] u  on a.AccountID = u.AccountID\n"
-                    + "\n"
-                    + "	 \n"
+                    + "         join Product p on od.ProductID = p.ProductID\n"
+                    + "                 join Account a on o.customerID= a.AccountID\n"
+                    + "                  join [User] u  on a.AccountID = u.AccountID\n"
                     + "where p.sellerID = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, sellerId);
@@ -85,7 +83,7 @@ public class SellerDAO extends DBContext {
                 s.setAddress(rs.getString("Address"));
                 s.setOrderDate(rs.getDate("DateOrder"));
                 s.setOrderTime(rs.getString("OrderTime"));
-
+                s.setStatus(rs.getInt("status"));
                 sellerOrder.add(s);
             }
         } catch (SQLException ex) {

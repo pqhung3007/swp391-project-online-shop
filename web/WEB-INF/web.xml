@@ -127,7 +127,11 @@
     <servlet>
         <servlet-name>ShipOrderDetailController</servlet-name>
         <servlet-class>controller.ShipOrderDetailController</servlet-class>
-        </servlet>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStatusSellerController</servlet-name>
+        <servlet-class>controller.UpdateStatusSellerController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -255,7 +259,11 @@
     <servlet-mapping>
         <servlet-name>ShipOrderDetailController</servlet-name>
         <url-pattern>/orders</url-pattern>
-        </servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStatusSellerController</servlet-name>
+        <url-pattern>/status-seller</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
