@@ -232,7 +232,7 @@ main {
 }
 
 .user-info input:hover {
-  cursor: pointer;
+  cursor: default;
   box-shadow: var(--box-shadow);
 }
 
@@ -243,6 +243,8 @@ main {
   display: flex;
   align-items: center;
   border: 1px solid;
+  position: relative;
+  border-radius: 50%;
 }
 
 .user-image img {

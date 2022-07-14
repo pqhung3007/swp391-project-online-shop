@@ -347,6 +347,7 @@ button:hover {
   display: flex;
   justify-content: center;
   margin: 1rem auto;
+  width: 80%;
 }
 
 .image-input {
@@ -368,6 +369,12 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.empty-alert{
+  display: none;
+  text-align: center;
+  color: red;
 }
 
 .input-fields field {
@@ -416,6 +423,10 @@ textarea {
 
 .btn-submit:hover {
   transform: scale(0.95);
+}
+
+.input-product-btn{
+  text-align: center;
 }
 
 /* ORDER TABLE */

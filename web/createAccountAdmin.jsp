@@ -26,8 +26,9 @@
                                 </select>
                                 <div class="form">
                                     <label>Username</label>
-                                    <input type="text" name="username" required>
+                                    <input oninput="blankAlert(this.value)" type="text" name="username" required>
 
+                                    <h6 id="blankAlert" style="display: none; color:red;">Username can not contain white space</h6>
                                     <label>Password</label>
                                     <input type="password" name="password" required>
 
@@ -36,5 +37,7 @@
                             </form>
                         </main>
                 </div>
+
+                <script src="./js/validate.js"></script>
             </body>
             </html>
