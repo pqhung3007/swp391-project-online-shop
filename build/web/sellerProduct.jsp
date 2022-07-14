@@ -31,6 +31,29 @@
                             </div>
                         </div>
                     </c:forEach>
+                    <!--Paging-->
+                    <c:choose>
+                        <c:when test="${productList == null || productList.size() == 0}">
+                        </c:when>
+                        <c:otherwise>
+                            <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-3">
+                                <ul class="pagination">
+                                    <li class="page-item ${page lt 2 ? "disabled" : ""}">
+                                        <a class="page-link" href="my-products?page=${page-1}">Previous</a>
+                                    </li>
+                                    <c:forEach begin="1" end="${totalPages}" var="i">
+                                        <li class="page-item ${i == page ? "active":""}">
+                                            <a class="page-link" href="my-products?page=${i}">${i}</a>
+                                        </li>
+                                    </c:forEach>
+                                    <li class="page-item ${page gt (totalPages-1) ? "disabled" : ""}">
+                                        <a class="page-link" href="my-products?page=${page+1}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
             </main>
         </div>

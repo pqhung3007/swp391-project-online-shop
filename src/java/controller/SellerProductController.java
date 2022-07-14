@@ -34,9 +34,25 @@ public class SellerProductController extends BaseAuthController {
             throws ServletException, IOException {
         Account account = (Account) request.getSession().getAttribute("account");
         ProductDAO db = new ProductDAO();
-        ArrayList<Product> productList = db.getProductsBySeller(account.getAccountId());
+
+        int page = 1;
+        int pageSize = 6;
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
+
+        int totalProducts = db.getProductQuantityOfSeller(account.getAccountId());
+        int totalPages = totalProducts / pageSize;
+        if (totalPages % pageSize != 0) {
+            totalPages += 1;
+        }
+
+        ArrayList<Product> productList = db.getProductsBySellerPaging(account.getAccountId(), page, pageSize);
 
         request.setAttribute("productList", productList);
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("page", page);
         request.getRequestDispatcher("sellerProduct.jsp").forward(request, response);
     }
 
