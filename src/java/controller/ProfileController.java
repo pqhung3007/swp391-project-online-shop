@@ -6,10 +6,8 @@ package controller;
 
 import dao.AccountDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,8 +15,8 @@ import jakarta.servlet.http.Part;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Base64;
-import model.Account;
 import model.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2, // 2 MB
@@ -96,7 +94,8 @@ public class ProfileController extends HttpServlet {
         String address = request.getParameter("address");
         String email = request.getParameter("email");
         String fullname = request.getParameter("fullname");
-        String password = request.getParameter("password");
+        String rawPassword = request.getParameter("password");
+        String password = BCrypt.hashpw(rawPassword, BCrypt.gensalt(10));
         AccountDAO dao = new AccountDAO();
         dao.updateUser(name, phone, address, email, image, aid);
         dao.updateProfile(fullname, password, sid);
