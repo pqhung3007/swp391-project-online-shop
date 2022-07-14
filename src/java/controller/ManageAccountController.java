@@ -21,11 +21,11 @@ import model.Role;
  *
  * @author Admin
  */
-public class ManageAccountController extends HttpServlet {
+public class ManageAccountController extends BaseAuthController {
    
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         
         AccountDAO dao = new AccountDAO();
@@ -40,7 +40,7 @@ public class ManageAccountController extends HttpServlet {
 
    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         List<Role> roles = new AccountDAO().getAllRole(1);
         request.setAttribute("roles", roles);

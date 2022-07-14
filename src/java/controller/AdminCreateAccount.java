@@ -19,7 +19,7 @@ import model.Role;
  *
  * @author Le Viet
  */
-public class AdminCreateAccount extends HttpServlet {
+public class AdminCreateAccount extends BaseAuthController {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -47,7 +47,7 @@ public class AdminCreateAccount extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
     } 
@@ -60,7 +60,7 @@ public class AdminCreateAccount extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
        int roleID =  Integer.parseInt(request.getParameter("roles"));
        String username = request.getParameter("username");
