@@ -12,6 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.Account;
 import model.Role;
@@ -26,6 +27,7 @@ public class ManageAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        
         AccountDAO dao = new AccountDAO();
         List<Account> list = dao.getAll();
         List<Role> roles = dao.getAllRole(1);
@@ -33,6 +35,7 @@ public class ManageAccountController extends HttpServlet {
         request.setAttribute("accounts", list);
         
         request.getRequestDispatcher("manageAccount.jsp").forward(request, response);
+        
     } 
 
    

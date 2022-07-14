@@ -20,6 +20,7 @@ public class Order {
     private int paymentID;
     private int numberOfProducts;
     private int cost;
+    private int status;
 
     public Order() {
     }
@@ -44,6 +45,12 @@ public class Order {
         this.orderTime = orderTime;
         this.shipperID = shipperID;
         this.paymentID = paymentID;
+    }
+
+    public Order(int orderId, String orderDate, int status) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.status = status;
     }
 
     
@@ -112,6 +119,23 @@ public class Order {
     public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
     }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + '}';
+    }
+
+    
+
+    
 
    
 

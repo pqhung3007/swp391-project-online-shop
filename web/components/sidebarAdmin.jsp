@@ -4,7 +4,7 @@
 <aside>
     <div class="navbar-top">
         <div class="navbar-heading">
-            <h2>Welcome back, admin</h2>
+            <h2>Welcome back, ${account.userName}</h2>
         </div>
         <div class="btn-close">
             <span class="material-symbols-outlined"> close </span>

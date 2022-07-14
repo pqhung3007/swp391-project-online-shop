@@ -68,15 +68,15 @@ public class OrderDAO extends DBContext {
     public ArrayList<Order> getOrderByPaging(int customerId, int page, int pageSize) {
         ArrayList<Order> orders = new ArrayList<>();
         try {
-            String query = "SELECT [Order].OrderID, [Order].OrderDate "
-                    + "FROM [Order] JOIN [OrderDetail] "
-                    + "ON [Order].OrderID = [OrderDetail].OrderID "
-                    + "JOIN Product "
-                    + "ON OrderDetail.ProductID = Product.ProductID "
-                    + "WHERE customerID = ? "
-                    + "GROUP BY [Order].orderID, [Order].OrderDate "
-                    + "ORDER BY [Order].orderID "
-                    + "offset (?-1)*? row fetch next ? rows only ";
+            String query = "SELECT [Order].OrderID, [Order].OrderDate,[Order].status \n"
+                    + "                    FROM [Order] JOIN [OrderDetail] \n"
+                    + "                    ON [Order].OrderID = [OrderDetail].OrderID \n"
+                    + "                    JOIN Product \n"
+                    + "                    ON OrderDetail.ProductID = Product.ProductID \n"
+                    + "                    WHERE customerID = ? \n"
+                    + "                    GROUP BY [Order].orderID, [Order].OrderDate,[Order].status\n"
+                    + "                    ORDER BY [Order].orderID \n"
+                    + "                    offset (?-1)*? row fetch next ? rows only";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, customerId);
             ps.setInt(2, page);
@@ -88,6 +88,7 @@ public class OrderDAO extends DBContext {
                 o.setOrderId(rs.getInt("OrderID"));
 //                o.setOrderDate(rs.getDate("OrderDate"));
                 o.setNumberOfProducts(getNumberOfProductOfOrderById(o.getOrderId()));
+                o.setStatus(rs.getInt("status"));
                 orders.add(o);
             }
         } catch (Exception ex) {
@@ -130,8 +131,12 @@ public class OrderDAO extends DBContext {
 
     public static void main(String[] args) {
         OrderDAO db = new OrderDAO();
-        System.out.println(db.getTotalNumberOfOrderOfCustomer(10));
-        System.out.println(db.getNumberOfProductOfOrderById(4));
+//        System.out.println(db.getTotalNumberOfOrderOfCustomer(10));
+//        System.out.println(db.getNumberOfProductOfOrderById(4));
+        ArrayList<Order> list = db.getOrderByPaging(11, 1, 4);
+        for (Order order : list) {
+            System.out.println(order);
+        }
     }
 
 }

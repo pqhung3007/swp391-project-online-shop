@@ -263,4 +263,10 @@ public class AccountDAO extends DBContext {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static void main(String[] args) {
+        List<Account> list = new AccountDAO().getUserByRole(1);
+        for (Account account : list) {
+            System.out.println(account);
+        }
+    }
 }

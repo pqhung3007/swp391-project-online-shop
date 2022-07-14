@@ -88,6 +88,22 @@
                                                     <p class="card-text m-0">Total cost
                                                         <span class="card-text__detail"><b>${order.cost}</b></span>
                                                     </p>
+                                                    <p class="card-text m-0">Status
+                                                        <span class="card-text__detail"><b>
+                                                                <c:if test="${order.status == 1}">
+                                                                    Processing
+                                                                </c:if>
+                                                                <c:if test="${order.status == 2}">
+                                                                    Denied
+                                                                </c:if>
+                                                                <c:if test="${order.status == 3}">
+                                                                    Waiting
+                                                                </c:if>
+                                                                <c:if test="${order.status == 4}">
+                                                                    Completed
+                                                                </c:if>
+                                                            </b></span>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

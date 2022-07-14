@@ -55,7 +55,7 @@ public class MyOrders extends HttpServlet {
 
         //calculate total cost for each order
         for (int i = 0; i < orders.size(); i++) {
-            ArrayList<OrderDetail> od = db.getOrderDetailsByOrderId(orders.get(i).getOrderId());
+                ArrayList<OrderDetail> od = db.getOrderDetailsByOrderId(orders.get(i).getOrderId());
             int cost = 0;
             for (int j = 0; j < od.size(); j++) {
 //                cost += od.get(j).getUnitPrice() * od.get(j).getQuantity();

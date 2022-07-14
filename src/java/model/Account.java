@@ -27,8 +27,6 @@ public class Account {
         this.status = status;
     }
 
-  
-
     public int getAccountId() {
         return accountId;
     }
@@ -69,11 +67,11 @@ public class Account {
         this.status = status;
     }
 
+   
+
     @Override
     public String toString() {
         return "Account{" + "accountId=" + accountId + ", userName=" + userName + ", passWord=" + passWord + ", roleId=" + roleId + ", status=" + status + '}';
     }
-
-    
 
 }

@@ -37,8 +37,8 @@ public class SellerDashboardController extends BaseAuthController {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
             Account account = (Account) request.getSession().getAttribute("account");
+            
             int sellerId = account.getAccountId();
             int totalProducts = new SellerDAO().getTotalProduct(sellerId);
             int totalMoney = new SellerDAO().getTotalMoney(sellerId);
@@ -50,6 +50,7 @@ public class SellerDashboardController extends BaseAuthController {
             request.setAttribute("totalMoney", totalMoney);
             request.setAttribute("orderList", list);
             request.getRequestDispatcher("SellerDashboard.jsp").forward(request, response);
+            
         }
     }
 
