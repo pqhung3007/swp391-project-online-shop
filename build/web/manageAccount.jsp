@@ -59,12 +59,12 @@
                                             </c:if>
                                         </td>
                                         <td class="primary cta-btn"><a href="editAccount?aid=${a.accountId}">View</a></td>
-                                        <td class="primary cta-btn" style="width: 7rem">
+                                        <td class="" style="width: 7rem">
                                             <c:if test="${!a.status}">
-                                                <a href="updateStatus?aid=${a.accountId}&status=1">Authorize</a>
+                                                <a href="updateStatus?aid=${a.accountId}&status=1" style="color: #41f1b6">Authorize</a>
                                             </c:if>
                                             <c:if test="${a.status}">
-                                                <a href="updateStatus?aid=${a.accountId}&status=0">Unauthorize</a>
+                                                <a href="updateStatus?aid=${a.accountId}&status=0" style="color: #fc515f">Unauthorize</a>
                                             </c:if>
                                         </td>
                                     </tr>
