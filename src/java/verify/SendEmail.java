@@ -9,7 +9,7 @@ public class SendEmail {
     public void send(String toEmail, String verifyCode) {
         //provide sender's email ID
         String fromEmail = "anhcqhe160244@fpt.edu.vn";
-        String fromPassword = "oorhqdrsodkdbffm";
+        String fromPassword = "zfykutobzcaibzlf";
 
         //provide Mailtrap's host address
         String host = "smtp.gmail.com";

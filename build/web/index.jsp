@@ -13,7 +13,7 @@
                 <meta content="" name="description" />
 
                 <!-- Favicon -->
-                <link href="img/icons8-coffee-16.png" rel="icon" />
+                <link href="img/icons8-cofee-16.png" rel="icon" />
                 <!-- Google Web Fonts -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

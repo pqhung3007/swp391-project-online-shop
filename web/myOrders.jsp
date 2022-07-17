@@ -8,7 +8,7 @@
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                     <title>My Orders</title>
                     <!-- Favicon -->
-                    <link href="img/icons8-supplier-16.png" rel="icon" />
+                    <link href="img/icons8-cofee-16.png" rel="icon" />
 
                     <!-- Google Web Fonts -->
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
