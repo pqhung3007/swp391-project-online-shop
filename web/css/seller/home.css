@@ -188,12 +188,6 @@ aside .navbar-content a {
   transition: 0.3s ease;
 }
 
-aside .navbar-content a:last-child {
-  position: absolute;
-  bottom: 2rem;
-  width: 100%;
-}
-
 aside .navbar-content a.active {
   color: var(--color-primary);
   background-color: var(--color-light);
@@ -371,7 +365,7 @@ button:hover {
   gap: 2rem;
 }
 
-.empty-alert{
+.empty-alert {
   display: none;
   text-align: center;
   color: red;
@@ -425,7 +419,7 @@ textarea {
   transform: scale(0.95);
 }
 
-.input-product-btn{
+.input-product-btn {
   text-align: center;
 }
 

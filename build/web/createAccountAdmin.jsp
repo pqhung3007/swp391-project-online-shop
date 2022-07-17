@@ -7,8 +7,9 @@
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Admin Management</title>
+                <title>Create Account</title>
                 <link rel="stylesheet" href="css/admin/edit.css" />
+                <link href="img/icons8-admin-settings-male-16.png" rel="icon" />
                 <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet" />
             </head>
             <body>
@@ -28,7 +29,8 @@
                                     <label>Username</label>
                                     <input oninput="blankAlert(this.value)" type="text" name="username" required>
 
-                                    <h6 id="blankAlert" style="display: none; color:red;">Username can not contain white space</h6>
+                                    <h6 id="blankAlert" style="display: none; color:red;">Username can not contain white
+                                        space</h6>
                                     <label>Password</label>
                                     <input type="password" name="password" required>
 

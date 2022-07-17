@@ -12,7 +12,8 @@
                 <meta content="" name="keywords" />
                 <meta content="" name="description" />
 
-                <link href="img/favicon.ico" rel="icon" />
+                <!-- Favicon -->
+                <link href="img/icons8-coffee-16.png" rel="icon" />
                 <!-- Google Web Fonts -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -332,6 +333,7 @@
                         <!-- Template Javascript -->
                         <script src="js/main.js"></script>
                         <script src="js/app.js"></script>
+
 
             </body>
 

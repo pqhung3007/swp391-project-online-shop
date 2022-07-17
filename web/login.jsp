@@ -6,13 +6,13 @@
             <html>
             <head>
                 <meta charset="utf-8">
-                <title>Baker - Bakery Website Template</title>
+                <title>Customer Login</title>
                 <meta content="width=device-width, initial-scale=1.0" name="viewport">
                 <meta content="" name="keywords">
                 <meta content="" name="description">
 
                 <!-- Favicon -->
-                <link href="img/favicon.ico" rel="icon">
+                <link href="img/icons8-coffee-16.png" rel="icon" />
 
                 <!-- Google Web Fonts -->
                 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,20 +47,16 @@
                 </div>
                 <!-- Spinner End -->
 
-
-
-                <!-- Navbar End -->
-                <div class="container-xxl py-6">
+                <div class="container-xxl py-6 mt-5">
                     <div class="container">
                         <div class="row g-5">
-                            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="row img-twice position-relative h-100">
                                     <div class="col-6">
-                                        <img class="img-fluid rounded" src="./img/about-1.jpg" alt="">
+                                        <img class="img-fluid rounded" src="./img/about-1.jpg" alt="" />
                                     </div>
-                                    <div class="col-6 align-self-end pt-6">
-                                        <img class="img-fluid rounded"
-                                            src="./img/about-2.jpg" alt="">
+                                    <div class="col-6 pt-6">
+                                        <img class="img-fluid rounded" src="./img/about-2.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -68,10 +64,11 @@
                             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                                 <div class="h-100">
                                     <span class="navbar-brand ms-4 ms-lg-0">
-                                        <h1 class=" m-0 text-center">The Coffee Maker</h1>
+                                        <h1 class=" m-0 text-center">Welcome Back</h1>
                                     </span>
+                                    <p style="text-align: center"><b>Good to see you again!</b></p>
                                     <form action="login" method="post">
-                                        <div class="row g-3">
+                                        <div class="row g-2">
 
                                             <div class="col-12">
                                                 <div class="gradient-border" id="box"></div>
@@ -81,8 +78,6 @@
                                                     <label for="name">Username</label>
                                                 </div>
                                             </div>
-
-
 
                                             <div class="col-12">
                                                 <div class="gradient-border" id="box"></div>
@@ -95,8 +90,10 @@
                                             <!--login failed message-->
                                             <p style="color:red">${loginFailed}</p>
                                             <p style="color:red">${loginFailedMessage}</p>
-                                            <p class="forget">Forgot Password ? <a href="resetpassword">Click Here</a></p>
-                                            <p class="forget">Don't have an account ? <a href="register">Sign up</a></p>
+                                            <p class="forget">Forgot Password ? <a href="resetpassword">Click
+                                                    Here</a></p>
+                                            <p class="forget">Don't have an account ? <a href="register">Sign up</a>
+                                            </p>
 
                                             <div class="col-12 text-center">
                                                 <div class="gradient-border" id="box"></div>

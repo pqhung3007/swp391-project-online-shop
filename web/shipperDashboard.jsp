@@ -8,6 +8,8 @@
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                     <title>Shipper Dashboard</title>
                     <link rel="stylesheet" href="css/admin/manage.css" />
+                    <!-- Favicon -->
+                    <link href="img/icons8-admin-settings-male-16.png" rel="icon" />
                     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
                 </head>
                 <body>

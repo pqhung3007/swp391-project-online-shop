@@ -102,9 +102,8 @@ aside {
 aside .navbar-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
   margin-top: 2.1rem;
-  margin-left: 2rem;
 }
 
 aside .btn-close {
@@ -128,12 +127,6 @@ aside .navbar-content a {
   position: relative;
   height: 3.8rem;
   transition: 0.3s ease;
-}
-
-aside .navbar-content .logout {
-  position: absolute;
-  bottom: 2rem;
-  width: 100%;
 }
 
 aside .navbar-content a.active {
@@ -303,7 +296,7 @@ main {
 
 .btn-submit:hover {
   background-color: var(--color-primary);
-  /* border: none; */
+  color: #fff;
 }
 
 .btn-submit:hover a {
