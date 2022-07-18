@@ -96,7 +96,7 @@ public class CheckBoughtController extends BaseAuthController {
         //get latest order to get orderID to add new order
         Order latestOrder = db.getLatestOrder();
         //insert order
-        Order o = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 2, pay);
+        Order o = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 2, pay, 1);
         db.insertOrder(o);
         //inser order details
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");

@@ -44,7 +44,7 @@ public class CartDAO extends DBContext {
     public void insertOrder(Order o) {
         try {
             String sql = "INSERT INTO [Order]"
-                    + " (customerID, OrderDate, ShipperID, PaymentID)"
+                    + " (customerID, OrderDate, PaymentID, status)"
                     + " VALUES"
                     + " (?,"
                     + " getDate(),"
@@ -53,8 +53,9 @@ public class CartDAO extends DBContext {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, o.getUserId());
 //            statement.setString(2, "getDate()");
-            statement.setInt(2, o.getShipperID());
-            statement.setInt(3, o.getPaymentID());
+//            statement.setInt(2, o.getShipperID());
+            statement.setInt(2, o.getPaymentID());
+            statement.setInt(3, o.getStatus());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CartDAO.class.getName()).log(Level.SEVERE, null, ex);

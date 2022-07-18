@@ -21,6 +21,7 @@ public class Order {
     private int numberOfProducts;
     private int cost;
     private int status;
+    private Date ordersDate;
 
     public Order() {
     }
@@ -30,6 +31,14 @@ public class Order {
         this.userId = userId;
         this.shipperID = shipperID;
         this.paymentID = paymentID;
+    }
+
+    public Order(int orderId, int userId, int shipperID, int paymentID, int status) {
+        this.orderId = orderId;
+        this.userId = userId;
+        this.shipperID = shipperID;
+        this.paymentID = paymentID;
+        this.status = status;
     }
 
     public Order(int userId, int shipperID, int paymentID) {
@@ -53,8 +62,13 @@ public class Order {
         this.status = status;
     }
 
-    
-    
+    public Date getOrdersDate() {
+        return ordersDate;
+    }
+
+    public void setOrdersDate(Date ordersDate) {
+        this.ordersDate = ordersDate;
+    }
 
     public int getCost() {
         return cost;
@@ -132,13 +146,5 @@ public class Order {
     public String toString() {
         return "Order{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + '}';
     }
-
-    
-
-    
-
-   
-
-    
 
 }

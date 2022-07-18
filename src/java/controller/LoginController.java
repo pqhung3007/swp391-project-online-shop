@@ -1,4 +1,4 @@
-    /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
@@ -52,28 +52,28 @@ public class LoginController extends HttpServlet {
         Account account = db.getAccount(user);
         // check password
         if (account != null) {
-            boolean valuate = BCrypt.checkpw(pass, account.getPassWord());
-            if (valuate) {
-                request.getSession().setAttribute("account", account);
-                if (account.isStatus()) {
-                    switch (account.getRoleId()) {
-                        case 1:
-                            response.sendRedirect("manage");
-                            break;
-                        case 2:
-                            response.sendRedirect("home");
-                            break;
-                        case 3:
-                            response.sendRedirect("seller-dashboard");
-                            break;
-                        default:
-                            response.sendRedirect("shipper-dashboard");
-                            break;
-                    }
-                } else {
-                    request.setAttribute("loginFailed", "User is inactive");
-                    request.getRequestDispatcher("login.jsp").forward(request, response);
+//            boolean valuate = BCrypt.checkpw(pass, account.getPassWord());
+//            if (valuate) {
+            request.getSession().setAttribute("account", account);
+            if (account.isStatus()) {
+                switch (account.getRoleId()) {
+                    case 1:
+                        response.sendRedirect("manage");
+                        break;
+                    case 2:
+                        response.sendRedirect("home");
+                        break;
+                    case 3:
+                        response.sendRedirect("seller-dashboard");
+                        break;
+                    default:
+                        response.sendRedirect("shipper-dashboard");
+                        break;
                 }
+//                } else {
+//                    request.setAttribute("loginFailed", "User is inactive");
+//                    request.getRequestDispatcher("login.jsp").forward(request, response);
+//                }
             } else {
                 request.getSession().setAttribute("account", null);
                 request.setAttribute("loginFailedMessage", "Login failed!");

@@ -55,11 +55,11 @@ public class MyOrders extends HttpServlet {
 
         //calculate total cost for each order
         for (int i = 0; i < orders.size(); i++) {
-                ArrayList<OrderDetail> od = db.getOrderDetailsByOrderId(orders.get(i).getOrderId());
+            ArrayList<OrderDetail> od = db.getOrderDetailsByOrderId(orders.get(i).getOrderId());
             int cost = 0;
             for (int j = 0; j < od.size(); j++) {
-//                cost += od.get(j).getUnitPrice() * od.get(j).getQuantity();
-                   cost += od.get(j).getQuantity();
+                cost += od.get(j).getPrice() * od.get(j).getQuantity();
+//                cost += od.get(j).getQuantity();
             }
             orders.get(i).setCost(cost);
         }
@@ -89,21 +89,21 @@ public class MyOrders extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int orderID=Integer.parseInt(request.getParameter("id"));
+        int orderID = Integer.parseInt(request.getParameter("id"));
         PrintWriter out = response.getWriter();
         ArrayList<OrderDetail> o = new OrderDAO().getOrderDetailsByOrderId(orderID);
         out.println("<div class=\"card-heading\">\n"
                 + "                                        <h4 class=\"card-title\">Order #" + orderID + "</h4>\n"
                 + "                                    </div>");
         for (OrderDetail orderDetail : o) {
-            int total = orderDetail.getQuantity();
+            int total = orderDetail.getQuantity() * orderDetail.getPrice();
             out.println("<div class=\"order-info\">\n"
                     + "                                            <div class=\"order-item\">\n"
                     + "                                                <img class=\"item-img\" src=\"" + orderDetail.getProductImage() + "\" alt=\"\">\n"
                     + "                                                <div class=\"item-info\">\n"
                     + "                                                    <div class=\"item-title\">\n"
                     + "                                                        <p class=\"m-0\"><b>" + orderDetail.getName() + "</b></p>\n"
-                    + "                                                        <small>" + orderDetail.getQuantity()+ "</small>\n"
+                    + "                                                        <small>" + orderDetail.getPrice()+ "</small>\n"
                     + "                                                    </div>\n"
                     + "                                                    <div class=\"item-desc\">\n"
                     + "                                                        <p class=\"m-0\">" + orderDetail.getQuantity() + " cups</p>\n"
