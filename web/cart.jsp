@@ -11,7 +11,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Slot 1</title>
+        <title>Your Cart</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
@@ -19,6 +19,7 @@
         <link href="css/admin.css" rel="stylesheet">
         <link href="css/home.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <link href="img/icons8-cofee-16.png" rel="icon" />
         <!-- Libraries Stylesheet -->
         <link href="js/animate/animate.min.css" rel="stylesheet">
         <link href="js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -39,7 +40,9 @@
                             <div class="p-5">
                                 <div class="d-flex justify-content-between align-items-center mb-5">
                                     <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                                    <h6 class="mb-0 text-muted"> ${sessionScope.carts.size()} items</h6>
+                                    <c:if test="${sessionScope.carts!=null||sessionScope.carts.size()!=0}">
+                                        <h6 class="mb-0 text-muted"> ${sessionScope.carts.size()} items</h6>
+                                    </c:if>
                                 </div>
                                 <c:choose>
                                     <c:when test="${sessionScope.carts==null||sessionScope.carts.size()==0}">
@@ -122,10 +125,7 @@
                                 </div>
                             </c:otherwise>             
                         </c:choose>       
-
-
                     </div>
-
                 </div>
             </div>
         </div>

@@ -62,18 +62,10 @@
                     <div class="container px-4 px-lg-1">
                         <div class="tab-group w-100" role="group"
                              aria-label="Basic checkbox toggle button group">
-                            <a class="tab-item" data-bs-target="#carouselExampleIndicators"
-                               data-bs-slide-to="0" class="active" href="">
+                            <a class="tab-item active" data-bs-target="#carouselExampleIndicators"
+                               data-bs-slide-to="0" href="">
                                 <h4>All Orders</h4>
                             </a>
-                            <!--                                            <a class="tab-item" data-bs-target="#carouselExampleIndicators"
-                                                                            data-bs-slide-to="1" class="active" href="">
-                                                                            <h4>Processing</h4>
-                                                                        </a>
-                                                                        <a class="tab-item" data-bs-target="#carouselExampleIndicators"
-                                                                            data-bs-slide-to="2" class="active" href="">
-                                                                            <h4>History</h4>
-                                                                        </a>-->
                         </div>
 
                         <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-5"
@@ -94,7 +86,7 @@
                                                                     class="card-title card-id">${order.orderId}</span>
                                                             </h4>
                                                             <button class="card-button detail">View
-                                                                detail</button>
+                                                                details</button>
                                                         </div>
                                                         <div class="card-info">
                                                             <p class="card-text m-0">Time ordered
@@ -114,16 +106,16 @@
                                                             <p class="card-text m-0">Status
                                                                 <span class="card-text__detail"><b>
                                                                         <c:if test="${order.status == 1}">
-                                                                            Processing
+                                                                            <span>Processing</span>
                                                                         </c:if>
                                                                         <c:if test="${order.status == 2}">
-                                                                            Denied
+                                                                            <span style="color:#fc515f">Denied</span>
                                                                         </c:if>
                                                                         <c:if test="${order.status == 3}">
-                                                                            Waiting
+                                                                            <span style="color:#f69708">Waiting</span>
                                                                         </c:if>
                                                                         <c:if test="${order.status == 4}">
-                                                                            Completed
+                                                                            <span style="color:#41f1b6">Completed</span>
                                                                         </c:if>
                                                                     </b></span>
                                                             </p>
@@ -136,7 +128,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                    </div <!--Paging-->
+                    </div>
                     <c:choose>
                         <c:when test="${OrderDetails == null || OrderDetails.size() == 0}">
                         </c:when>

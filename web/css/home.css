@@ -95,7 +95,7 @@
 
 .tab-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;

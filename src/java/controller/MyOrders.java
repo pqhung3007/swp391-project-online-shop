@@ -93,28 +93,28 @@ public class MyOrders extends HttpServlet {
         PrintWriter out = response.getWriter();
         ArrayList<OrderDetail> o = new OrderDAO().getOrderDetailsByOrderId(orderID);
         out.println("<div class=\"card-heading\">\n"
-                + "                                        <h4 class=\"card-title\">Order #" + orderID + "</h4>\n"
-                + "                                    </div>");
+                + "<h4 class=\"card-title\">Order #" + orderID + "</h4>\n"
+                + "</div>");
         for (OrderDetail orderDetail : o) {
-            int total = orderDetail.getQuantity() * orderDetail.getPrice();
+            int total = orderDetail.getQuantity() * orderDetail.getProduct().getPrice();
             out.println("<div class=\"order-info\">\n"
-                    + "                                            <div class=\"order-item\">\n"
-                    + "                                                <img class=\"item-img\" src=\"" + orderDetail.getProductImage() + "\" alt=\"\">\n"
-                    + "                                                <div class=\"item-info\">\n"
-                    + "                                                    <div class=\"item-title\">\n"
-                    + "                                                        <p class=\"m-0\"><b>" + orderDetail.getName() + "</b></p>\n"
-                    + "                                                        <small>" + orderDetail.getPrice()+ "</small>\n"
-                    + "                                                    </div>\n"
-                    + "                                                    <div class=\"item-desc\">\n"
-                    + "                                                        <p class=\"m-0\">" + orderDetail.getQuantity() + " cups</p>\n"
-                    + "                                                    </div>\n"
-                    + "                                                    <hr class=\"m-0\">\n"
-                    + "                                                    <div class=\"item-price\">\n"
-                    + "                                                        <p>" + total + "</p>\n"
-                    + "                                                    </div>\n"
-                    + "                                                </div>\n"
-                    + "                                            </div>\n"
-                    + "                                        </div>");
+                    + "<div class=\"order-item\">\n"
+                    + "<img class=\"item-img\" src=\"" + orderDetail.getProductImage() + "\" alt=\"\">\n"
+                    + "<div class=\"item-info\">\n"
+                    + "<div class=\"item-title\">\n"
+                    + "<p class=\"m-0\"><b>" + orderDetail.getName() + "</b></p>\n"
+                    + "<small>" + orderDetail.getProduct().getPrice()+ "</small>\n"
+                    + "</div>\n"
+                    + "<div class=\"item-desc\">\n"
+                    + "<p class=\"m-0\">" + orderDetail.getQuantity() + " cups</p>\n"
+                    + "</div>\n"
+                    + "<hr class=\"m-0\">\n"
+                    + "<div class=\"item-price\">\n"
+                    + "<p>" + total + "</p>\n"
+                    + "</div>\n"
+                    + "</div>\n"
+                    + "</div>\n"
+                    + "</div>");
         }
     }
 

@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Order;
 import model.OrderDetail;
+import model.Product;
 
 /**
  *
@@ -52,12 +53,14 @@ public class OrderDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 OrderDetail o = new OrderDetail();
+                Product p =new Product();
+                p.setPrice(rs.getInt("UnitPrice"));
                 o.setOrderId(rs.getInt("OrderID"));
                 o.setProductId(rs.getInt("ProductID"));
                 o.setQuantity(rs.getInt("Quantity"));
                 o.setName(rs.getString("ProductName"));
                 o.setProductImage(rs.getString("ProductImage"));
-                o.setPrice(rs.getInt("UnitPrice"));
+                o.setProduct(p);
                 orderDetails.add(o);
             }
         } catch (SQLException ex) {
