@@ -24,14 +24,14 @@ public class ShipperDAO extends DBContext {
         List<Seller> shippedOrder = new ArrayList<>();
         try {
             String sql = "SELECT distinct\n"
-                    + "  o.OrderID, u.FullName as CustomerName, u.Phone,u.[Address] \n"
-                    + "     ,CONVERT(date, OrderDate) as [DateOrder]\n"
-                    + "  ,CONVERT(VARCHAR(5),CAST(OrderDate AS TIME), 108) as OrderTime, o.status\n"
-                    + " FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
-                    + "      join Product p on od.ProductID = p.ProductID\n"
-                    + "   join Account a on o.customerID= a.AccountID\n"
-                    + "   join [User] u  on a.AccountID = u.AccountID\n"
-                    + "  where o.status = 3";
+                    + "                    o.OrderID, u.FullName as CustomerName, u.Phone,u.[Address] \n"
+                    + "                   ,CONVERT(date, OrderDate) as [DateOrder]\n"
+                    + "                    ,CONVERT(VARCHAR(5),CAST(OrderDate AS TIME), 108) as OrderTime, o.status\n"
+                    + "                    FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
+                    + "                     join Product p on od.ProductID = p.ProductID\n"
+                    + "                     join Account a on o.customerID= a.AccountID\n"
+                    + "                 join [User] u  on a.AccountID = u.AccountID\n"
+                    + "                  where o.status = 3 or o.status = 4";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
