@@ -93,82 +93,82 @@
             <div class="col-md-6 text-center">
                 <img class="w-75 h-100" src="${productDetail.productImage}" alt="" />
             </div>
-            
+
             <!--Rating Start-->
-        <div class="col-md-3 d-flex flex-column justify-content-start rating">
-            <h3>Number of Ratings: ${reviews}</h3>
-            <div class="skills">
+            <div class="col-md-3 d-flex flex-column justify-content-start rating">
+                <h3>Number of Ratings: ${reviews}</h3>
+                <div class="skills">
 
-                <div class="rate mt-3">
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star " style="font-size: 25px;"></span>
-                    <span class="fa fa-star " style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star " style="font-size: 25px;"></span>
+                        <span class="fa fa-star " style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <c:set var="percentage" value="${reviews1*100/reviews}" />
+                    <h4 class="name">${Math.round(percentage)}%</h4>
+
                 </div>
-                <c:set var="percentage" value="${reviews1*100/reviews}" />
-                <h4 class="name">${Math.round(percentage)}%</h4>
 
-            </div>
+                <div class="skills">
 
-            <div class="skills">
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star " style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <c:set var="percentage" value="${reviews2*100/reviews}" />
+                    <h4 class="name">${Math.round(percentage)}%</h4>
 
-                <div class="rate mt-3">
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star " style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
                 </div>
-                <c:set var="percentage" value="${reviews2*100/reviews}" />
-                <h4 class="name">${Math.round(percentage)}%</h4>
+                <div class="skills">
 
-            </div>
-            <div class="skills">
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <c:set var="percentage" value="${reviews3*100/reviews}" />
+                    <h4 class="name">${Math.round(percentage)}%</h4>
 
-                <div class="rate mt-3">
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
                 </div>
-                <c:set var="percentage" value="${reviews3*100/reviews}" />
-                <h4 class="name">${Math.round(percentage)}%</h4>
+                <div class="skills">
 
-            </div>
-            <div class="skills">
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star" style="font-size: 25px;"></span>
+                    </div>
+                    <c:set var="percentage" value="${reviews4*100/reviews}" />
+                    <h5 class="name">${Math.round(percentage)}%</h5>
 
-                <div class="rate mt-3">
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star" style="font-size: 25px;"></span>
                 </div>
-                <c:set var="percentage" value="${reviews4*100/reviews}" />
-                <h5 class="name">${Math.round(percentage)}%</h5>
+                <div class="skills">
 
-            </div>
-            <div class="skills">
+                    <div class="rate mt-3">
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked " style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                        <span class="fa fa-star checked" style="font-size: 25px;"></span>
+                    </div>
+                    <c:set var="percentage" value="${reviews5*100/reviews}" />
+                    <h4 class="name">${Math.round(percentage)}%</h4>
 
-                <div class="rate mt-3">
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked " style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
-                    <span class="fa fa-star checked" style="font-size: 25px;"></span>
                 </div>
-                <c:set var="percentage" value="${reviews5*100/reviews}" />
-                <h4 class="name">${Math.round(percentage)}%</h4>
-
             </div>
+            <!--Rating End-->
+
         </div>
-        <!--Rating End-->
 
-        </div>
 
-        
     </div>
     <!-- Product End -->
 
@@ -177,19 +177,23 @@
     <!-- Related Product Start -->
     <div class="container">
         <h5>You may also like</h5>
+
         <div class="row mt-3 relateProduct">
             <div class="col-3">
-
-                <div class="product">
-                    <img src="./img/service-1.jpg" alt="" class="productImg" />
-                    <p class="text-truncate">Caramel Macchiato</p>
-                    <p>$7.5</p>
-                    <p class="text-end mb-0"><a href="productDetail?pid="
-                                                class="btn btn-primary rounded-pill">View Product</a></p>
-                </div>
-
+                <c:forEach begin="0" end="3" items="${recommendations}" var="recommendations">
+                    <c:if test="${recommendations.productId != productDetail.productId}">
+                        <div class="product">
+                            <img src="${recommendations.productImage}" alt="" class="productImg" />
+                            <p class="text-truncate">${recommendations.name}</p>
+                            <p>${recommendations.price} VNĐ</p>
+                            <p class="text-end mb-0"><a href="productDetail?pid=${recommendations.productId}"
+                                                        class="btn btn-primary rounded-pill">View Product</a></p>
+                        </div>
+                    </c:if>
+                </c:forEach>
             </div>
-        </div>
+        </div>   
+
     </div>
     <div class="container">
         <div class="row mt-3">

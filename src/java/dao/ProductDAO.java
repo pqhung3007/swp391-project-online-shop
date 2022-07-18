@@ -81,7 +81,7 @@ public class ProductDAO extends DBContext {
             ps.setInt(1, pid);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+                p = new Product(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getInt(6));
             }
         } catch (SQLException ex) {
         }
