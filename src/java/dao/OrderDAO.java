@@ -53,7 +53,7 @@ public class OrderDAO extends DBContext {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 OrderDetail o = new OrderDetail();
-                Product p =new Product();
+                Product p = new Product();
                 p.setPrice(rs.getInt("UnitPrice"));
                 o.setOrderId(rs.getInt("OrderID"));
                 o.setProductId(rs.getInt("ProductID"));
@@ -131,6 +131,33 @@ public class OrderDAO extends DBContext {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+
+    public ArrayList<OrderDetail> getAllOrderDetailsBySellerId(int sellerId) {
+        ArrayList<OrderDetail> orderDetails = new ArrayList<>();
+        try {
+            String sql = "SELECT * "
+                    + "FROM [Order] JOIN [OrderDetail] "
+                    + "ON [Order].OrderID = [OrderDetail].OrderID "
+                    + "JOIN [Product] "
+                    + "ON [Product].ProductID = [OrderDetail].ProductID "
+                    + "WHERE [PRODUCT].sellerID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, sellerId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                OrderDetail o = new OrderDetail();
+                o.setOrderId(rs.getInt("OrderID"));
+                o.setProductId(rs.getInt("ProductID"));
+                o.setQuantity(rs.getInt("Quantity"));
+                o.setName(rs.getString("ProductName"));
+                o.setProductImage(rs.getString("ProductImage"));
+                o.setPrice(rs.getInt("UnitPrice"));
+                orderDetails.add(o);
+            }
+        } catch (SQLException ex) {
+        }
+        return orderDetails;
     }
 
     public static void main(String[] args) {

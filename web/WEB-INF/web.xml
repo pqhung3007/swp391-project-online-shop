@@ -132,6 +132,10 @@
         <servlet-name>UpdateStatusSellerController</servlet-name>
         <servlet-class>controller.UpdateStatusSellerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExportExcelController</servlet-name>
+        <servlet-class>controller.ExportExcelController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -263,6 +267,10 @@
     <servlet-mapping>
         <servlet-name>UpdateStatusSellerController</servlet-name>
         <url-pattern>/status-seller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportExcelController</servlet-name>
+        <url-pattern>/export</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
