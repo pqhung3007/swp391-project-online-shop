@@ -46,7 +46,7 @@ public class SellerDAO extends DBContext {
                     + "	  sum( p.UnitPrice * od.Quantity ) as total\n"
                     + "  FROM [OrderDetail] od join [Order] o on od.OrderID = o.OrderID\n"
                     + "       join Product p on od.ProductID = p.ProductID\n"
-                    + "where p.sellerID = ?";
+                    + "where p.sellerID = ? and o.status=4";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, sellerId);
             ResultSet rs = ps.executeQuery();

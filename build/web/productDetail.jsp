@@ -179,9 +179,9 @@
         <h5>You may also like</h5>
 
         <div class="row mt-3 relateProduct">
-            <div class="col-3">
-                <c:forEach begin="0" end="3" items="${recommendations}" var="recommendations">
-                    <c:if test="${recommendations.productId != productDetail.productId}">
+            <c:forEach begin="0" end="3" items="${recommendations}" var="recommendations">
+                <c:if test="${recommendations.productId != productDetail.productId}">
+                    <div class="col-3">
                         <div class="product">
                             <img src="${recommendations.productImage}" alt="" class="productImg" />
                             <p class="text-truncate">${recommendations.name}</p>
@@ -189,9 +189,9 @@
                             <p class="text-end mb-0"><a href="productDetail?pid=${recommendations.productId}"
                                                         class="btn btn-primary rounded-pill">View Product</a></p>
                         </div>
-                    </c:if>
-                </c:forEach>
-            </div>
+                    </div>
+                </c:if>
+            </c:forEach>
         </div>   
 
     </div>
