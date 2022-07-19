@@ -12,6 +12,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="img/icons8-supplier-16.png" rel="icon" />
         <title>Edit Product</title>
         <link rel="stylesheet" href="css/seller/home.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">

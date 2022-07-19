@@ -61,6 +61,7 @@ public class OrderDAO extends DBContext {
                 o.setName(rs.getString("ProductName"));
                 o.setProductImage(rs.getString("ProductImage"));
                 o.setProduct(p);
+                o.setPrice(rs.getInt("UnitPrice"));
                 orderDetails.add(o);
             }
         } catch (SQLException ex) {
