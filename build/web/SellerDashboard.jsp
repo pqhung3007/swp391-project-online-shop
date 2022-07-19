@@ -22,8 +22,8 @@
                             <!-- MAIN SECTION -->
                             <main>
                                 <h1>Dashboard</h1>
-                                <div class="date">
-                                    <input type="date" name="" id="">
+                                <div class="export">
+                                    <button>Export Orders</button>
                                 </div>
 
                                 <div class="insights">

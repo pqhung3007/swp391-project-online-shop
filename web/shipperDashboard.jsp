@@ -42,11 +42,11 @@
                                                     <td>
                                                         <fmt:formatDate pattern="dd/MM/yy" value="${l.orderDate}" />
                                                     </td>
-                                                    <td>${l.status == 3 ? "Waiting" : "Completed"}</td>
+                                                    <td class="status">${l.status == 3 ? "Waiting" : "Completed"}</td>
                                                     <td><a href="updateStatusOrder?oid=${l.orderId}&status=4"
                                                             class="success" <c:if
                                                                     test="${l.status == 4}">style="pointer-events:
-                                                                    none; cursor: default;"</c:if>>Ship</a></td>
+                                                                    none; cursor: default; color:rgba(0,0,0,0.5)"</c:if>>Ship</a></td>
                                                     <td><a href="orders?orderId=${l.orderId}" class="success">See
                                                             details</a></td>
                                                 </tr>
@@ -57,5 +57,6 @@
                                 </div>
                             </main>
                     </div>
+                            <script src="js/seller.js"></script>
                 </body>
                 </html>
