@@ -111,7 +111,11 @@
 
                                         <hr class="my-4">
 
-
+                                        <div class="d-flex justify-content-between mb-5">
+                                            <h6>Shipping Fee</h6>
+                                            <h6>15000</h6>
+                                        </div>
+                                        
                                         <div class="d-flex justify-content-between mb-5">
                                             <h5 class="text-uppercase">Total price</h5>
                                             <h5>${sessionScope.totalPrice}</h5>
