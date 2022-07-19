@@ -114,6 +114,35 @@ public class ProductDAO extends DBContext {
         return list;
     }
 
+    public ArrayList<Product> pagingProductByCategory(int categoryId,int page, int pageSize) {
+        ArrayList<Product> list = new ArrayList<>();
+        try {
+            String query = "select * from Product p where CategoryID = ?\n"
+                    + "order by ProductID\n"
+                    + "offset (?-1)*? row fetch next ? rows only";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, categoryId);
+            ps.setInt(2, page);
+            ps.setInt(3, pageSize);
+            ps.setInt(4, pageSize);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Product p = new Product();
+                p.setProductId(rs.getInt("ProductID"));
+                p.setName(rs.getString("ProductName"));
+                p.setProductImage(rs.getString("ProductImage"));
+                p.setPrice(rs.getInt("UnitPrice"));
+                p.setDescription(rs.getString("Description"));
+                p.setCategoryId(rs.getInt("CategoryID"));
+                list.add(p);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     public int getProductQuantity() {
         try {
             String query = "select count(*) from Product";
@@ -129,7 +158,23 @@ public class ProductDAO extends DBContext {
         return 0;
     }
     
-        public int getProductQuantityOfSeller(int sellerID) {
+    public int getProductQuantityByCategory(int categoryID) {
+        try {
+            String query = "select count(*) from Product where CategoryID = ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, categoryID);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    public int getProductQuantityOfSeller(int sellerID) {
         try {
             String query = "select count(*) from Product where sellerID = ?";
             PreparedStatement ps = connection.prepareStatement(query);

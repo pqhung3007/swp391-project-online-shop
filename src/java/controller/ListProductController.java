@@ -25,15 +25,26 @@ public class ListProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        CategoryDAO category = new CategoryDAO();
+            throws ServletException, IOException{
         ProductDAO product = new ProductDAO();
+        int page = 1;
+        int pageSize = 6;
+        String pageStr = request.getParameter("page");
+        if (pageStr != null) {
+            page = Integer.parseInt(pageStr);
+        }
         int cid = Integer.parseInt(request.getParameter("categoryId"));
-        ArrayList<Product> list = product.getProductsByCategory(cid);
-        HttpSession session = request.getSession();
-        session.setAttribute("catID", cid);
+        ArrayList<Product> list = product.pagingProductByCategory(cid,page,pageSize);
+        int totalProducts = product.getProductQuantityByCategory(cid);
+        int totalPages = totalProducts / pageSize;
+        if (totalPages % pageSize != 0) {
+            totalPages += 1;
+        }
+        request.setAttribute("cid", cid);
+        request.setAttribute("page", page);
+        request.setAttribute("totalPages", totalPages);
         request.setAttribute("products", list);
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        request.getRequestDispatcher("pagingProduct.jsp").forward(request, response);
     }
 
     @Override
