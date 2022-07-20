@@ -14,16 +14,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Confirm your Order</title>
+        <title>Confirm Order</title>
         <link href="img/icons8-cofee-16.png" rel="icon" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+            rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+              rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+              rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-              integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/home.css" rel="stylesheet">
+        <link href="css/product.css" rel="stylesheet" />
+        <link href="css/productDetail.css" rel="stylesheet" />
+        <!-- google font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     </head>
 
     <body>
+        <%@include file="components/navbar.jsp" %>
         <!-- Product section-->
         <section class="py-5">
 
@@ -57,16 +83,8 @@
                                     </c:forEach>
                                 </tbody>
                             </table>
-                            <h3>Total Amount: ${total}</h3>
-                            <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                            <div class="mb-4 pb-2">
-                                <select class="select" name="payment" >
-                                    <c:forEach items="${listP}" var="p">
-                                        <option value="${p.id}">${p.paymentMethod}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
+                            <p class="mb-3">Shipping Fee: 15000 VND</p>
+                            <h3>Total Amount: ${total + 15000} VND</h3>
                         </div>
                         
                         <div class="col-md-4 p-5">
@@ -103,13 +121,6 @@
             </div>
         </section>
 
-                        <style>
-                            @media (max-width: 568px) {
-                                .checkout {
-                                    padding-bottom: 1rem !important;
-                                }
-                            }
-                        </style>
         <%@include file="components/footer.jsp" %>
     </body>
     <script>

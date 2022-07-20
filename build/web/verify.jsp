@@ -13,6 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Account Verification</title>
+        <link href="img/icons8-cofee-16.png" rel="icon" />
         <link rel="stylesheet" href="css/sendMail.css">
     </head>
     <body>

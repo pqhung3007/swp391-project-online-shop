@@ -118,7 +118,7 @@
                                         
                                         <div class="d-flex justify-content-between mb-5">
                                             <h5 class="text-uppercase">Total price</h5>
-                                            <h5>${sessionScope.totalPrice}</h5>
+                                            <h5>${sessionScope.totalPrice + 15000}</h5>
                                         </div>
                                         <form action="checkbought" method="get">
                                             <button type="submit" class="btn btn-dark btn-block btn-lg"

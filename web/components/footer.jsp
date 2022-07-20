@@ -13,7 +13,7 @@
                                 University, Hoa Lac, Viet Nam
                             </p>
                             <p class="mb-2">
-                                <i class="fa fa-phone-alt me-3"></i>+012 345 67890
+                                <i class="fa fa-phone-alt me-3"></i>(+84) 86 556 8301
                             </p>
                             <p class="mb-2">
                                 <i class="fa fa-envelope me-3"></i>coffee@maker.com

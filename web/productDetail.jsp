@@ -12,7 +12,7 @@
         <meta content="" name="description">
 
         <!-- Favicon -->
-        <link href="img/icons8-coffee-16.png" rel="icon" />
+        <link href="img/icons8-cofee-16.png" rel="icon" />
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
     <!-- Product Start -->
     <div class="container mb-5" style="margin-top: 9rem; ">
         <div class="row ">
-            <div class="col-md-3 d-flex flex-column justify-content-between">
+            <div class="col-md-3">
                 <h2>${productDetail.name}</h2>
                 <p>
                     ${productDetail.description}
