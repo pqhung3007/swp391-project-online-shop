@@ -78,6 +78,25 @@ public class AccountDAO extends DBContext {
         } catch (Exception e) {
         }
     }
+    
+    public void updateUser2(String fullname, String phone, String address, String email, int AccountID) {
+        try {
+            String sql = "UPDATE [dbo].[User]\n"
+                    + "   SET [FullName] = ?\n"
+                    + "      ,[Phone] = ?\n"
+                    + "      ,[Address] = ?\n"
+                    + "      ,[Email] = ?\n"
+                    + " WHERE AccountID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, fullname);
+            stm.setString(2, phone);
+            stm.setString(3, address);
+            stm.setString(4, email);
+            stm.setInt(5, AccountID);
+            stm.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 
     public void updateProfile(String name, String password, int AccountID) {
         try {

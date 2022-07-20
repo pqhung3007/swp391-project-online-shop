@@ -85,18 +85,18 @@ public class CheckBoughtController extends BaseAuthController {
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
+        String address = request.getParameter("address");
         String note = request.getParameter("note");
-
-        int pay = Integer.parseInt(request.getParameter("payment"));
 
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
 
         CartDAO db = new CartDAO();
+        AccountDAO dao = new AccountDAO();
         //get latest order to get orderID to add new order
         Order latestOrder = db.getLatestOrder();
         //insert order
-        Order o = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 14, pay, 1);
+        Order o = new Order(latestOrder.getOrderId() + 1, account.getAccountId(), 14, 1, 1);
         db.insertOrder(o);
         //inser order details
         Map<Integer, Cart> carts = (Map<Integer, Cart>) session.getAttribute("carts");
@@ -106,6 +106,7 @@ public class CheckBoughtController extends BaseAuthController {
             OrderDetail od = new OrderDetail(o.getOrderId(), cart.getProduct().getProductId(), cart.getQuantity());
             db.insertOrderDetail(od);
         }
+        dao.updateUser2(name, phone, address, email, account.getAccountId());
 
         //remove products from order after insertion
         request.getSession().removeAttribute("carts");
