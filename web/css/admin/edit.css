@@ -231,26 +231,22 @@ main {
 
 .user-image {
   width: 16rem;
-  height: 24rem;
-  margin: 0 0 0 10rem;
+  height: 16rem;
   display: flex;
   align-items: center;
   border: 1px solid;
   position: relative;
   border-radius: 50%;
+  overflow: hidden;
 }
 
 .user-image img {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  height: auto;
 }
 
 .user-badge {
   --height: 42px;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: var(--color-primary);
   height: var(--height);
   line-height: var(--height);

@@ -8,7 +8,8 @@
                 <meta charset="UTF-8" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Admin Management</title>
+                <title>View Account</title>
+                <link href="img/icons8-admin-settings-male-16.png" rel="icon" />
                 <link rel="stylesheet" href="css/admin/edit.css" />
                 <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet" />
             </head>
@@ -28,7 +29,6 @@
                                 <input type="hidden" name="accountID" value="${user.account.accountId}">
                                 <div class="user-image">
                                     <img src="${user.image}" alt="" srcset="">
-                                    <div class="user-badge">${user.roleName}</div>
                                 </div>
                                 <div class="user-info">
                                     <div>
