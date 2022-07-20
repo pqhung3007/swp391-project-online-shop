@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Order;
 import model.Seller;
 import model.ShipperOrder;
@@ -94,7 +96,21 @@ public class ShipperDAO extends DBContext {
         return orderDetail;
     }
 
-    public static void main(String[] args) {
-        new ShipperDAO().updateStatusOrder(1, 1);
+    public int getNumberOfShippedOrder(int shipperId) {
+        try {
+            String query = "select count([OrderID]) as total \n"
+                    + "from Account c join [Order] o on c.AccountID = o.ShipperID\n"
+                    + "where ShipperID = ? and o.[status] = 4";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, shipperId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                return rs.getInt("total");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(SellerDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 }

@@ -190,6 +190,47 @@ button:hover {
 }
 
 /* ORDER TABLE */
+.insights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+.insight {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  transition: 0.3s ease;
+}
+
+.insight-figure img {
+  border-radius: var(--bdrd-2);
+}
+.insight:hover {
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.insight span {
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+  margin-right: 1rem;
+}
+
+.insight.sales span {
+  background-color: var(--color-primary);
+}
+
+.insight.products span {
+  background-color: var(--color-danger);
+}
+
 .recent-orders {
   margin-top: 2rem;
 }

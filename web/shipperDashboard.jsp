@@ -16,10 +16,39 @@
                     <div class="container">
                         <%@include file="components/sidebarShipper.jsp" %>
                             <main>
-                                <h1>Manage Waiting Orders</h1>
+                                <h1 style="margin-bottom: 2rem">Shipper Dashboard</h1>
+
+                                <h2>General Information</h2>
+                                <div class="insights">
+                                    <div class="insight sales">
+                                        <span class="material-symbols-outlined">
+                                            analytics
+                                        </span>
+                                        <div class="insight-content">
+                                            <div class="insight-figure">
+                                                <h3>Total Money Gained</h3>
+                                                <p>${15000 * total} VND</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="insight products">
+                                        <span class="material-symbols-outlined">
+                                            inventory
+                                        </span>
+                                        <div class="insight-content">
+                                            <div class="insight-figure">
+                                                <h3>Total Shipped Orders</h3>
+                                                <p>${total}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
 
                                 <!-- USER TABLE -->
                                 <div class="recent-orders">
+                                <h2>Manage Orders</h2>
                                     <table>
                                         <thead>
                                             <tr>
@@ -45,8 +74,9 @@
                                                     <td class="status">${l.status == 3 ? "Waiting" : "Completed"}</td>
                                                     <td><a href="updateStatusOrder?oid=${l.orderId}&status=4"
                                                             class="success" <c:if
-                                                                    test="${l.status == 4}">style="pointer-events:
-                                                                    none; cursor: default; color:rgba(0,0,0,0.5)"</c:if>>Ship</a></td>
+                                                            test="${l.status == 4}">style="pointer-events:
+                                                            none; cursor: default; color:rgba(0,0,0,0.5)"</c:if>
+                                                            >Ship</a></td>
                                                     <td><a href="orders?orderId=${l.orderId}" class="success">See
                                                             details</a></td>
                                                 </tr>
@@ -57,6 +87,6 @@
                                 </div>
                             </main>
                     </div>
-                            <script src="js/seller.js"></script>
+                    <script src="js/seller.js"></script>
                 </body>
                 </html>
